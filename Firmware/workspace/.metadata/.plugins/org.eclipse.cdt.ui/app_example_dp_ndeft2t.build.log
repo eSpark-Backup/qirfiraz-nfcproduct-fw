@@ -1,0 +1,18 @@
+13:41:41 **** Incremental Build of configuration Debug for project app_example_dp_ndeft2t ****
+make -r -j4 all 
+Building target: app_example_dp_ndeft2t.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="app_example_dp_ndeft2t.map" -Xlinker --gc-sections -mcpu=cortex-m0plus -mthumb -T app_example_dp_ndeft2t_Debug.ld -o "app_example_dp_ndeft2t.axf"  ./src/crp.o ./src/mainndeft2t.o  ./mods/ndeft2t/ndeft2t.o   -llib_board_dp -llib_chip_nss
+Finished building target: app_example_dp_ndeft2t.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "app_example_dp_ndeft2t.axf" ; arm-none-eabi-objcopy -v -O binary "app_example_dp_ndeft2t.axf" "app_example_dp_ndeft2t.bin" ; arm-none-eabi-objcopy -v -O ihex "app_example_dp_ndeft2t.axf" "app_example_dp_ndeft2t.hex" ; # checksum -p Generic_M0plus -d "app_example_dp_ndeft2t.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6436	    472	    568	   7476	   1d34	app_example_dp_ndeft2t.axf
+copy from `app_example_dp_ndeft2t.axf' [elf32-littlearm] to `app_example_dp_ndeft2t.bin' [binary]
+copy from `app_example_dp_ndeft2t.axf' [elf32-littlearm] to `app_example_dp_ndeft2t.hex' [ihex]
+ 
+
+13:41:42 Build Finished (took 422ms)
+

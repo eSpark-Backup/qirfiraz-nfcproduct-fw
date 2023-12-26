@@ -1,0 +1,69 @@
+13:41:13 **** Build of configuration Debug for project app_demo_dp_tlogger ****
+make -r -j4 all 
+make: busybox: Command not found
+make: busybox: Command not found
+make: busybox: Command not found
+Building file: ../src/crp.c
+make: busybox: Command not found
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -D"SW_MAJOR_VERSION=" -DSW_MINOR_VERSION=19 -D"APP_BUILD_TIMESTAMP=" -DMIME=\"t/demo.nhs.nxp\" -DAPP_NO_MEASUREMENT_IN_NFC_FIELD -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -fno-common -g3 -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+make: busybox: Command not found
+Building file: ../src/maintlogger.c
+make: busybox: Command not found
+make: busybox: Command not found
+Invoking: MCU C Compiler
+Building file: ../src/memory.c
+arm-none-eabi-gcc -std=c99 -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -D"SW_MAJOR_VERSION=" -DSW_MINOR_VERSION=19 -D"APP_BUILD_TIMESTAMP=" -DMIME=\"t/demo.nhs.nxp\" -DAPP_NO_MEASUREMENT_IN_NFC_FIELD -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -fno-common -g3 -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/maintlogger.d" -MT"src/maintlogger.o" -MT"src/maintlogger.d" -o "src/maintlogger.o" "../src/maintlogger.c"
+make: busybox: Command not found
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -D"SW_MAJOR_VERSION=" -DSW_MINOR_VERSION=19 -D"APP_BUILD_TIMESTAMP=" -DMIME=\"t/demo.nhs.nxp\" -DAPP_NO_MEASUREMENT_IN_NFC_FIELD -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -fno-common -g3 -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/memory.d" -MT"src/memory.o" -MT"src/memory.d" -o "src/memory.o" "../src/memory.c"
+make: busybox: Command not found
+Building file: ../src/msghandler.c
+make: busybox: Command not found
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -D"SW_MAJOR_VERSION=" -DSW_MINOR_VERSION=19 -D"APP_BUILD_TIMESTAMP=" -DMIME=\"t/demo.nhs.nxp\" -DAPP_NO_MEASUREMENT_IN_NFC_FIELD -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -fno-common -g3 -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/msghandler.d" -MT"src/msghandler.o" -MT"src/msghandler.d" -o "src/msghandler.o" "../src/msghandler.c"
+In file included from C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods/msg/msg.h:18:0,
+                 from C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\inc/msghandler_protocol.h:23,
+                 from ../src/maintlogger.c:22:
+C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods/msg/msg_dft.h:113:22: error: operator '!' has no right operand
+ #if !SW_MAJOR_VERSION
+                      ^
+make: *** [src/maintlogger.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods/msg/msg.h:18:0,
+                 from C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\app_demo_dp_tlogger\inc/msghandler_protocol.h:23,
+                 from ../src/memory.c:18:
+C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods/msg/msg_dft.h:113:22: error: operator '!' has no right operand
+ #if !SW_MAJOR_VERSION
+                      ^
+../src/memory.c:65:57: error: expected expression before ';' token
+ static uint32_t sArmBuildTimestamp = APP_BUILD_TIMESTAMP;
+                                                         ^
+../src/memory.c: In function 'Memory_Init':
+../src/memory.c:159:9: error: 'sAlon' undeclared (first use in this function); did you mean 'strlen'?
+         sAlon.uninterrupted = false;
+         ^~~~~
+         strlen
+../src/memory.c:159:9: note: each undeclared identifier is reported only once for each function it appears in
+../src/memory.c: In function 'Memory_DeInit':
+../src/memory.c:189:43: error: 'sAlon' undeclared (first use in this function); did you mean 'strlen'?
+     Chip_PMU_SetRetainedData((uint32_t *)&sAlon, 0, ALON_WORD_SIZE);
+                                           ^~~~~
+                                           strlen
+../src/memory.c: In function 'Memory_AddToState':
+../src/memory.c:258:9: error: 'sAlon' undeclared (first use in this function); did you mean 'strlen'?
+         sAlon.uninterrupted = true;
+         ^~~~~
+         strlen
+make: *** [src/memory.o] Error 1
+In file included from C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods/msg/msg.h:18:0,
+                 from ../src/msghandler.c:13:
+C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods/msg/msg_dft.h:113:22: error: operator '!' has no right operand
+ #if !SW_MAJOR_VERSION
+                      ^
+Finished building: ../src/crp.c
+make: *** [src/msghandler.o] Error 1
+ 
+
+13:41:13 Build Finished (took 436ms)
+

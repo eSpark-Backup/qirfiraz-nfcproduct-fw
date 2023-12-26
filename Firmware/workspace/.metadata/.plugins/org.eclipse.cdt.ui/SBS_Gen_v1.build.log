@@ -1,0 +1,30 @@
+22:06:37 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:46:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25968 B        32 KB     79.25%
+         RamLoc8:        2736 B         8 KB     33.40%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25596	    372	   2364	  28332	   6eac	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+
+22:06:37 Build Finished (took 677ms)
+

@@ -1,0 +1,950 @@
+14:52:52 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+14:52:52 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+14:52:53 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+17:16:42 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+17:16:43 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+17:16:44 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Building file: ../src/lsl_mems.c
+Building file: ../src/lsl_nfc.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_nfc.d" -MT"src/lsl_nfc.o" -MT"src/lsl_nfc.d" -o "src/lsl_nfc.o" "../src/lsl_nfc.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_mems.d" -MT"src/lsl_mems.o" -MT"src/lsl_mems.d" -o "src/lsl_mems.o" "../src/lsl_mems.c"
+../src/lsl_main.c:2:10: fatal error: fsl_debug_console.h: No such file or directory
+ #include "fsl_debug_console.h"
+          ^~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+../src/lsl_mems.c: In function 'MEMS_AddLog':
+../src/lsl_mems.c:304:2: warning: implicit declaration of function 'Storage_Write' [-Wimplicit-function-declaration]
+  Storage_Write(&logPacked, 1);
+  ^~~~~~~~~~~~~
+make: *** [src/lsl_main.o] Error 1
+make: *** Waiting for unfinished jobs....
+Finished building: ../src/lsl_mems.c
+Finished building: ../src/lsl_nfc.c
+ 
+ 
+18:05:12 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+18:05:13 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+18:05:13 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:42:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25912 B        32 KB     79.08%
+         RamLoc8:        2728 B         8 KB     33.30%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25544	    368	   2360	  28272	   6e70	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+18:30:28 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+18:30:29 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+18:30:30 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:02:30 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+Building file: ../src/bussync_nss.c
+Building file: ../src/clock_nss.c
+Building file: ../src/adcdac_nss.c
+Building file: ../src/eeprom_nss.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/adcdac_nss.d" -MT"src/adcdac_nss.o" -MT"src/adcdac_nss.d" -o "src/adcdac_nss.o" "../src/adcdac_nss.c"
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/bussync_nss.d" -MT"src/bussync_nss.o" -MT"src/bussync_nss.d" -o "src/bussync_nss.o" "../src/bussync_nss.c"
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/eeprom_nss.d" -MT"src/eeprom_nss.o" -MT"src/eeprom_nss.d" -o "src/eeprom_nss.o" "../src/eeprom_nss.c"
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/clock_nss.d" -MT"src/clock_nss.o" -MT"src/clock_nss.d" -o "src/clock_nss.o" "../src/clock_nss.c"
+Finished building: ../src/bussync_nss.c
+Finished building: ../src/eeprom_nss.c
+Finished building: ../src/adcdac_nss.c
+Finished building: ../src/clock_nss.c
+ 
+ 
+ 
+ 
+Building file: ../src/flash_nss.c
+Building file: ../src/gpio_nss.c
+Building file: ../src/i2c_nss.c
+Building file: ../src/i2d_nss.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/flash_nss.d" -MT"src/flash_nss.o" -MT"src/flash_nss.d" -o "src/flash_nss.o" "../src/flash_nss.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/gpio_nss.d" -MT"src/gpio_nss.o" -MT"src/gpio_nss.d" -o "src/gpio_nss.o" "../src/gpio_nss.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/i2c_nss.d" -MT"src/i2c_nss.o" -MT"src/i2c_nss.d" -o "src/i2c_nss.o" "../src/i2c_nss.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/i2d_nss.d" -MT"src/i2d_nss.o" -MT"src/i2d_nss.d" -o "src/i2d_nss.o" "../src/i2d_nss.c"
+Finished building: ../src/flash_nss.c
+Finished building: ../src/gpio_nss.c
+Finished building: ../src/i2d_nss.c
+ 
+ 
+ 
+Building file: ../src/iap_nss.c
+Finished building: ../src/i2c_nss.c
+Building file: ../src/iocon_nss.c
+Building file: ../src/nfc_nss.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/iap_nss.d" -MT"src/iap_nss.o" -MT"src/iap_nss.d" -o "src/iap_nss.o" "../src/iap_nss.c"
+ 
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/nfc_nss.d" -MT"src/nfc_nss.o" -MT"src/nfc_nss.d" -o "src/nfc_nss.o" "../src/nfc_nss.c"
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/iocon_nss.d" -MT"src/iocon_nss.o" -MT"src/iocon_nss.d" -o "src/iocon_nss.o" "../src/iocon_nss.c"
+Building file: ../src/pmu_nss.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/pmu_nss.d" -MT"src/pmu_nss.o" -MT"src/pmu_nss.d" -o "src/pmu_nss.o" "../src/pmu_nss.c"
+Finished building: ../src/iocon_nss.c
+Finished building: ../src/nfc_nss.c
+Finished building: ../src/iap_nss.c
+ 
+ 
+ 
+Building file: ../src/rtc_nss.c
+Building file: ../src/ssp_nss.c
+Building file: ../src/syscon_nss.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/rtc_nss.d" -MT"src/rtc_nss.o" -MT"src/rtc_nss.d" -o "src/rtc_nss.o" "../src/rtc_nss.c"
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/ssp_nss.d" -MT"src/ssp_nss.o" -MT"src/ssp_nss.d" -o "src/ssp_nss.o" "../src/ssp_nss.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/syscon_nss.d" -MT"src/syscon_nss.o" -MT"src/syscon_nss.d" -o "src/syscon_nss.o" "../src/syscon_nss.c"
+Finished building: ../src/pmu_nss.c
+ 
+Building file: ../src/timer_nss.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/timer_nss.d" -MT"src/timer_nss.o" -MT"src/timer_nss.d" -o "src/timer_nss.o" "../src/timer_nss.c"
+Finished building: ../src/rtc_nss.c
+Finished building: ../src/syscon_nss.c
+ 
+ 
+Building file: ../src/tsen_nss.c
+Building file: ../src/wwdt_nss.c
+Invoking: MCU C Compiler
+Finished building: ../src/ssp_nss.c
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/tsen_nss.d" -MT"src/tsen_nss.o" -MT"src/tsen_nss.d" -o "src/tsen_nss.o" "../src/tsen_nss.c"
+Invoking: MCU C Compiler
+Finished building: ../src/timer_nss.c
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/wwdt_nss.d" -MT"src/wwdt_nss.o" -MT"src/wwdt_nss.d" -o "src/wwdt_nss.o" "../src/wwdt_nss.c"
+ 
+ 
+Finished building: ../src/tsen_nss.c
+Finished building: ../src/wwdt_nss.c
+ 
+ 
+Building target: liblib_chip_nss.a
+Invoking: MCU Archiver
+arm-none-eabi-ar -r  "liblib_chip_nss.a"  ./src/adcdac_nss.o ./src/bussync_nss.o ./src/clock_nss.o ./src/eeprom_nss.o ./src/flash_nss.o ./src/gpio_nss.o ./src/i2c_nss.o ./src/i2d_nss.o ./src/iap_nss.o ./src/iocon_nss.o ./src/nfc_nss.o ./src/pmu_nss.o ./src/rtc_nss.o ./src/ssp_nss.o ./src/syscon_nss.o ./src/timer_nss.o ./src/tsen_nss.o ./src/wwdt_nss.o  ./mods/startup/startup.o   
+c:\nxp\MCUXpressoIDE_10.2.1_795\ide\tools\bin\arm-none-eabi-ar.exe: creating liblib_chip_nss.a
+Finished building target: liblib_chip_nss.a
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "liblib_chip_nss.a" ; # arm-none-eabi-objdump -h -S "liblib_chip_nss.a" >"liblib_chip_nss.lss"
+   text	   data	    bss	    dec	    hex	filename
+    510	      0	      0	    510	    1fe	adcdac_nss.o (ex liblib_chip_nss.a)
+    102	      0	      0	    102	     66	bussync_nss.o (ex liblib_chip_nss.a)
+    708	      0	      0	    708	    2c4	clock_nss.o (ex liblib_chip_nss.a)
+    546	     68	      0	    614	    266	eeprom_nss.o (ex liblib_chip_nss.a)
+    160	      0	      0	    160	     a0	flash_nss.o (ex liblib_chip_nss.a)
+    206	      0	      0	    206	     ce	gpio_nss.o (ex liblib_chip_nss.a)
+   2462	     28	     40	   2530	    9e2	i2c_nss.o (ex liblib_chip_nss.a)
+    764	      0	      0	    764	    2fc	i2d_nss.o (ex liblib_chip_nss.a)
+    620	      0	      0	    620	    26c	iap_nss.o (ex liblib_chip_nss.a)
+    122	      0	      0	    122	     7a	iocon_nss.o (ex liblib_chip_nss.a)
+    308	      0	      4	    312	    138	nfc_nss.o (ex liblib_chip_nss.a)
+    936	      0	      4	    940	    3ac	pmu_nss.o (ex liblib_chip_nss.a)
+    476	      0	      4	    480	    1e0	rtc_nss.o (ex liblib_chip_nss.a)
+   1098	      0	      0	   1098	    44a	ssp_nss.o (ex liblib_chip_nss.a)
+    392	      0	      0	    392	    188	syscon_nss.o (ex liblib_chip_nss.a)
+    122	      0	      0	    122	     7a	timer_nss.o (ex liblib_chip_nss.a)
+    656	      0	      0	    656	    290	tsen_nss.o (ex liblib_chip_nss.a)
+     76	      0	      0	     76	     4c	wwdt_nss.o (ex liblib_chip_nss.a)
+    360	      0	      0	    360	    168	startup.o (ex liblib_chip_nss.a)
+ 
+19:02:33 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+Building file: ../src/board.c
+Building file: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/led/led.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/board.d" -MT"src/board.o" -MT"src/board.d" -o "src/board.o" "../src/board.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -std=c99 -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0PLUS -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods\chip_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -Og -g3 -pedantic -Wall -Wextra -Wconversion -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"mods/led/led.d" -MT"mods/led/led.o" -MT"mods/led/led.d" -o "mods/led/led.o" "C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/led/led.c"
+Finished building: ../src/board.c
+Finished building: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/led/led.c
+ 
+ 
+Building target: liblib_board_dp.a
+Invoking: MCU Archiver
+arm-none-eabi-ar -r  "liblib_board_dp.a"  ./src/board.o  ./mods/led/led.o   
+Finished building target: liblib_board_dp.a
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "liblib_board_dp.a" ; # arm-none-eabi-objdump -h -S "liblib_board_dp.a" >"liblib_board_dp.lss"
+   text	   data	    bss	    dec	    hex	filename
+    232	      0	      0	    232	     e8	board.o (ex liblib_board_dp.a)
+    262	      0	      0	    262	    106	led.o (ex liblib_board_dp.a)
+ 
+19:02:34 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/crp.c
+Building file: ../src/lsl_logs.c
+Building file: ../src/lsl_main.c
+Building file: ../src/lsl_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mInvoking: MCU C Compiler
+Invoking: MCU C Compiler
+cpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_logs.d" -MT"src/lsl_logs.o" -MT"src/lsl_logs.d" -o "src/lsl_logs.o" "../src/lsl_logs.c"
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_memory.d" -MT"src/lsl_memory.o" -MT"src/lsl_memory.d" -o "src/lsl_memory.o" "../src/lsl_memory.c"
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_memory.c
+Finished building: ../src/lsl_logs.c
+Finished building: ../src/lsl_main.c
+ 
+ 
+ 
+Building file: ../src/lsl_mems.c
+Building file: ../src/lsl_nfc.c
+Building file: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/tmeas/tmeas.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_mems.d" -MT"src/lsl_mems.o" -MT"src/lsl_mems.d" -o "src/lsl_mems.o" "../src/lsl_mems.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_nfc.d" -MT"src/lsl_nfc.o" -MT"src/lsl_nfc.d" -o "src/lsl_nfc.o" "../src/lsl_nfc.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"mods/tmeas/tmeas.d" -MT"mods/tmeas/tmeas.o" -MT"mods/tmeas/tmeas.d" -o "mods/tmeas/tmeas.o" "C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/tmeas/tmeas.c"
+../src/lsl_mems.c: In function 'MEMS_AddLog':
+../src/lsl_mems.c:304:2: warning: implicit declaration of function 'Storage_Write' [-Wimplicit-function-declaration]
+  Storage_Write(&logPacked, 1);
+  ^~~~~~~~~~~~~
+Finished building: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/tmeas/tmeas.c
+ 
+Finished building: ../src/lsl_mems.c
+Building file: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/storage/storage.c
+ 
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"mods/storage/storage.d" -MT"mods/storage/storage.o" -MT"mods/storage/storage.d" -o "mods/storage/storage.o" "C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/storage/storage.c"
+Building file: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/ndeft2t/ndeft2t.c
+Finished building: ../src/lsl_nfc.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"mods/ndeft2t/ndeft2t.d" -MT"mods/ndeft2t/ndeft2t.o" -MT"mods/ndeft2t/ndeft2t.d" -o "mods/ndeft2t/ndeft2t.o" "C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/ndeft2t/ndeft2t.c"
+ 
+Building file: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/msg/msg.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"mods/msg/msg.d" -MT"mods/msg/msg.o" -MT"mods/msg/msg.d" -o "mods/msg/msg.o" "C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/msg/msg.c"
+Finished building: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/ndeft2t/ndeft2t.c
+Finished building: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/storage/storage.c
+ 
+ 
+Building file: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/event/event.c
+Finished building: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/msg/msg.c
+Building file: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/compress/heatshrink/heatshrink_decoder.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"mods/event/event.d" -MT"mods/event/event.o" -MT"mods/event/event.d" -o "mods/event/event.o" "C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/event/event.c"
+Finished building: ../src/crp.c
+ 
+Invoking: MCU C Compiler
+ 
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"mods/compress/heatshrink/heatshrink_decoder.d" -MT"mods/compress/heatshrink/heatshrink_decoder.o" -MT"mods/compress/heatshrink/heatshrink_decoder.d" -o "mods/compress/heatshrink/heatshrink_decoder.o" "C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/compress/heatshrink/heatshrink_decoder.c"
+Building file: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/compress/heatshrink/heatshrink_encoder.c
+Building file: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/compress/compress.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"mods/compress/heatshrink/heatshrink_encoder.d" -MT"mods/compress/heatshrink/heatshrink_encoder.o" -MT"mods/compress/heatshrink/heatshrink_encoder.d" -o "mods/compress/heatshrink/heatshrink_encoder.o" "C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/compress/heatshrink/heatshrink_encoder.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"mods/compress/compress.d" -MT"mods/compress/compress.o" -MT"mods/compress/compress.d" -o "mods/compress/compress.o" "C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/compress/compress.c"
+C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/compress/heatshrink/heatshrink_decoder.c:61:0: warning: "ASSERT" redefined
+ #define ASSERT(X) /* no-op */
+ 
+In file included from C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc/chip.h:19:0,
+                 from C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc/lsl_logs.h:4,
+                 from C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h:10,
+                 from <command-line>:0:
+C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc/assert.h:28:0: note: this is the location of the previous definition
+     #define ASSERT(expr) do { if (expr) {} else { __asm__("BKPT"); } } while (0)
+ 
+C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/compress/heatshrink/heatshrink_encoder.c:68:0: warning: "ASSERT" redefined
+ #define ASSERT(X) /* no-op */
+ 
+In file included from C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc/chip.h:19:0,
+                 from C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc/lsl_logs.h:4,
+                 from C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h:10,
+                 from <command-line>:0:
+C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc/assert.h:28:0: note: this is the location of the previous definition
+     #define ASSERT(expr) do { if (expr) {} else { __asm__("BKPT"); } } while (0)
+ 
+Finished building: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/event/event.c
+Finished building: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/compress/heatshrink/heatshrink_decoder.c
+ 
+ 
+Finished building: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/compress/compress.c
+Finished building: C:/Users/eSpark/Documents/MCUXpressoIDE_10.2.1_795/workspace/mods/compress/heatshrink/heatshrink_encoder.c
+ 
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25544 B        32 KB     77.95%
+         RamLoc8:        2728 B         8 KB     33.30%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25176	    368	   2360	  27904	   6d00	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+19:09:39 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:09:40 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:09:41 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25556 B        32 KB     77.99%
+         RamLoc8:        2728 B         8 KB     33.30%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25188	    368	   2360	  27916	   6d0c	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+19:13:51 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:13:51 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:13:52 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:34:14: warning: variable 'z' set but not used [-Wunused-but-set-variable]
+  int16_t x,y,z;
+              ^
+../src/lsl_main.c:34:12: warning: variable 'y' set but not used [-Wunused-but-set-variable]
+  int16_t x,y,z;
+            ^
+../src/lsl_main.c:34:10: warning: variable 'x' set but not used [-Wunused-but-set-variable]
+  int16_t x,y,z;
+          ^
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25628 B        32 KB     78.21%
+         RamLoc8:        2728 B         8 KB     33.30%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25260	    368	   2360	  27988	   6d54	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+19:14:30 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:14:31 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:14:31 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:34:14: warning: variable 'z' set but not used [-Wunused-but-set-variable]
+  int16_t x,y,z;
+              ^
+../src/lsl_main.c:34:12: warning: variable 'y' set but not used [-Wunused-but-set-variable]
+  int16_t x,y,z;
+            ^
+../src/lsl_main.c:34:10: warning: variable 'x' set but not used [-Wunused-but-set-variable]
+  int16_t x,y,z;
+          ^
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25628 B        32 KB     78.21%
+         RamLoc8:        2728 B         8 KB     33.30%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25260	    368	   2360	  27988	   6d54	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+19:27:16 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:27:16 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:27:17 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:34:14: warning: variable 'z' set but not used [-Wunused-but-set-variable]
+  int16_t x,y,z;
+              ^
+../src/lsl_main.c:34:12: warning: variable 'y' set but not used [-Wunused-but-set-variable]
+  int16_t x,y,z;
+            ^
+../src/lsl_main.c:34:10: warning: variable 'x' set but not used [-Wunused-but-set-variable]
+  int16_t x,y,z;
+          ^
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25584 B        32 KB     78.08%
+         RamLoc8:        2728 B         8 KB     33.30%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25216	    368	   2360	  27944	   6d28	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+19:33:55 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:33:55 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:33:56 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25584 B        32 KB     78.08%
+         RamLoc8:        2728 B         8 KB     33.30%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25216	    368	   2360	  27944	   6d28	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:16:55 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:16:56 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:16:57 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:45:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25772 B        32 KB     78.65%
+         RamLoc8:        2728 B         8 KB     33.30%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25404	    368	   2360	  28132	   6de4	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+21:42:45 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:42:46 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:42:46 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Building file: ../src/lsl_mems.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_mems.d" -MT"src/lsl_mems.o" -MT"src/lsl_mems.d" -o "src/lsl_mems.o" "../src/lsl_mems.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:37:25: error: 'pRTC' undeclared (first use in this function)
+  Chip_RTC_Time_SetValue(pRTC, newRTCValue);
+                         ^~~~
+../src/lsl_main.c:37:25: note: each undeclared identifier is reported only once for each function it appears in
+../src/lsl_main.c:46:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+../src/lsl_mems.c: In function 'MEMS_AddLog':
+../src/lsl_mems.c:304:2: warning: implicit declaration of function 'Storage_Write' [-Wimplicit-function-declaration]
+  Storage_Write(&logPacked, 1);
+  ^~~~~~~~~~~~~
+make: *** [src/lsl_main.o] Error 1
+make: *** Waiting for unfinished jobs....
+Finished building: ../src/lsl_mems.c
+ 
+21:45:20 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:45:21 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:45:21 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:38:25: error: 'pRTC' undeclared (first use in this function)
+  Chip_RTC_Time_SetValue(pRTC, newRTCValue);
+                         ^~~~
+../src/lsl_main.c:38:25: note: each undeclared identifier is reported only once for each function it appears in
+../src/lsl_main.c:47:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+make: *** [src/lsl_main.o] Error 1
+21:47:58 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:47:58 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:47:59 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:47:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25844 B        32 KB     78.87%
+         RamLoc8:        2732 B         8 KB     33.35%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25476	    368	   2364	  28208	   6e30	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+21:48:12 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:48:12 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:48:13 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:47:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25844 B        32 KB     78.87%
+         RamLoc8:        2732 B         8 KB     33.35%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25476	    368	   2364	  28208	   6e30	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+21:48:26 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:48:26 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:48:27 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:47:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25844 B        32 KB     78.87%
+         RamLoc8:        2732 B         8 KB     33.35%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25476	    368	   2364	  28208	   6e30	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+21:59:47 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:59:47 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:59:48 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:108:5: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+  ~~~^~
+../src/lsl_main.c:108:11: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+        ~~~^~
+../src/lsl_main.c:108:17: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+              ~~~^~
+../src/lsl_main.c:114:3: error: 'log' undeclared (first use in this function)
+   log.accX = (int8_t) (acc.x >> 8);
+   ^~~
+../src/lsl_main.c:114:3: note: each undeclared identifier is reported only once for each function it appears in
+../src/lsl_main.c:47:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+../src/lsl_main.c:36:14: warning: unused variable 'z' [-Wunused-variable]
+  int16_t x,y,z;
+              ^
+../src/lsl_main.c:36:12: warning: unused variable 'y' [-Wunused-variable]
+  int16_t x,y,z;
+            ^
+../src/lsl_main.c:36:10: warning: unused variable 'x' [-Wunused-variable]
+  int16_t x,y,z;
+          ^
+make: *** [src/lsl_main.o] Error 1
+22:00:56 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:00:56 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:00:57 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:107:5: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+  ~~~^~
+../src/lsl_main.c:107:11: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+        ~~~^~
+../src/lsl_main.c:107:17: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+              ~~~^~
+../src/lsl_main.c:113:3: error: 'log' undeclared (first use in this function)
+   log.accX = (int8_t) (acc.x >> 8);
+   ^~~
+../src/lsl_main.c:113:3: note: each undeclared identifier is reported only once for each function it appears in
+../src/lsl_main.c:46:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+make: *** [src/lsl_main.o] Error 1
+22:01:33 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:01:34 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:01:34 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:108:5: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+  ~~~^~
+../src/lsl_main.c:108:11: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+        ~~~^~
+../src/lsl_main.c:108:17: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+              ~~~^~
+../src/lsl_main.c:106:12: warning: variable 'log' set but not used [-Wunused-but-set-variable]
+  NFC_LOG_T log;
+            ^~~
+../src/lsl_main.c:46:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25884 B        32 KB     78.99%
+         RamLoc8:        2736 B         8 KB     33.40%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25512	    372	   2364	  28248	   6e58	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+22:02:31 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:02:32 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:02:33 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:109:5: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+  ~~~^~
+../src/lsl_main.c:109:11: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+        ~~~^~
+../src/lsl_main.c:109:17: warning: statement with no effect [-Wunused-value]
+  acc.x;acc.y;acc.z;
+              ~~~^~
+../src/lsl_main.c:46:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25936 B        32 KB     79.15%
+         RamLoc8:        2736 B         8 KB     33.40%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25564	    372	   2364	  28300	   6e8c	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+22:03:14 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:03:14 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:03:15 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:46:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25936 B        32 KB     79.15%
+         RamLoc8:        2736 B         8 KB     33.40%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25564	    372	   2364	  28300	   6e8c	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+22:03:56 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:03:56 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:03:57 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:46:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25928 B        32 KB     79.13%
+         RamLoc8:        2736 B         8 KB     33.40%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25556	    372	   2364	  28292	   6e84	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+22:06:36 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:06:36 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+22:06:37 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r -j4 all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\mods/chip_sel.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0plus -mthumb -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:46:25: warning: unused variable 'wuReason' [-Wunused-variable]
+  PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+                         ^~~~~~~~
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:       25968 B        32 KB     79.25%
+         RamLoc8:        2736 B         8 KB     33.40%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+copy from `LSL_v1.axf' [elf32-littlearm] to `LSL_v1.hex' [ihex]
+   text	   data	    bss	    dec	    hex	filename
+  25596	    372	   2364	  28332	   6eac	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 

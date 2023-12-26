@@ -1,0 +1,21 @@
+13:41:44 **** Incremental Build of configuration Debug for project app_nfccertification ****
+make -r -j4 all 
+Building target: app_nfccertification.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="app_nfccertification.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T app_nfccertification_Debug.ld -o "app_nfccertification.axf"  ./src/crp.o ./src/mainnfccertification.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:         816 B        32 KB      2.49%
+         RamLoc8:          0 GB         8 KB      0.00%
+Finished building target: app_nfccertification.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "app_nfccertification.axf" ; arm-none-eabi-objcopy -v -O binary "app_nfccertification.axf" "app_nfccertification.bin" ; arm-none-eabi-objcopy -v -O ihex "app_nfccertification.axf" "app_nfccertification.hex" ; # checksum -p LPC1343 -d "app_nfccertification.bin"
+   text	   data	    bss	    dec	    hex	filename
+    816	      0	      0	    816	    330	app_nfccertification.axf
+copy from `app_nfccertification.axf' [elf32-littlearm] to `app_nfccertification.bin' [binary]
+copy from `app_nfccertification.axf' [elf32-littlearm] to `app_nfccertification.hex' [ihex]
+ 
+
+13:41:44 Build Finished (took 420ms)
+
