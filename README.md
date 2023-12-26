@@ -1,0 +1,1 @@
+# qirfiraz-nfcproduct-fw
