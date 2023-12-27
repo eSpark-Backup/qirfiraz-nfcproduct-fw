@@ -33,7 +33,7 @@ void init(void)
 
 int main(void)
 {
-	int newRTCValue = 0; //In seconds
+	int newRTCValue = 1703672520; //Adjust your current time in seconds according to your region (Current time of Slovak Republic)
 	Chip_RTC_Time_SetValue(pRTC, newRTCValue);
 	init();
 
@@ -118,12 +118,12 @@ int main(void)
 			{
 				log.timeStamp[i] = ((uint8_t*) &newRTCValue)[i];
 			}
-			log.accX = (int8_t) (acc.x >> 8);
-			log.accY = (int8_t) (acc.y >> 8);
-			log.accZ = (int8_t) (acc.z >> 8);
+			log.accX = acc.x;
+			log.accY = acc.y;
+			log.accZ = acc.z;
+			logPacked = Logs_PackData(log);
+			Storage_Write(&logPacked, 1);
 		}
-		logPacked = Logs_PackData(log);
-		Storage_Write(&logPacked, 1);
 	}
 
 

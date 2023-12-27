@@ -29,7 +29,8 @@ LOGS_LOG_T Logs_PackData(NFC_LOG_T unpacked){
 	packed.byte_4 = unpacked.timeStamp[0];
 	packed.byte_5 = unpacked.timeStamp[1];
 	packed.byte_6 = unpacked.timeStamp[2];
-	packed.byte_7 = (unpacked.timeStamp[3] << 7) | (unpacked.temp & 0x7f);
+	packed.byte_7 = unpacked.timeStamp[3];
+//	packed.byte_7 = (unpacked.timeStamp[3] << 7) | (unpacked.temp & 0x7f);
 
 	return packed;
 }

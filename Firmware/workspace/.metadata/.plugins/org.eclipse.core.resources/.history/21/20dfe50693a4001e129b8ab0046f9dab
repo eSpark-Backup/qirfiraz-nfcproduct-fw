@@ -1,0 +1,174 @@
+#include "chip.h"
+#include <compress/compress.h>
+#include <storage/storage.h>
+#include <lsl_mems.h>
+#include <lsl_nfc.h>
+#include <lsl_logs.h>
+
+//	dalsi balik pre Kira
+//	- optimalizacia spotreby
+//	- optimalizacia velkosti kodu
+//	- nove commandy
+//	- ladenie a testovanie s appkou
+//	- ladenie parametrov senzora
+int16_t Threshold = 50;
+NSS_RTC_T *pRTC;
+
+void init(void)
+{
+	Chip_Clock_System_SetClockFreq(2000000);
+
+    Chip_IOCON_Init(NSS_IOCON);
+    Chip_RTC_Init(NSS_RTC);
+    Chip_EEPROM_Init(NSS_EEPROM);
+
+    MEMS_Init();	// aj toto by sa malo asi inicializovat az potom co zistime ze nas zobudilo mems - a to bude budit az po tom co sa spusti meranie
+    				// v podstate ked zistim ze nemam NFC ani nemam aktivovane meranie tak po zobudeni sa mozem hned uspat (napr niekto vlozil baterku)
+	NFC_Init();		// toto by sa potom po spravnosti malo inicializovat az potom ked sa zisti ze nas zobudilo NFC
+
+	Logs_Init();
+}
+
+// inicializacia a deinicializacia modulov by sa mala robit na mieru az po tom co sa po wake-up-e zisti co vlastne treba robit - ak sa bude merat a logovat tak init storage a mems atd..
+
+int main(void)
+{
+	int newRTCValue = 0; //In seconds
+	Chip_RTC_Time_SetValue(pRTC, newRTCValue);
+	init();
+
+//	TODO
+//	- po optimalizacii spotreby sa bude pouzivat deep powerd down mode
+//	after optimization of consumption, deep power down mode will be used
+//	|
+//	V
+
+	PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+//
+	Chip_PMU_SetWakeupPinEnabled(true);
+//
+//	// z akceleracie sa bude brat prakticky len horny byte
+//
+//	// amiesto tohoto strukturu logu //
+//	LOGS_LOG_T Logs_PrepareData(int16_t accX, int16_t accY, int16_t accZ, uint8_t temp, uint32_t time);
+//
+//	if(true){
+//		Storage_Reset(false);
+//
+//		LOGS_LOG_T prvy;
+//
+//		prvy.byte_1 = 11;
+//		prvy.byte_2 = 22;
+//		prvy.byte_3 = 33;
+//		prvy.byte_4 = 44;
+//		prvy.byte_5 = 55;
+//		prvy.byte_6 = 66;
+//		prvy.byte_7 = 77;
+//
+//		LOGS_LOG_T druhy;
+//
+//		druhy.byte_1 = 101;
+//		druhy.byte_2 = 102;
+//		druhy.byte_3 = 103;
+//		druhy.byte_4 = 104;
+//		druhy.byte_5 = 105;
+//		druhy.byte_6 = 106;
+//		druhy.byte_7 = 107;
+//
+//		LOGS_LOG_T treti;
+//
+//		treti.byte_1 = 201;
+//		treti.byte_2 = 202;
+//		treti.byte_3 = 203;
+//		treti.byte_4 = 204;
+//		treti.byte_5 = 205;
+//		treti.byte_6 = 206;
+//		treti.byte_7 = 207;
+//
+//		Storage_Write(&prvy, 1);
+//		Storage_Write(&druhy, 1);
+//		Storage_Write(&treti, 1);
+//
+//		Storage_DeInit();
+//
+//	Storage_Seek(0);
+//
+//	LOGS_LOG_T logs[3];
+//
+//	Storage_Read(logs, 3);
+//
+////
+////		 urobit funkcie na naladovanie dat (acc, temp a cas) do premennej typu LOGS_LOG_T a tiez na vydolovanie (posuny, bitove operacie)
+////		 pomocou funkcie Storage_Write() ulozit vzorku dato do storage
+////		 pootm mozem otestovat vycitanie, zistenie poctu a vymazanie
+
+	/*     	Accelaration Values      */
+	while(1)
+	{
+		LOGS_LOG_T logPacked;
+		NFC_LOG_T log;
+		MEMS_ACC_DATA_T acc = MEMS_SingleReadAcceleration();
+
+		if(acc.x > Threshold || acc.y > Threshold || acc.z > Threshold)
+		{
+			//Saving of time occurs
+			newRTCValue=Chip_RTC_Time_GetValue(pRTC);
+//			int time = Chip_RTC_Time_GetValue(NSS_RTC);
+			for(int i = 0; i < 4; i++)
+			{
+				log.timeStamp[i] = ((uint8_t*) &newRTCValue)[i];
+			}
+			log.accX = (int8_t) (acc.x >> 8);
+			log.accY = (int8_t) (acc.y >> 8);
+			log.accZ = (int8_t) (acc.z >> 8);
+			logPacked = Logs_PackData(log);
+			Storage_Write(&logPacked, 1);
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//	}else{
+//	//	if(wuReason == PMU_DPD_WAKEUPREASON_NONE){
+//			 Chip_Clock_System_BusyWait_ms(4000);
+//	//		Chip_PMU_PowerMode_EnterDeepPowerDown(true);
+//	//	}else{
+//			Chip_GPIO_SetPinOutLow(NSS_GPIO, MEMS_SIGNAL_PORT, MEMS_SIGNAL_INT2);
+//			 Chip_Clock_System_BusyWait_ms(5);
+//			Chip_GPIO_SetPinToggle(NSS_GPIO, MEMS_SIGNAL_PORT, MEMS_SIGNAL_INT2);
+//			 Chip_Clock_System_BusyWait_ms(5);
+//			Chip_GPIO_SetPinToggle(NSS_GPIO, MEMS_SIGNAL_PORT, MEMS_SIGNAL_INT2);
+//			 Chip_Clock_System_BusyWait_ms(5);
+//			Chip_GPIO_SetPinToggle(NSS_GPIO, MEMS_SIGNAL_PORT, MEMS_SIGNAL_INT2);
+//			 Chip_Clock_System_BusyWait_ms(5);
+//			Chip_GPIO_SetPinToggle(NSS_GPIO, MEMS_SIGNAL_PORT, MEMS_SIGNAL_INT2);
+//			 Chip_Clock_System_BusyWait_ms(15);
+//			Chip_GPIO_SetPinToggle(NSS_GPIO, MEMS_SIGNAL_PORT, MEMS_SIGNAL_INT2);
+//			 Chip_Clock_System_BusyWait_ms(15);
+//			Chip_GPIO_SetPinToggle(NSS_GPIO, MEMS_SIGNAL_PORT, MEMS_SIGNAL_INT2);
+//	//	}
+//
+//		MEMS_ThresholdSet();
+//
+//	}
+
+
+
+
+//	while(true){}
+
+	return 0;
+}

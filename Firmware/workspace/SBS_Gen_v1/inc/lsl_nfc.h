@@ -79,13 +79,13 @@ typedef struct NFC_REG_LOGGING_STATUS_S {
 #define NFC_REG_LOGGING_STATUS_LENGTH (sizeof(NFC_REG_LOGGING_STATUS_T))
 
 typedef struct NFC_LOG_S {
-	int8_t accX;
-	int8_t accY;
-	int8_t accZ;
+	int16_t accX;
+	int16_t accY;
+	int16_t accZ;
 	uint8_t temp;
 	uint8_t timeStamp[4];
-} NFC_LOG_T;
 
+} NFC_LOG_T;
 typedef struct NFC_CMD_0x76_RES_S {
 	uint8_t success;
 	uint8_t running;

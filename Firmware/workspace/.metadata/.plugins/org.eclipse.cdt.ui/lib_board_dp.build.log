@@ -1,6 +1,6 @@
-22:06:36 **** Incremental Build of configuration Debug for project lib_board_dp ****
+14:32:25 **** Incremental Build of configuration Debug for project lib_board_dp ****
 make -r -j4 all 
 make: Nothing to be done for `all'.
 
-22:06:36 Build Finished (took 116ms)
+14:32:25 Build Finished (took 106ms)
 
