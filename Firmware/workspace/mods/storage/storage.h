@@ -36,6 +36,7 @@
  *  @n After moving data to EEPROM, the general purpose registers are re-used.
  * - only when a sufficient amount of samples are stored in EEPROM, all the data is moved to FLASH.
  *  @n After moving data to FLASH, the EEPROM is re-used.
+ * .
  * Writing samples always means appending them to the already written samples; it is not possible to edit the already
  * written stream of bits.
  * When reading out, the user can control the starting read position using a sequence number. It is automatically
@@ -48,6 +49,7 @@
  *  - recover state from unexpected resets
  *  - recover all or most of the samples in case of data corruption (this may occur when the battery is degraded and
  *      can no longer supply the minimum voltage when the load increases during a write operation in EEPROM or FLASH)
+ *  .
  *  It is not possible to fully recover data under all circumstances. The storage module guarantees that only the last
  *  few samples may get lost. The number is dependent on the number of the reserved general purpose registers and the
  *  size of a sample, both of which (and more) can be tweaked using diversity settings.
@@ -68,6 +70,7 @@
  *      #STORAGE_COMPRESS_CB - is given a pointer inside this SRAM memory. The output is then stored in FLASH.
  *  - When reading samples from FLASH, the assigned decompress callback - see #STORAGE_DECOMPRESS_CB - is called as
  *      little as possible: its output is cached in the work area to speed up subsequent reads.
+ *  .
  *  If two operations in your code require such a big chunk of memory, you can overlap them if they don't have to
  *  operate concurrently. Diversity setting #STORAGE_WORKAREA can be used for this.
  *
@@ -76,6 +79,7 @@
  *  -# Initialize the EEPROM driver and the storage module, in that order.
  *  -# Read and write samples as necessary, in any order or quantity that is required for your use case.
  *  -# De-initialize the storage module and the EEPROM driver, in that order.
+ *  .
  *
  * @par Example
  *  @snippet storage_mod_example_1.c storage_mod_example_1
@@ -160,6 +164,7 @@ typedef int (*pStorage_DecompressCb_t)(const uint8_t * pData, int bitCount, void
  *  This penalty only occurs under these combined conditions:
  *  - the IC went to power-off, losing all information stored in the register #STORAGE_FIRST_ALON_REGISTER and beyond.
  *  - data was added to the storage module after leaving a previous power-off mode
+ *  .
  */
 void Storage_Init(void);
 
@@ -186,6 +191,7 @@ int Storage_GetCount(void);
  *      can possibly take up to 3 erase cycles. Aligning #STORAGE_FLASH_FIRST_PAGE and #STORAGE_FLASH_LAST_PAGE to
  *      sector boundaries can reduce this to the minimum of 1 erase cycle.
  *  - When @c false is given, FLASH memory is not checked and not erased.
+ *  .
  * @note Provide @c true as argument for @c checkFlash when the intention is to store new samples afterwards.
  */
 void Storage_Reset(bool checkFlash);
@@ -200,6 +206,7 @@ void Storage_Reset(bool checkFlash);
  * @note When a value less than @c n is returned, at least one of these errors occurred:
  *  - There is insufficient storage capacity
  *  - Compressing of samples was necessary during the call, but that operation yielded an error.
+ *  .
  * @note A prior call to #Storage_Seek is @b not required, as writing will always @b append the new samples.
  * @post A later call to #Storage_DeInit is necessary to ensure the data can survive Deep power down state.
  * @warning Data is not guaranteed to be stored in EEPROM or FLASH: reset can lose some of the last samples written.

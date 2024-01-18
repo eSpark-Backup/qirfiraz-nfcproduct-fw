@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2021 NXP
+ * Copyright 2014-2020 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -24,6 +24,7 @@
  * The NDEFT2T module provides the following functionalities:
  * - Creation of an NDEF message consisting of one or more supported record types.
  * - Parsing of an NDEF message and extracting the supported record types.
+ * .
  *
  * @par NDEF:
  *  The NFC Data Exchange Format (NDEF) specification defines a message encapsulation format to exchange information,
@@ -56,6 +57,7 @@
  *     fill in the relevant fields of #NDEFT2T_CREATE_RECORD_INFO_T to input the information of the record to
  *     create. Similarly, in the case of parsing, the caller must allocate NDEFT2T_PARSE_RECORD_INFO_T and process
  *     the information received about the record getting parsed.
+ *  .
  *
  * @par Initialization/De-initialization:
  *  The module has to be initialized before a message creation or parsing, at the start of application processing.
@@ -80,8 +82,10 @@
  *      - Copy record payload: Call the function #NDEFT2T_WriteRecordPayload to copy the record payload to the
  *          message buffer.
  *      - Finalize record: Call the function #NDEFT2T_CommitRecord to finalize the record.
+*       .
  *  - Step3: Call function #NDEFT2T_CommitMessage to finalize the NDEF message. The user cannot add any more
  *      records after this. The finalised message is copied to the shared memory at this stage.
+ *  .
  *
  * @par NDEF Message Parsing:
  *  The below steps outline the NDEF message parsing:
@@ -92,6 +96,7 @@
  *      message. The caller can then check the returned record information from the argument pRecordInfo and decide
  *      whether this record type is relevant for the application scenario.
  *  - Step3: Call the function #NDEFT2T_GetRecordPayload to retrieve record payload.
+ *  .
  *  Continue steps 2 and 3 above till all the relevant records have been retrieved or till end of message.
  *
  * @anchor nfcIntHandling_anchor
@@ -109,6 +114,7 @@
  *  - The callback function of type #pNdeft2t_MsgAvailable_Cb_t gets fired once per message, indicating the presence of
  *      a valid NDEF message in the shared memory. This can be used as a trigger for the application to start the
  *      parsing of a new NDEF message.
+ *  .
  *  The application has to implement these callbacks and enable them by using the respective diversity settings
  *  #NDEFT2T_FIELD_STATUS_CB and #NDEFT2T_MSG_AVAILABLE_CB.
  *
@@ -133,6 +139,7 @@
  *  being a short record and the total message payload size being less than 255 bytes:
  *  - overhead = NDEFT2T_MSG_OVERHEAD(true, (NDEFT2T_TEXT_RECORD_OVERHEAD(true, sizeof("en")-1) +
  *                                           NDEFT2T_MIME_RECORD_OVERHEAD(true, sizeof("nhs31xx/demo.nhs.log")-1));
+ *  .
  *
  * @par Diversity
  *  This module supports diversity, like enabling/disabling collision detection and also to specify the number of
@@ -225,6 +232,7 @@ typedef struct {
      *  - For NFC Forum external Type record (Eg. AAR), payload type to be provided here.
      *  - For MIME type record: MIME type string to be provided here.
      *  - Ignored for URI records.
+     *  .
      */
     uint8_t *pString;
 
@@ -245,6 +253,7 @@ typedef struct {
      * - 0x08 - "ftp://ftp."
      * - 0x09 - "ftps://"
      * - 0x0A - "sftp://"
+     * .
      */
     uint32_t uriCode;
 } NDEFT2T_CREATE_RECORD_INFO_T;
@@ -301,7 +310,6 @@ typedef void (*pNdeft2t_MsgRead_Cb_t)(void);
 /**
  * This function initializes the NDEFT2T module.
  * @pre The NFC HW block has been initialized by calling #Chip_NFC_Init
- * @note During initialization, #NDEFT2T_ResetNfcMemory is executed as well.
  */
 void NDEFT2T_Init(void);
 
@@ -314,7 +322,8 @@ void NDEFT2T_DeInit(void);
 /**
  * (Re-)initialize the NFC shared memory. This allows a phone to recognize the IC as an NDEF object, not just as an
  * NdefFormatable, even if contents are not changed afterwards.
- * It also blocks both tag (via #NDEFT2T_GetMessage) and tag reader from reading what data may be present thereafter.
+ * It also blocks both the tag reader from reading what data may be present thereafter. And the ARM also can no longer
+ * access the data when using this module's API (#NDEFT2T_GetMessage).
  */
 void NDEFT2T_ResetNfcMemory(void);
 
@@ -337,6 +346,7 @@ void NDEFT2T_ResetNfcMemory(void);
  *  - when the tag reader writes in the NFC shared memory - generating the #NFC_INT_MEMWRITE interrupt
  *  - when #NDEFT2T_Init is called
  *  - when #NDEFT2T_DisableMessageReadDetection is called
+ *  .
  */
 void NDEFT2T_EnableMessageReadDetection(unsigned int lastPageOfMessage);
 
@@ -362,7 +372,6 @@ void NDEFT2T_DisableMessageReadDetection(void);
  * @param bufLen : Length of the message buffer as explained above.
  * @param shortMessage : Set this to @c true if the length of the message payload is <= 254 bytes or not known,
  *  else set to @c false. See also #NDEFT2T_MESSAGE_HEADER_LENGTH_CORRECTION.
- * @note The NFC shared memory is not changed.
  */
 void NDEFT2T_CreateMessage(void *pInstance, uint8_t *pBuffer, int bufLen, bool shortMessage);
 
@@ -381,8 +390,7 @@ void NDEFT2T_CreateMessage(void *pInstance, uint8_t *pBuffer, int bufLen, bool s
  *         scenarios.
  *          -# Size of the NDEF message being created exceeds the size of message buffer allocated by caller
  *          -# Size of the NDEF message being created exceeds the size of the shared memory
- * @note The NFC shared memory is not changed. Only the internal buffer as given in the call to #NDEFT2T_CreateMessage
- *  is written to.
+ *          .
  */
 bool NDEFT2T_CreateTextRecord(void *pInstance, const NDEFT2T_CREATE_RECORD_INFO_T *pRecordInfo);
 
@@ -401,8 +409,7 @@ bool NDEFT2T_CreateTextRecord(void *pInstance, const NDEFT2T_CREATE_RECORD_INFO_
  *         The function returns false under the below scenarios.
  *          -# Size of the NDEF message being created exceeds the size of message buffer allocated by caller
  *          -# Size of the NDEF message being created exceeds the size of the shared memory
- * @note The NFC shared memory is not changed. Only the internal buffer as given in the call to #NDEFT2T_CreateMessage
- *  is written to.
+ *          .
  */
 bool NDEFT2T_CreateExtRecord(void *pInstance, const NDEFT2T_CREATE_RECORD_INFO_T *pRecordInfo);
 
@@ -421,8 +428,7 @@ bool NDEFT2T_CreateExtRecord(void *pInstance, const NDEFT2T_CREATE_RECORD_INFO_T
  *         The function returns false under the below scenarios.
  *          -# Size of the NDEF message being created exceeds the size of message buffer allocated by caller
  *          -# Size of the NDEF message being created exceeds the size of the shared memory
- * @note The NFC shared memory is not changed. Only the internal buffer as given in the call to #NDEFT2T_CreateMessage
- *  is written to.
+ *          .
  */
 bool NDEFT2T_CreateMimeRecord(void *pInstance, const NDEFT2T_CREATE_RECORD_INFO_T *pRecordInfo);
 
@@ -442,8 +448,7 @@ bool NDEFT2T_CreateMimeRecord(void *pInstance, const NDEFT2T_CREATE_RECORD_INFO_
  *          -# Size of the NDEF message being created exceeds the size of message buffer allocated by caller
  *          -# Size of the NDEF message being created exceeds the size of the shared memory
  *          -# The NDEFT2T_CREATE_RECORD_INFO_T data structure field uriCode is not valid
- * @note The NFC shared memory is not changed. Only the internal buffer as given in the call to #NDEFT2T_CreateMessage
- *  is written to.
+ *          .
  */
 bool NDEFT2T_CreateUriRecord(void *pInstance, const NDEFT2T_CREATE_RECORD_INFO_T *pRecordInfo);
 
@@ -461,8 +466,7 @@ bool NDEFT2T_CreateUriRecord(void *pInstance, const NDEFT2T_CREATE_RECORD_INFO_T
  *          -# Size of the NDEF message being created exceeds the size of the shared memory
  *          -# The NDEFT2T_CREATE_RECORD_INFO_T data structure field shortRecord is set and payload data size exceeds
  *             255 bytes.
- * @note The NFC shared memory is not changed. Only the internal buffer as given in the call to #NDEFT2T_CreateMessage
- *  is written to.
+ *          .
  * @note When #NDEFT2T_EEPROM_COPY_SUPPPORT is set to '1', pData can be located in EEPROM read/write region. In that
  *  case, @b address must be given, @b not the offset. For example, provide #EEPROM_START to copy the data from the
  *  start of the EEPROM memory. The function will then internally take care of the copying from EEPROM to the message
@@ -474,8 +478,6 @@ bool NDEFT2T_WriteRecordPayload(void *pInstance, const void * pData, int size);
 /**
  * This function finalizes the record header and has to be called after the caller has copied the payload.
  * @param pInstance : Base address of instance Buffer
- * @note The NFC shared memory is not changed. Only the internal buffer as given in the call to #NDEFT2T_CreateMessage
- *  is written to.
  */
 void NDEFT2T_CommitRecord(void *pInstance);
 
@@ -484,13 +486,11 @@ void NDEFT2T_CommitRecord(void *pInstance);
  * creation after creating all records.
  * @param pInstance : Base address of instance Buffer
  * @return @c true
- * @note The NFC shared memory is updated by copying the contents from the internal buffer (as given in the call to
- *  #NDEFT2T_CreateMessage).
  */
 bool NDEFT2T_CommitMessage(void *pInstance);
 
 /**
- * This function starts the process of parsing an NDEF message present in shared memory. A call to this function makes
+ * This function starts the process of parsing an NDEF message present in shared memory.  A call to this function makes
  * a new instantiation of the NDEFT2T module for message parsing.
  * @param pInstance : Base address of instance Buffer. The instance buffer preserves the necessary housekeeping
  *                    information during an instantiation of the NDEFT2T module. The caller must ensure that the
@@ -507,6 +507,7 @@ bool NDEFT2T_CommitMessage(void *pInstance);
  *              of the NFC shared memory (#NFC_SHARED_MEM_BYTE_SIZE).
  *          -# Shared memory contains non-NDEF formatted data or an invalid record header field.
  *          -# Unsupported record types or payload types
+ *          .
  */
 bool NDEFT2T_GetMessage(void *pInstance, uint8_t *pBuffer, int bufLen);
 
@@ -521,6 +522,7 @@ bool NDEFT2T_GetMessage(void *pInstance, uint8_t *pBuffer, int bufLen);
  * @return true/false for success/failure of operation respectively.
  *  The function returns false under the below scenarios.
  *  - End of message reached
+ *  .
  */
 bool NDEFT2T_GetNextRecord(void *pInstance, NDEFT2T_PARSE_RECORD_INFO_T *pRecordInfo);
 

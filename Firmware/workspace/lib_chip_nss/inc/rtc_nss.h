@@ -66,6 +66,8 @@
  *      -# Set #RTC_INT_WAKEUP with #Chip_RTC_Int_SetEnabledMask to enable
  *      -# Additional steps are necessary to operate the down-counter function with various states of standby.
  *          See the examples below.
+ *      .
+ *  .
  *
  * @anchor RTC_WARNING
  * @warning Each RTC block register read and write action requires at least one @c wait period. A single wait period
@@ -126,10 +128,12 @@ typedef struct NSS_RTC_S {
  *  - Counting of the "Wake-up down-counter" is enabled when control field is:
  *      - #RTC_WAKEUPCTRL_ENABLE | #RTC_WAKEUPCTRL_AUTO
  *      - #RTC_WAKEUPCTRL_ENABLE | #RTC_WAKEUPCTRL_START
+ *      .
  *  - Clearing #RTC_WAKEUPCTRL_ENABLE halts the "wake-up down-counter"
  *  - When #RTC_WAKEUPCTRL_AUTO is set, #RTC_WAKEUPCTRL_START is ignored
  *  - When #RTC_WAKEUPCTRL_AUTO is cleared, loading a new value with #Chip_RTC_Wakeup_SetReload clears
  *      #RTC_WAKEUPCTRL_START, and halts counting of the "Wake-up down-counter".
+ *  .
  */
 typedef enum RTC_WAKEUPCTRL {
     RTC_WAKEUPCTRL_ENABLE = (1 << 0), /**< Enables "wake-up down-counter"  */
@@ -162,6 +166,7 @@ void Chip_RTC_Init(NSS_RTC_T * pRTC);
  *  -# Disables "wake-up down-counter" operation
  *  -# Disables "wake-up down-counter" interrupt
  *  -# Disables ARM access to RTC block via APB clock
+ *  .
  * @param pRTC : The base address of the RTC peripheral on the chip
  * @warning This function performs two synchronized register accesses. Impact on runtime performance and
  *  other same and lower-priority contexts should be carefully considered. See @ref RTC_WARNING "warning section".

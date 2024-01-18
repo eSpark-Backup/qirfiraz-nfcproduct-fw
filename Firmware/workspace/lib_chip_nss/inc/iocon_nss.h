@@ -37,6 +37,7 @@
  *   -# Standard mode/Fast-mode I2C with input glitch filter (this includes an open-drain output according to the
  *      I2C-bus specification).
  *   -# Standard open-drain I/O functionality without input filter.
+ *   .
  *  The I2C pads have no pull-up / pull down functionality.
  *
  * @anchor iocon_currentdrive_anchor
@@ -53,6 +54,7 @@
  *     depends on the supply at the load. An internal circuit equivalent to a variable resistor can be configured to deliver
  *     a maximum of 20 mA at 1.8V supply, i.e. IHI = 0xFF, scaled linearly over 8-bit resolution from ILO = 0 (0mA).
  *     The maximum pad voltage is limited to 5V.
+ *   .
  *
  * @par Analog Functionality:
  *  The analog input pins (IOCON_ANA0_*) have direct analog connections to the external analog busses, and are protected
@@ -75,6 +77,7 @@
  *  - PIO0_3 as high current drive mode, with no pull-up/down LPF disabled, output low current of 4mA and output high
  *    current of 16mA
  *  - PIO0_4 as I2C peripheral function, standard or fast I2C mode
+ *  .
  *  @snippet iocon_nss_example_1.c iocon_nss_example_1
  *
  * @{

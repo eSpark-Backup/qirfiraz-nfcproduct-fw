@@ -107,6 +107,7 @@
  * - @c 1 using the current drive mode to invoke ~#IQ_DAC_0_31
  * - @c 2 using the current drive mode to invoke ~#IQ_DAC_32_63
  * - @c 3 using the current drive mode to invoke ~#IQ_DAC_64_255
+ * .
  */
 static const uint8_t sLevels[NUM_LEVELS] = {
     0x00, 0x01, 0x02, 0x03

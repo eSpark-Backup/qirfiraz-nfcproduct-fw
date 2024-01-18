@@ -35,6 +35,7 @@
  *      measurement ends.
  *      Additionally, once the measurement result is read (using #Chip_TSen_GetValue), the #TSEN_INT_MEASUREMENT_RDY
  *      interrupt flag and consequently the #TSEN_STATUS_MEASUREMENT_DONE status flag are automatically cleared.
+ *  .
  *
  * @par In order to perform a measurement:
  *  -# Initialize the Temperature Sensor block with default settings with #Chip_TSen_Init.
@@ -42,6 +43,7 @@
  *  -# Start a measurement with #Chip_TSen_Start.
  *  -# Wait for the measurement to be ready (assess that with #Chip_TSen_ReadStatus).
  *  -# Read the measurement value with #Chip_TSen_GetValue.
+ *  .
  *
  * @par Notes:
  *  - The native format of the temperature sensor uses a signed 10.6 2-complement fixed point representation
@@ -58,15 +60,17 @@
  *    #Chip_TSen_CelsiusToNative, #Chip_TSen_FahrenheitToNative and #Chip_TSen_KelvinToNative functions to convert from
  *    a temperature in, respectively Celsius, Fahrenheit or Kelvin in a readable fixed point decimal representation into
  *    a temperature in the native format.
+ *  .
  *
  * @par Example 1 - Simple polled measurement.
  *  - resolution: 10 bits
+ *  .
  *  @snippet tsen_nss_example_1.c tsen_nss_example_1
  *
  * @par Example 2 - Measurement with interrupt and thresholds.
  *  - resolution: 12 bits
  *  - interrupt generation: when a conversion is ready and when low or high thresholds are crossed.
- *
+ *  .
  *  @snippet tsen_nss_example_2.c tsen_nss_example_2
  *  #TSEN_IRQHandler:
  *  @snippet tsen_nss_example_2.c tsen_nss_example_2_irq
@@ -134,6 +138,7 @@ typedef enum TSEN_INT {
  *  - resolution:     12 bit
  *  - Threshold Low:  0x8000
  *  - Threshold High: 0x7FFF
+ *  .
  */
 void Chip_TSen_Init(NSS_TSEN_T *pTSen);
 

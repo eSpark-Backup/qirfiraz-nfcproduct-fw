@@ -35,11 +35,13 @@
  *          function will trigger the converter to transition to "Idle" state once the ongoing conversion ends.
  *      - In case #ADCDAC_SINGLE_SHOT mode is selected, the transition to "Idle" state is done automatically after the
  *          first conversion is completed.
+ *      .
  *      As long as the converter is in the "In Operation" state, the #ADCDAC_STATUS_CONVERTER_IN_OPERATION status flag is set.
  *  -# Regardless of the operating mode and driver state, at the end of each conversion, the #ADCDAC_STATUS_ADC_DONE or
  *      #ADCDAC_STATUS_DAC_DONE status flag is set. In the case of ADC, the converted result is available for read
  *      (using #Chip_ADCDAC_GetValueADC). Additionally, once the conversion result is read (using #Chip_ADCDAC_GetValueADC),
  *      the #ADCDAC_STATUS_ADC_DONE status flag is automatically cleared.
+ *  .
  *
  * @par In order to perform a conversion:
  *  -# Initialize the ADC/DAC driver with #Chip_ADCDAC_Init.
@@ -49,6 +51,7 @@
  *  -# Start an ADC conversion with #Chip_ADCDAC_StartADC, or start a DAC output with #Chip_ADCDAC_StartDAC.
  *  -# Wait for the conversion (ADC or DAC) to be ready with #Chip_ADCDAC_ReadStatus.
  *  -# Read the ADC conversion value with #Chip_ADCDAC_GetValueADC.
+ *  .
  *
  * @note The status of the conversion can be read with #Chip_ADCDAC_ReadStatus.
  * @note Interrupt generation when threshold is crossed (low and high) as well as when a conversion is ready can be
@@ -63,6 +66,7 @@
  *  - DAC connection: #ADCDAC_IO_ANA0_0
  *  - DAC mode: Continuous
  *  - DAC interrupt: none
+ *  .
  *  @snippet adcdac_nss_example_1.c adcdac_nss_example_1
  *
  * @par Example 2 - Continuous Analog-to-Digital Conversion with IRQ
@@ -70,6 +74,7 @@
  *  - ADC connection: #ADCDAC_IO_ANA0_5
  *  - ADC input thresholds: 1138 and 3412 (approximately at 30% and 70% of the full scale)
  *  - ADC mode: Continuous
+ *  .
  *  set-up code:
  *  @snippet adcdac_nss_example_2.c adcdac_nss_example_2
  *  handle interrupt and read ADC input:
@@ -79,6 +84,7 @@
  *  - ADC connection: #ADCDAC_IO_ANA0_5
  *  - ADC mode: Single-shot
  *  - ADC input voltage range: 0.0V to 1.6V (#ADCDAC_INPUTRANGE_WIDE)
+ *  .
  *  @snippet adcdac_nss_example_3.c adcdac_nss_example_3
  * @{
  */
@@ -164,6 +170,7 @@ typedef enum ADCDAC_INT {
  *  - No ADC & DAC connection
  *  - Single-shot mode
  *  - ADC input range of 0V - 1V
+ *  .
  */
 void Chip_ADCDAC_Init(NSS_ADCDAC_T *pADCDAC);
 

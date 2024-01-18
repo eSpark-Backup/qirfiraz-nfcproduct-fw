@@ -1,6 +1,5 @@
 /*
- * Copyright 2014-2021 NXP
- * NXP confidential
+ * Copyright 2014-2020 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -21,6 +20,7 @@
  *  -# master/slave receiver mode (polling)
  *  -# master/slave simultaneous transmitter and receiver mode (polling)
  *  -# master/slave simultaneous transmitter and receiver mode (interrupt)
+ *  .
  * The SSP Driver supports data transfer on SPI, 4-wire SSI or Microwire buses. There can be multiple masters and slaves
  * on the bus, though only one master and slave can communicate with each other at a given point in time. The SSP
  * hardware block supports full-duplex data transfer of frames of length 4 bits to 16 bits. The driver supports both
@@ -61,6 +61,7 @@
  *      -# Reconfigure master/slave mode using #Chip_SSP_SetMaster if applicable
  *      -# Reconfigure frame length, frame format and clock mode using #Chip_SSP_SetFormat if applicable
  *      -# Reconfigure bitrate using #Chip_SSP_SetBitRate if applicable
+ *      .
  *
  *  @anchor SSPPolling_anchor
  *  <b> For SSP Master/Slave transmission or reception (polling): </b>
@@ -68,11 +69,14 @@
  *      -# Use one of the appropriate transfer API based on the type of transfer required.
  *          - #Chip_SSP_WriteFrames_Blocking for transmission
  *          - #Chip_SSP_ReadFrames_Blocking for reception
+ *          .
+ *      .
  *
  *  <b> For SSP Master/Slave simultaneous transmission and reception mode (polling): </b>
  *      -# Initialize the SSP driver for master/slave mode as given in @ref SSPInit_anchor "SSP Driver Initialisation"
  *      -# Fill in #Chip_SSP_DATA_SETUP_T structure
  *      -# Use #Chip_SSP_RWFrames_Blocking API to complete the transfer
+ *      .
  *
  *  @anchor SSPInterrupt_anchor
  *  <b> For SSP Master/Slave simultaneous transmission and reception mode (using interrupts): </b>
@@ -84,12 +88,14 @@
  *         #Chip_SSP_Int_RWFrames16Bits APIs.
  *         need to be called inside the interrupt handler as well.
  *      -# In application main, wait till transmit FIFO is empty using #Chip_SSP_GetStatus
+ *      .
  *
  * @par Example 1 - Simultaneous master transmission and reception (polling)
  *  - Master mode
  *  - Frame length: #SSP_BITS_8, frame format: #SSP_FRAME_FORMAT_SPI and clock mode: #SSP_CLOCK_MODE0
  *  - Bitrate: 100kbps (User needs to set system clock to 250kHz or more)
  *  - API used for send and receive: #Chip_SSP_RWFrames_Blocking
+ *  .
  *  @note User can select appropriate System and SSP clocks as mentioned at @ref SSPClockRates_anchor "SSP clock rates".
  *
  *  @snippet ssp_nss_example_1.c ssp_nss_example_1
@@ -99,6 +105,7 @@
  *  - Frame length: #SSP_BITS_8, frame format: #SSP_FRAME_FORMAT_SPI and clock mode: #SSP_CLOCK_MODE0
  *  - Bitrate: 100kbps (User needs to set system clock to 2MHz or more)
  *  - API used for send and receive: #Chip_SSP_Int_RWFrames8Bits
+ *  .
  *
  *  Tx and Rx buffers, setup data structure and transfer completion status flag:
  *  @snippet ssp_nss_example_2.c ssp_nss_example_2_data
@@ -164,38 +171,38 @@ typedef enum {
 
 /** SSP Type for Status */
 typedef enum SSP_STATUS {
-    SSP_STAT_TFE = (uint32_t)(1 << 0), /**< TX FIFO Empty */
-    SSP_STAT_TNF = (uint32_t)(1 << 1), /**< TX FIFO not full */
-    SSP_STAT_RNE = (uint32_t)(1 << 2), /**< RX FIFO not empty */
-    SSP_STAT_RFF = (uint32_t)(1 << 3), /**< RX FIFO full */
-    SSP_STAT_BSY = (uint32_t)(1 << 4) /**< SSP Busy */
+    SSP_STAT_TFE = ((uint32_t)(1 << 0)), /**< TX FIFO Empty */
+    SSP_STAT_TNF = ((uint32_t)(1 << 1)), /**< TX FIFO not full */
+    SSP_STAT_RNE = ((uint32_t)(1 << 2)), /**< RX FIFO not empty */
+    SSP_STAT_RFF = ((uint32_t)(1 << 3)), /**< RX FIFO full */
+    SSP_STAT_BSY = ((uint32_t)(1 << 4)) /**< SSP Busy */
 } SSP_STATUS_T;
 
 /** SSP Type for Interrupt Mask */
 typedef enum SSP_INTMASK {
-    SSP_RORIM = (uint32_t)(1 << 0), /**< Overrun */
-    SSP_RTIM = (uint32_t)(1 << 1), /**< TimeOut */
-    SSP_RXIM = (uint32_t)(1 << 2), /**< Rx FIFO is at least half full */
-    SSP_TXIM = (uint32_t)(1 << 3), /**< Tx FIFO is at least half empty */
-    SSP_INT_MASK_BITMASK = (uint32_t)(0xF) /**< All select Mask */
+    SSP_RORIM = ((uint32_t)(1 << 0)), /**< Overrun */
+    SSP_RTIM = ((uint32_t)(1 << 1)), /**< TimeOut */
+    SSP_RXIM = ((uint32_t)(1 << 2)), /**< Rx FIFO is at least half full */
+    SSP_TXIM = ((uint32_t)(1 << 3)), /**< Tx FIFO is at least half empty */
+    SSP_INT_MASK_BITMASK = ((uint32_t)(0xF)) /**< All select Mask */
 } SSP_INTMASK_T;
 
 /** SSP Type for Masked Interrupt Status */
 typedef enum SSP_MASKINTSTATUS {
-    SSP_RORMIS = (uint32_t)(1 << 0), /**< Overrun */
-    SSP_RTMIS = (uint32_t)(1 << 1), /**< TimeOut */
-    SSP_RXMIS = (uint32_t)(1 << 2), /**< Rx FIFO is at least half full */
-    SSP_TXMIS = (uint32_t)(1 << 3), /**< Tx FIFO is at least half empty */
-    SSP_MASK_INT_STAT_BITMASK = (uint32_t)(0xF) /**< All select Mask */
+    SSP_RORMIS = ((uint32_t)(1 << 0)), /**< Overrun */
+    SSP_RTMIS = ((uint32_t)(1 << 1)), /**< TimeOut */
+    SSP_RXMIS = ((uint32_t)(1 << 2)), /**< Rx FIFO is at least half full */
+    SSP_TXMIS = ((uint32_t)(1 << 3)), /**< Tx FIFO is at least half empty */
+    SSP_MASK_INT_STAT_BITMASK = ((uint32_t)(0xF)) /**< All select Mask */
 } SSP_MASKINTSTATUS_T;
 
 /** SSP Type for Raw Interrupt Status */
 typedef enum SSP_RAWINTSTATUS {
-    SSP_RORRIS = (uint32_t)(1 << 0), /**< Overrun */
-    SSP_RTRIS = (uint32_t)(1 << 1), /**< TimeOut */
-    SSP_RXRIS = (uint32_t)(1 << 2), /**< Rx FIFO is at least half full */
-    SSP_TXRIS = (uint32_t)(1 << 3), /**< Tx FIFO is at least half empty */
-    SSP_RAW_INT_STAT_BITMASK = (uint32_t)(0xF) /**< All select Mask */
+    SSP_RORRIS = ((uint32_t)(1 << 0)), /**< Overrun */
+    SSP_RTRIS = ((uint32_t)(1 << 1)), /**< TimeOut */
+    SSP_RXRIS = ((uint32_t)(1 << 2)), /**< Rx FIFO is at least half full */
+    SSP_TXRIS = ((uint32_t)(1 << 3)), /**< Tx FIFO is at least half empty */
+    SSP_RAW_INT_STAT_BITMASK = ((uint32_t)(0xF)) /**< All select Mask */
 } SSP_RAWINTSTATUS_T;
 
 /** SSP Interrupt clear masks */
@@ -226,19 +233,19 @@ typedef enum CHIP_SSP_FRAME_FORMAT {
 
 /** Number of bits per frame */
 typedef enum CHIP_SSP_BITS {
-    SSP_BITS_4 = 3, /**< 4 bits/frame */
-    SSP_BITS_5 = 4, /**< 5 bits/frame */
-    SSP_BITS_6 = 5, /**< 6 bits/frame */
-    SSP_BITS_7 = 6, /**< 7 bits/frame */
-    SSP_BITS_8 = 7, /**< 8 bits/frame */
-    SSP_BITS_9 = 8, /**< 9 bits/frame */
-    SSP_BITS_10 = 9, /**< 10 bits/frame */
-    SSP_BITS_11 = 10, /**< 11 bits/frame */
-    SSP_BITS_12 = 11, /**< 12 bits/frame */
-    SSP_BITS_13 = 12, /**< 13 bits/frame */
-    SSP_BITS_14 = 13, /**< 14 bits/frame */
-    SSP_BITS_15 = 14, /**< 15 bits/frame */
-    SSP_BITS_16 = 15 /**< 16 bits/frame */
+    SSP_BITS_4 = (3u << 0), /**< 4 bits/frame */
+    SSP_BITS_5 = (4u << 0), /**< 5 bits/frame */
+    SSP_BITS_6 = (5u << 0), /**< 6 bits/frame */
+    SSP_BITS_7 = (6u << 0), /**< 7 bits/frame */
+    SSP_BITS_8 = (7u << 0), /**< 8 bits/frame */
+    SSP_BITS_9 = (8u << 0), /**< 9 bits/frame */
+    SSP_BITS_10 = (9u << 0), /**< 10 bits/frame */
+    SSP_BITS_11 = (10u << 0), /**< 11 bits/frame */
+    SSP_BITS_12 = (11u << 0), /**< 12 bits/frame */
+    SSP_BITS_13 = (12u << 0), /**< 13 bits/frame */
+    SSP_BITS_14 = (13u << 0), /**< 14 bits/frame */
+    SSP_BITS_15 = (14u << 0), /**< 15 bits/frame */
+    SSP_BITS_16 = (15u << 0) /**< 16 bits/frame */
 } CHIP_SSP_BITS_T;
 
 /** SSP mode */
@@ -296,6 +303,7 @@ static inline void Chip_SSP_DisableLoopBack(NSS_SSP_T *pSSP)
  *  - #SSP_STAT_RNE
  *  - #SSP_STAT_RFF
  *  - #SSP_STAT_BSY
+ *  .
  * @return SSP controller status, SET or RESET
  */
 static inline SSP_INT_STATUS_T Chip_SSP_GetStatus(NSS_SSP_T *pSSP, SSP_STATUS_T Stat)
@@ -322,6 +330,7 @@ static inline uint32_t Chip_SSP_GetIntStatus(NSS_SSP_T *pSSP)
  *  - #SSP_RTRIS
  *  - #SSP_RXRIS
  *  - #SSP_TXRIS
+ *  .
  * @return Raw interrupt status corresponding to the requested interrupt condition, SET or RESET
  * @note Get the status of each interrupt condition, regardless of whether or not the interrupt is enabled
  */
@@ -347,6 +356,7 @@ static inline uint8_t Chip_SSP_GetDataSize(NSS_SSP_T *pSSP)
  * @param IntClear : Type of cleared interrupt, as given below :
  *  - #SSP_RORIC
  *  - #SSP_RTIC
+ *  .
  * @note Software can clear one or more interrupt condition(s) in the SSP controller
  */
 static inline void Chip_SSP_ClearIntPending(NSS_SSP_T *pSSP, SSP_INTCLEAR_T IntClear)
@@ -397,7 +407,7 @@ static inline void Chip_SSP_SendFrame(NSS_SSP_T *pSSP, uint16_t tx_data)
 /**
  * Set up output clocks per bit for SSP bus
  * @param pSSP : The base address of the SSP peripheral on the chip
- * @param clk_rate : The number of prescaler-output clocks per bit on the bus, minus one
+ * @param clk_rate fs: The number of prescaler-output clocks per bit on the bus, minus one
  * @param prescale : The factor by which the Prescaler divides the SSP peripheral clock PCLK
  * @note The bit frequency is PCLK / (prescale x[clk_rate+1])
  */
@@ -411,11 +421,13 @@ void Chip_SSP_SetClockRate(NSS_SSP_T *pSSP, uint32_t clk_rate, uint32_t prescale
  *  - #SSP_FRAME_FORMAT_SPI
  *  - #SSP_FRAME_FORMAT_TI
  *  - #SSP_FRAME_FORMAT_MICROWIRE
+ *  .
  * @param clockMode : Select Clock polarity and Clock phase, as given below :
  *  - #SSP_CLOCK_CPHA0_CPOL0
  *  - #SSP_CLOCK_CPHA0_CPOL1
  *  - #SSP_CLOCK_CPHA1_CPOL0
  *  - #SSP_CLOCK_CPHA1_CPOL1
+ *  .
  * @note The clockFormat is only used in SPI mode
  */
 static inline void Chip_SSP_SetFormat(NSS_SSP_T *pSSP, uint32_t bits, uint32_t frameFormat, uint32_t clockMode)
@@ -429,6 +441,7 @@ static inline void Chip_SSP_SetFormat(NSS_SSP_T *pSSP, uint32_t bits, uint32_t f
  * @param mode : Operating mode, as given below:
  *  - #SSP_MODE_MASTER
  *  - #SSP_MODE_SLAVE
+ *  .
  */
 static inline void Chip_SSP_Set_Mode(NSS_SSP_T *pSSP, uint32_t mode)
 {
@@ -441,7 +454,7 @@ static inline void Chip_SSP_Set_Mode(NSS_SSP_T *pSSP, uint32_t mode)
 typedef struct {
     void *tx_data; /**< Pointer to transmit data */
     uint32_t tx_cnt; /**< Transmit counter */
-    void *rx_data; /**< Pointer to receive data */
+    void *rx_data; /**< Pointer to transmit data */
     uint32_t rx_cnt; /**< Receive counter */
     uint32_t length; /**< Length of transfer data */
 } Chip_SSP_DATA_SETUP_T;

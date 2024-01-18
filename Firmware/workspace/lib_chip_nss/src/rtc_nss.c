@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019,2021 NXP
+ * Copyright 2014-2019 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -93,6 +93,7 @@ int Chip_RTC_Time_GetValue(NSS_RTC_T *pRTC)
 
 void Chip_RTC_Time_SetValue(NSS_RTC_T *pRTC, int tickValue)
 {
+    Diag_TrackRtcUpdate(tickValue);
     RTC_WRITE(&pRTC->TIME, (uint32_t)tickValue);
 }
 

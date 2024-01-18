@@ -22,6 +22,7 @@
  *  -# Accessing the System Reset status
  *  -# Controlling the system wake-up start logic and state
  *  -# Reading the device ID
+ *  .
  *
  * @par Interrupt Vector Table Remap
  *  By default, after booting, the ARM core Interrupt Vector Table is located in Flash at address 0x0. However, using
@@ -64,6 +65,7 @@
  *      - enabled using the #Chip_SysCon_StartLogic_SetEnabledMask function;
  *      - checked for status using the #Chip_SysCon_StartLogic_GetStatus function; and
  *      - cleared using the #Chip_SysCon_StartLogic_ClearStatus function
+ *      .
  *  Additionally, for each Digital IO pin source, using the #Chip_SysCon_StartLogic_SetPIORisingEdge function it can be
  *  configured which transition edge of the pin causes the respective start signal to be asserted.
  *  The state of the Start Logic lines indicates if the wake-up signal to the ARM core is triggered. Thus, before
@@ -77,6 +79,7 @@
  *  Peripherals:
  *      - I2C0 (Digital)
  *      - I2D (Analog)
+ *      .
  *  @snippet syscon_nss_example_1.c syscon_nss_example_1
  *
  * @par Example 2 - Remap Interrupt Vector Table to SRAM:
@@ -84,6 +87,7 @@
  *      - Interrupt Vector Table copied to SRAM location (pointed by "uint32_t *ivt" variable)
  *      - The ISR's in use are already in SRAM and the Interrupt Vector Table pointing to the respective ISR locations
  *      - But, current Interrupt Vector Table is still mapped at default location (Flash at address 0x0)
+ *      .
  *  @snippet syscon_nss_example_2.c syscon_nss_example_2
  *
  * @par Example 3 - Configure chip start logic for wake-up from Deep-Sleep:
@@ -91,6 +95,7 @@
  *      - PIO0_0 rising edge
  *      - PIO0_5 falling edge
  *      - NFC core activation
+ *      .
  *  @snippet syscon_nss_example_3.c syscon_nss_example_3
  *
  * @{
@@ -328,6 +333,7 @@ SYSCON_STARTSOURCE_T Chip_SysCon_StartLogic_GetPIORisingEdge(void);
  *  - @c 0x4E310020 for NHS3100 devices
  *  - @c 0x4E315220 for NHS3152 devices
  *  - @c 0x4E315320 for NHS3153 devices
+ *  .
  */
 uint32_t Chip_SysCon_GetDeviceID(void);
 

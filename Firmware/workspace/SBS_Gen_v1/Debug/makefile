@@ -36,7 +36,7 @@ all: SBS_Gen_v1.axf
 SBS_Gen_v1.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\MCUXpressoIDE_10.2.1_795\workspace\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T "LSL_v1_Debug.ld" -o "SBS_Gen_v1.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -48,9 +48,10 @@ clean:
 
 post-build:
 	-@echo 'Performing post-build steps'
-	-arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p LPC1343 -d "SBS_Gen_v1.bin"
+	-arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
 	-@echo ' '
 
-.PHONY: all clean dependents post-build
+.PHONY: all clean dependents
+.SECONDARY: post-build
 
 -include ../makefile.targets

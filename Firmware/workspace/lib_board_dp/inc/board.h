@@ -23,6 +23,7 @@
  * The Demo PCB provides a couple of features, which are exposed at SW level:
  *  - one controllable LED: #LED_RED
  *  - one button readable via @ref GPIO_NSS "GPIO"
+ *  .
  *
  * The initialization function performs initialization of the LED and adds the correct pulls to all the PIOs.
  *
@@ -92,6 +93,7 @@
  *  - @ref RTC_NSS "RTC"
  *  - @ref EEPROM_NSS "EEPROM"
  *  - @ref NFC_NSS "NFC"
+ *  .
  * @note This function may be called @b before Startup_VarInit has been called.
  */
 void Board_Init(void);

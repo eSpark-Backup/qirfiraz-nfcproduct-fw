@@ -23,6 +23,7 @@
  * Additional notes regarding some flags:
  * - By default, the assigned EEPROM region takes up 1KB and is located just below the RO EEPROM rows. This storage
  *  space can be moved and resized by adapting #EVENT_EEPROM_FIRST_ROW and #EVENT_EEPROM_LAST_ROW.
+ * .
  *
  * These flags may be overridden/set:
  * - #EVENT_EEPROM_FIRST_ROW
@@ -31,6 +32,7 @@
  * - #EVENT_CB_OPENING_CALL
  * - #EVENT_CB_CLOSING_CALL
  * - #EVENT_OVERHEAD_CHOICE
+ * .
  *
  * These defines are fixed or derived from the above flags and may not be defined or redefined in an application:
  * - #EVENT_EEPROM_ROW_COUNT
@@ -146,6 +148,7 @@
  * This is the default value when #EVENT_OVERHEAD_CHOICE is not defined in the application's @c app_sel.h file.
  * - All timestamps are stored with full resolution (seconds).
  * - No restrictions on the use case are in effect.
+ * .
  */
 #define EVENT_OVERHEAD_CHOICE_A 0x41
 
@@ -154,6 +157,7 @@
  * The overhead - defined in #EVENT_OVERHEAD - is @c 5
  * - All timestamps are stored with full resolution (second).
  * - Events are spaced maximally 194 days apart.
+ * .
  */
 #define EVENT_OVERHEAD_CHOICE_B 0x42
 
@@ -162,6 +166,7 @@
  * The overhead - defined in #EVENT_OVERHEAD - is @c 5
  * - All timestamps are stored with reduced resolution (~minute).
  * - No restrictions on the use case are in effect.
+ * .
  */
 #define EVENT_OVERHEAD_CHOICE_C 0x43
 
@@ -170,6 +175,7 @@
  * The overhead - defined in #EVENT_OVERHEAD - is @c 4
  * - All timestamps are stored with reduced resolution (~minute).
  * - Events are spaced maximally 48 days apart.
+ * .
  */
 #define EVENT_OVERHEAD_CHOICE_D 0x44
 
@@ -178,6 +184,7 @@
  * The overhead - defined in #EVENT_OVERHEAD - is @c 4
  * - All timestamps are stored with low resolution (~hour).
  * - No restrictions on the use case are in effect.
+ * .
  */
 #define EVENT_OVERHEAD_CHOICE_E 0x45
 
@@ -190,6 +197,7 @@
      * - #EVENT_OVERHEAD_CHOICE_C
      * - #EVENT_OVERHEAD_CHOICE_D
      * - #EVENT_OVERHEAD_CHOICE_E
+     * .
      * @note The order in which the events are stored - reflected in the @c index passed to the caller upon retrieval -
      *  will always correctly reflect the timing order in which they occurred, regardless of the resolution of the
      *  timestamp.

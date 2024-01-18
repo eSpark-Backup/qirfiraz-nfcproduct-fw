@@ -1,6 +1,5 @@
 /*
- * Copyright 2016-2023 NXP
- * NXP confidential.
+ * Copyright 2016-2020 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -32,6 +31,7 @@
  *  compression abilities; too much data risks a portion of the FLASH to remain not utilized when a compressed block of
  *  samples no longer fits.
  * - The storage module requires the use of at least one general purpose register. This cannot be disabled.
+ * .
  *
  * These flags may be overridden:
  * - #STORAGE_FIRST_ALON_REGISTER
@@ -49,6 +49,7 @@
  * - #STORAGE_REDUCE_RECOVERY_WRITES
  * - #STORAGE_COMPRESS_CB
  * - #STORAGE_DECOMPRESS_CB
+ * .
  *
  * These defines are fixed or derived from the above flags and may not be defined or redefined in an application:
  * - #STORAGE_EEPROM_ROW_COUNT
@@ -81,6 +82,7 @@
  *          By default, all space not used by the program itself, is used for data storage by the storage module.
  *          Unless your application requires to write to flash for other purposes, it is advised to stick with the
  *          default settings.
+ *      .
  *
  *      Next, determine what will be stored. Each sample given to the storage module must have the same type. Both
  *      basic types and structures or unions are possible. Each sample will be placed back to back, without a single
@@ -89,6 +91,7 @@
  *      - #STORAGE_TYPE
  *      - #STORAGE_BITSIZE
  *      - #STORAGE_SIGNED
+ *      .
  *
  *      Compression greatly increases the number of samples that can be stored, at the cost of the size of the
  *      compression library itself. Normally, the compression ratio is greater when more samples are compressed at
@@ -100,6 +103,7 @@
  *      - #STORAGE_BLOCK_SIZE_IN_SAMPLES
  *      - #STORAGE_COMPRESS_CB
  *      - #STORAGE_DECOMPRESS_CB
+ *      .
  *      If a compression is to be used which operates on a single sample at a time, the application can wrap the calls
  *      to the storage module and implement this outside the storage module. An example of this is a mapping operation
  *      which reduces the resolution in specific value ranges.
@@ -130,6 +134,7 @@
  *          halved, at the expense of an additional 8 bytes of samples which may get lost when data corruption occurs.
  *          If #STORAGE_REDUCE_RECOVERY_WRITES is enabled, only one row is reserved for recovery information, and only
  *          56 bytes are duplicated.
+ *      .
  *      The maximum amount of samples that may get lost due to an unexpected reset, a battery failure, or a data
  *      corruption, is captured in #STORAGE_MAX_LOSS_AFTER_CORRUPTION
  *      To recover all samples safe for the very last, at the expense of (a lot) more EEPROM flush operations, use these
@@ -218,8 +223,9 @@
      * @note Two special values exist:
      *  - When equal to @c 0, the first empty FLASH page @b after the @c .text and @c .data
      *      sections will be used. This page is automatically determined during link time by the Storage module's code.
-     *  - When a value strict higher than #STORAGE_FLASH_LAST_PAGE is provided, storage to FLASH is disabled. Only the
-     *      EEPROM will be used to store the data.
+     *  - When equal to #STORAGE_FLASH_LAST_PAGE, storage to FLASH is disabled. Only the EEPROM will be used to store
+     *      the data.
+	 *  .
      * @note The page is not required to be sector aligned.
      * @warning If a non-zero value is specified, it is the responsibility of the application programmer to ensure the
      *  FLASH location points to outside the @c .text and @c .data sections.
@@ -239,11 +245,8 @@
      */
     #define STORAGE_FLASH_LAST_PAGE (FLASH_NR_OF_RW_SECTORS * FLASH_PAGES_PER_SECTOR - 1)
 #endif
-#if STORAGE_FLASH_LAST_PAGE >= FLASH_NR_OF_RW_SECTORS * FLASH_PAGES_PER_SECTOR
+#if (STORAGE_FLASH_LAST_PAGE < STORAGE_FLASH_FIRST_PAGE) || (STORAGE_FLASH_LAST_PAGE >= FLASH_NR_OF_RW_SECTORS * FLASH_PAGES_PER_SECTOR)
     #error Invalid value for STORAGE_FLASH_LAST_PAGE
-#endif
-#if STORAGE_FLASH_LAST_PAGE < STORAGE_FLASH_FIRST_PAGE
-    #warning Flash will not be used for data storage
 #endif
 #if (STORAGE_FLASH_FIRST_PAGE == 0) && (STORAGE_FLASH_LAST_PAGE != (FLASH_NR_OF_RW_SECTORS * FLASH_PAGES_PER_SECTOR - 1))
     #error STORAGE_FLASH_FIRST_PAGE is determined at link time; STORAGE_FLASH_LAST_PAGE can thus not be checked at precompilation time.
@@ -299,6 +302,7 @@
      *  when reading out samples from EEPROM or FLASH, this bit will be propagated left up to the MSBit of
      *  #STORAGE_TYPE.
      * - If not defined, the MSBits at positions #STORAGE_BITSIZE and up will be set to @c 0.
+     * .
      * @warning Setting this diversity flag to 1 while #STORAGE_TYPE is a structure, while raise compiler errors.
      * see #Storage_Read.
      */
@@ -334,6 +338,7 @@
      * - If defined to a non-zero value:
      *  the space used for recovery - where the duplicate data of the last row and the hint information is stored - is
      *  reduced to just one row. When data corruption occurs, an additional loss of up to 8 bytes can occur.
+     * .
      */
     #define STORAGE_REDUCE_RECOVERY_WRITES 0
 #endif

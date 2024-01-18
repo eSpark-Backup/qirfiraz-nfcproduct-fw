@@ -16,7 +16,7 @@
 #define MEMS_DISABLED				0x00
 #define MEMS_ENABLED				0x01
 
-#define	MEMS_CTRL1					0x20
+#define	MEMS_CTRL1									0x20
 
 #define	MEMS_ODR_POWER_DOWN			0x0
 #define	MEMS_ODR_1Hz6				0x1

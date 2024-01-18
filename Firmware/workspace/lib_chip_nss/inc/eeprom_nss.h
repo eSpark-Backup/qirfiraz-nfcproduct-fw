@@ -29,6 +29,7 @@
  *  This EEPROM driver abstracts away the access to the EEPROM memory. The API
  *  - resolves all alignment requirements imposed by the HW block.
  *  - minimizes the number of flushes, maximizing the lifetime of the EEPROM.
+ *  .
  *
  * @par Usage
  *  - First call: #Chip_EEPROM_Init @n
@@ -42,6 +43,7 @@
  *  - Last call: #Chip_EEPROM_DeInit @n
  *      Data is only guaranteed to be committed in non-volatile memory after a call to #Chip_EEPROM_Flush or
  *      #Chip_EEPROM_DeInit.
+ *  .
  *
  * @warning EEPROM requires a system clock of 500 kHz or higher. This is not checked for.
  *  For a full list of clock restrictions in effect, see @ref NSS_CLOCK_RESTRICTIONS.
@@ -89,6 +91,7 @@ typedef struct NSS_EEPROM_S {
  * - Power and Clock are enabled for EEPROM and for EEPROM controller block.
  * - Based upon the configured system clock, the correct clock divider is selected.
  * - Will wait after enabling the HW block until the HW block can be used.
+ * .
  * @param pEEPROM : ignored. Argument no longer used but kept for compatibility.
  * @note The EEPROM requires a minimum system clock frequency before it can be used.
  *  See @ref clockrestrictions_anchor_table "Clock Restrictions".

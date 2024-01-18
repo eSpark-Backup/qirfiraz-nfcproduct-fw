@@ -13,15 +13,6 @@
  * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
- * 
- * Modifications Copyright 2016-2017 NXP
- * This software is owned or controlled by NXP and may only be used strictly
- * in accordance with the applicable license terms.  By expressly accepting
- * such terms or by downloading, installing, activating and/or otherwise using
- * the software, you are agreeing that you have read, and that you agree to
- * comply with and are bound by, such license terms.  If you do not agree to
- * be bound by the applicable license terms, then you may not retain, install,
- * activate or otherwise use the software.
  */
 #include <stdlib.h>
 #include <string.h>
@@ -58,7 +49,7 @@ static const char *state_names[] = {
 };
 #else
 #define LOG(...) /* no-op */
-#define ASSERT(X) /* no-op */
+//#define ASSERT(X) /* no-op */
 #endif
 
 typedef struct {

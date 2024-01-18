@@ -68,6 +68,7 @@
  *      - generates an interrupt towards the @ref CMSIS_NVIC
  *      - resets the counter to 0 (via reset bit in @ref NSS_TIMER_T.TCR "TCR")
  *      - disables the counter (via enable bit in @ref NSS_TIMER_T.TCR "TCR")
+ *      .
  *  The actions are programmed in the Match Control Register @ref NSS_TIMER_T.MCR "MCR". For each Match Register
  *  @ref NSS_TIMER_T.MR "MRx", the Match Control Register @ref NSS_TIMER_T.MCR "MCR" has three bits MRxI, MRxR and MRxS
  *  that enable the actions Interrupt, Reset and Stop respectively. The Interrupt Register IR records which of the match
@@ -123,6 +124,7 @@
  *      - clearing MATx
  *      - setting MATx
  *      - toggling MATx
+ *      .
  *  These actions are programmed in the External Match Register @ref NSS_TIMER_T.EMR "EMR". For each Match Register
  *  @ref NSS_TIMER_T.MR "MRx", the @ref NSS_TIMER_T.EMR "EMR" has a two bit External Match Control field EMCx with
  *  values:
@@ -130,6 +132,7 @@
  *      - 01b for clearing MATx
  *      - 10b for setting MATx
  *      - and 11b for toggling MATx
+ *      .
  *  Also note that the @ref NSS_TIMER_T.EMR "EMR" has a one bit status field External Match EMx reflecting the state
  *  for each of the MATx outputs.
  *  @dot
@@ -197,12 +200,15 @@
  *          - Continuous operation with optional interrupt generation on match
  *          - Stop timer on match with optional interrupt generation
  *          - Reset timer on match with optional interrupt generation
+ *          .
  *      -# Up to two external outputs corresponding to the match registers with the following capabilities:
  *          - Set LOW on match
  *          - Set HIGH on match
  *          - Toggle on match
  *          - Do nothing on match
  *          - Single-edge controlled PWM outputs
+ *          .
+ *      .
  * @par Operation description of Timer Block:
  *  A Prescale Counter @ref NSS_TIMER_T.PC "PC" counts cycles of the peripheral clock and increments until it matches
  *  the Prescale Register @ref NSS_TIMER_T.PR "PR" value. On the next clock (i.e. NSS_TIMER_T.PR "PR" +1),
@@ -216,6 +222,7 @@
  *      - Reset TC on match
  *      - Stop TC and PC on match
  *      - No action on match
+ *      .
  *  Refer to timing chart in the user manual for detail.  Match registers can be independently set to generate interrupt
  *  on match, operate as configured by @ref NSS_TIMER_T.EMR "EMR" or in PWM output mode.
  *
@@ -243,6 +250,7 @@
  *  - NSS_TIMER_T.PR "PR" : SystemClock / 500 (500Hz, 2ms per tick)
  *  - NSS_TIMER_T.MR "MR0" : 1 (5x 2ms)
  *  - Interrupt and reset on match are enabled; Stop-on-match disabled
+ *  .
  *
  *  @snippet timer_nss_example_1.c timer_nss_example_1
  *  Interrupt Handler:
@@ -254,6 +262,7 @@
  *  - NSS_TIMER_T.TC "TC" counts from 0 to 4 (10ms), matches NSS_TIMER_T.MR "MR0" and toggle xxxxx_MAT0 pin
  *      (Cycle Length is 20ms, or 50Hz output)
  *  - when NSS_TIMER_T.TC "TC" reaches 4, it resets to zero and repeats
+ *  .
  *  @snippet timer_nss_example_2.c timer_nss_example_2
  *
  * @par Example 3 - Setup 2Hz PWM on both xxxxx_MAT0 and xxxxx_MAT1 output pins.
@@ -264,6 +273,7 @@
  *  - NSS_TIMER_T.TC "TC" counts until 15 and raise-HIGH xxxxx_MAT0
  *  - NSS_TIMER_T.TC "TC" continue counting until 75 and raise-HIGH xxxxx_MAT1, and
  *  - when NSS_TIMER_T.TC "TC" reaches 124, both xxxxx_MAT0 and xxxxx_MAT1 are set low, TC reset to zero and repeats
+ *  .
  *  @snippet timer_nss_example_3.c timer_nss_example_3
  *
  * @{

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2021 NXP
+ * Copyright 2016-2020 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -16,298 +16,290 @@
  * @file
  *
  *  @par Maintaining state
+ *      It is a crucial feature of this module to be able to resume operation at all times. Between de-initialization
+ *      and re-initialization anything can happen, and no volatile memory can be trusted. Still, speed of operation is
+ *      necessary. To be able to restore the exact state - done in #Storage_Init - three different recovery structures
+ *      are used:
+ *      - #RecoverInfo_t - stored in the general purpose registers
+ *      - #Hint_t - stored on a fixed location in EEPROM
+ *      - #Marker_t - stored on a variable location, immediately after the last written sample in EEPROM
+ *      .
+ *      After recovery, state is maintained in SRAM using the structure #Storage_Instance_t, and in #Storage_DeInit at
+ *      least two of the three recovery structures are updated.
+ *      @n The recovery structures are linked to each other as explained below.
  *
- *  It is a crucial feature of this module to be able to resume operation at all times. Between de-initialization
- *  and re-initialization anything can happen, and no volatile memory can be trusted. Still, speed of operation is
- *  necessary. To be able to restore the exact state - done in #Storage_Init - three different recovery structures
- *  are used:
- *  - #RecoverInfo_t - stored in the general purpose registers
- *  - #Hint_t - stored on a fixed location in EEPROM
- *  - #Marker_t - stored on a variable location, immediately after the last written sample in EEPROM
- *  After recovery, state is maintained in SRAM using the structure #Storage_Instance_t, and in #Storage_DeInit at
- *  least two of the three recovery structures are updated.
- *  @n The recovery structures are linked to each other as explained below.
+ *      - #RecoverInfo_t
+ *          This data is stored in the designated ALON register #STORAGE_FIRST_ALON_REGISTER and is by far the fastest
+ *          and easiest way to recover the current state. It is always tried first. If its data is non-zero, the
+ *          information is trusted and used.
+ *      - #Hint_t
+ *           This data is stored in the last page of the assigned EEPROM region, and also enables recovery of the
+ *           current state in a fast way. However, this structure may be out of date as it may not be updated at every
+ *           change.
+ *           The reason for not updating is to ensure the maximum number of writes (endurance) is never reached.
+ *           However, this data will always accurately tell
+ *           - whether samples are stored or not
+ *           - how much flash is occupied by data storage
+ *           .
+ *           It also provides a possible location to #Marker_t, which may be outdated.
+ *      - #Marker_t
+ *           This data is always stored just after the last sample written in EEPROM. Its precise location is not known,
+ *           as it is progressing together with the data. #RecoverInfo_t points to the start of this structure in the
+ *           assigned EEPROM region; #Hint_t may point to it; if both are failing a full slow search is performed in the
+ *           assigned EEPROM region.
+ *      .
  *
- *  - #RecoverInfo_t
- *      This data is stored in the designated ALON register #STORAGE_FIRST_ALON_REGISTER and is by far the fastest
- *      and easiest way to recover the current state. It is always tried first. If its data is non-zero, the
- *      information is trusted and used.
- *  - #Hint_t
- *       This data is stored in the last page of the assigned EEPROM region, and also enables recovery of the
- *       current state in a fast way. However, this structure may be out of date as it may not be updated at every
- *       change.
- *       The reason for not updating is to ensure the maximum number of writes (endurance) is never reached.
- *       However, this data will always accurately tell
- *       - whether samples are stored or not
- *       - how much flash is occupied by data storage
- *       It also provides a possible location to #Marker_t, which may be outdated.
- *  - #Marker_t
- *       This data is always stored just after the last sample written in EEPROM. Its precise location is not known,
- *       as it is progressing together with the data. #RecoverInfo_t points to the start of this structure in the
- *       assigned EEPROM region; #Hint_t may point to it; if both are failing a full slow search is performed in the
- *       assigned EEPROM region.
- *
- *  When a full backward search is performed during data recovery, we rely on the length of the marker to eliminate
- *  false positives, i.e. to ensure no bit sequence exists that looks like a valid marker but are in reality one or
- *  more samples stored in EEPROM. The comments near the code in #FindMarker explain the length and value of the
- *  marker avoid finding false positives. Yet, although extremely improbable, there is still a very tiny possibility
- *  that real-life data being stored in EEPROM results in such a false positive.
- *  Even then, most applications will never have the need to perform a full backward search, evading this problem.
- *  If your application is more likely to hit this, due to the use case being sufficiently different, and due to the
- *  samples being sufficiently similar, this module can be adapted to erase the full EEPROM after moving all data to
- *  FLASH - see #MoveSamplesFromEepromToFlash. During our continuous tests using randomized data of different
- *  lengths, we have never encountered this problem and therefore decided not to suffer the extra cost (time and
- *  power consumption) of implementing this.
- *
- *  @note the pictures below use this legend:
- *      - @c aaa, @c bbb, ... @c fff: samples, with bitsize #STORAGE_BITSIZE
- *      - @c AA: ALON register, formatted according to #RecoverInfo_t
- *      - @c HH: hint, formatted according to #Hint_t
- *      - @c MMMMMMM: marker, formatted according to #Marker_t
- *      - @c BB: block information, of size #FLASH_DATA_HEADER_SIZE
- *      - @c xxxx: block bytes, the (possibly compressed) data bytes moved from EEPROM and now stored in FLASH
+ *      When a full backward search is performed during data recovery, we rely on the length of the marker to eliminate
+ *      false positives, i.e. to ensure no bit sequence exists that looks like a valid marker but are in reality one or
+ *      more samples stored in EEPROM. The comments near the code in #FindMarker explain the length and value of the
+ *      marker avoid finding false positives. Yet, although extremely improbable, there is still a very tiny possibility
+ *      that real-life data being stored in EEPROM results in such a false positive.
+ *      Even then, most applications will never have the need to perform a full backward search, evading this problem.
+ *      If your application is more likely to hit this, due to the use case being sufficiently different, and due to the
+ *      samples being sufficiently similar, this module can be adapted to erase the full EEPROM after moving all data to
+ *      FLASH - see #MoveSamplesFromEepromToFlash. During our continuous tests using randomized data of different
+ *      lengths, we have never encountered this problem and therefore decided not to suffer the extra cost (time and
+ *      power consumption) of implementing this.
  *
  *  @par Recovering
+ *      In #Storage_DeInit, at least the ALON register (#RecoverInfo_t) and the EEPROM marker (#Marker_t) are updated.
+ *      Assuming only one sample was added, the EEPROM contents would then change as visually depicted below:
  *
- *  In #Storage_DeInit, at least the ALON register (#RecoverInfo_t) and the EEPROM marker (#Marker_t) are updated.
- *  Assuming only one sample was added to the non-volatile EEPROM memory, the EEPROM contents would then change as
- *  visually depicted below:
+ *      @note the pictures below use this legend:
+ *          - @c aaa, @c bbb, ... @c fff: samples, with bitsize #STORAGE_BITSIZE
+ *          - @c AA: ALON register, formatted according to #RecoverInfo_t
+ *          - @c HH: hint, formatted according to #Hint_t
+ *          - @c MMMMMMM: marker, formatted according to #Marker_t
+ *          - @c BB: block info, of size #FLASH_DATA_HEADER_SIZE
+ *          - @c xxxx: block bytes, the (compressed) data bytes moved from EEPROM and now stored in FLASH
+ *          .
  *
- *  @code
- *        EEPROM                            EEPROM
- *       with samples a..d                 with samples a..e
- *      +---------+                       +---------+
- *      | aaabbbc |                       | aaabbbc |
- *      | ccdddMM |     After calling     | ccdddee |
- *      | MMMMM   |     Storage_Write     | eMMMMMM |
- *      |         |     with n=1:         | MM      |
- *      |         |  ------------------>  |         |
- *      |      HH |                       |      HH |
- *      +---------+                       +---------+
+ *      @code
+ *          EEPROM                             EEPROM
+ *         with samples a..d                  with samples a..e
+ *        +---------+                        +---------+
+ *        | aaabbbc |                        | aaabbbc |
+ *        | ccdddMM |     After calling      | ccdddee |
+ *        | MMMMM   |     Storage_Write      | eMMMMMM |
+ *        |         |     with n=1:          | MM      |
+ *        |         |  ------------------>   |         |
+ *        |      HH |                        |      HH |
+ *        +---------+                        +---------+
+ *      @endcode
  *
- *  @endcode
+ *      The ALON register will then point to the new location of the marker; while the hint will not be updated and will
+ *      for sure contain faulty information.
  *
- *  The ALON register will then point to the new location of the marker; while the hint will not be updated and will
- *  for sure contain faulty information.
+ *      @dot
+ *          digraph "Alon, Marker OK" {
+ *              node [shape=box];
+ *              subgraph a {
+ *                  rank=same
+ *                  AA              [label="ALON register", URL="\ref STORAGE_FIRST_ALON_REGISTER"]
+ *              }
+ *              subgraph b {
+ *                  rank=same
+ *                  MMMMMMM         [label="Moving marker in EEPROM", URL="\ref Marker_t"]
+ *                  HH              [label="Hint information on a\nfixed EEPROM location", URL="\ref HINT_ABSOLUTE_BYTE_OFFSET"]
+ *              }
+ *              subgraph c {
+ *                  rank=same
+ *                  flash           [label="flashByteCursor", URL="\ref Storage_Instance_t.flashByteCursor"]
+ *                  random          [label="Wrong location", shape=point]
+ *              }
  *
- *  @dot
- *      digraph "Alon, Marker OK" {
- *          node [shape=box];
- *          subgraph a {
- *              rank=same
- *              AA              [label="ALON register", URL="\ref STORAGE_FIRST_ALON_REGISTER"]
+ *              AA -> MMMMMMM
+ *              HH -> random
+ *              MMMMMMM -> flash
  *          }
- *          subgraph b {
- *              rank=same
- *              MMMMMMM         [label="Moving marker in EEPROM", URL="\ref Marker_t"]
- *              HH              [label="Hint information on a\nfixed EEPROM location", URL="\ref HINT_ABSOLUTE_BYTE_OFFSET"]
- *          }
- *          subgraph c {
- *              rank=same
- *              flash           [label="flashByteCursor", URL="\ref Storage_Instance_t.flashByteCursor"]
- *              random          [label="Wrong location", shape=point]
- *          }
+ *      @enddot
  *
- *          AA -> MMMMMMM
- *          HH -> random
- *          MMMMMMM -> flash
- *      }
- *  @enddot
+ *      When power gets lost, the ALON register contents is reset to @c 0, and will then point to a faulty location as
+ *      well.
  *
- *  When power gets lost, the ALON register contents is reset to @c 0, and will then point to a faulty location as
- *  well.
+ *      @dot
+ *          digraph "Marker OK" {
+ *              node [shape=box];
+ *              subgraph a {
+ *                  rank=same
+ *                  AA              [label="ALON register", URL="\ref STORAGE_FIRST_ALON_REGISTER"]
+ *              }
+ *              subgraph b {
+ *                  rank=same
+ *                  MMMMMMM         [label="Moving marker in EEPROM", URL="\ref Marker_t"]
+ *                  HH              [label="Hint information on a\nfixed EEPROM location", URL="\ref HINT_ABSOLUTE_BYTE_OFFSET"]
+ *                  NULL            [label="0"]
+ *              }
+ *              subgraph c {
+ *                  rank=same
+ *                  flash           [label="flashByteCursor", URL="\ref Storage_Instance_t.flashByteCursor"]
+ *                  random          [shape=point]
+ *              }
  *
- *  @dot
- *      digraph "Marker OK" {
- *          node [shape=box];
- *          subgraph a {
- *              rank=same
- *              AA              [label="ALON register", URL="\ref STORAGE_FIRST_ALON_REGISTER"]
+ *              AA -> NULL
+ *              HH -> random
+ *              MMMMMMM -> flash
  *          }
- *          subgraph b {
- *              rank=same
- *              MMMMMMM         [label="Moving marker in EEPROM", URL="\ref Marker_t"]
- *              HH              [label="Hint information on a\nfixed EEPROM location", URL="\ref HINT_ABSOLUTE_BYTE_OFFSET"]
- *              NULL            [label="0"]
- *          }
- *          subgraph c {
- *              rank=same
- *              flash           [label="flashByteCursor", URL="\ref Storage_Instance_t.flashByteCursor"]
- *              random          [shape=point]
- *          }
+ *      @enddot
  *
- *          AA -> NULL
- *          HH -> random
- *          MMMMMMM -> flash
- *      }
- *  @enddot
+ *      Only the marker will then still be correct, which can be recovered only through a full backward search. When
+ *      that is done, after leaving #Storage_DeInit, all three recovery structures will be correctly linked.
  *
- *  Only the marker will then still be correct, which can be recovered only through a full backward search. When
- *  that is done, after leaving #Storage_DeInit, all three recovery structures will be correctly linked.
+ *      @dot
+ *          digraph "Alon, Hint, Marker OK" {
+ *              node [shape=box];
+ *              subgraph a {
+ *                  rank=same
+ *                  AA              [label="ALON register", URL="\ref STORAGE_FIRST_ALON_REGISTER"]
+ *              }
+ *              subgraph b {
+ *                  rank=same
+ *                  MMMMMMM         [label="Moving marker in EEPROM", URL="\ref Marker_t"]
+ *                  HH              [label="Hint information on a\nfixed EEPROM location", URL="\ref HINT_ABSOLUTE_BYTE_OFFSET"]
+ *              }
+ *              subgraph c {
+ *                  rank=same
+ *                  flash           [label="flashByteCursor", URL="\ref Storage_Instance_t.flashByteCursor"]
+ *              }
  *
- *  @dot
- *      digraph "Alon, Hint, Marker OK" {
- *          node [shape=box];
- *          subgraph a {
- *              rank=same
- *              AA              [label="ALON register", URL="\ref STORAGE_FIRST_ALON_REGISTER"]
+ *              AA -> MMMMMMM
+ *              HH -> MMMMMMM
+ *              MMMMMMM -> flash
  *          }
- *          subgraph b {
- *              rank=same
- *              MMMMMMM         [label="Moving marker in EEPROM", URL="\ref Marker_t"]
- *              HH              [label="Hint information on a\nfixed EEPROM location", URL="\ref HINT_ABSOLUTE_BYTE_OFFSET"]
- *          }
- *          subgraph c {
- *              rank=same
- *              flash           [label="flashByteCursor", URL="\ref Storage_Instance_t.flashByteCursor"]
- *          }
- *
- *          AA -> MMMMMMM
- *          HH -> MMMMMMM
- *          MMMMMMM -> flash
- *      }
- *  @enddot
+ *      @enddot
  *
  *  @par Data corruption
+ *      When the battery is degrading, two scenarios can cause a corruption:
+ *      - the supplied voltage drops too much during a flash operation, hanging the IC or causing a reset. This can
+ *          corrupt the FLASH portion being written to.
+ *      - the supplied voltage drops too much during an EEPROM operation, hanging the IC or causing a reset. This can
+ *          corrupt the EEPROM row being written to.
+ *      .
+ *      The storage module can be fully resilient against this: no data present in the non-volatile memories EEPROM and
+ *      FLASH is lost and all samples can still be read out, with one exception: the samples written after the last
+ *      update to the hint structure cannot be recovered, as no duplicate information is yet available.
  *
- *  When the battery is degrading, two scenarios can cause a corruption:
- *  - the supplied voltage drops too much during a flash operation, hanging the IC or causing a reset. This can
- *      corrupt the FLASH portion being written to.
- *  - the supplied voltage drops too much during an EEPROM operation, hanging the IC or causing a reset. This can
- *      corrupt the EEPROM row being written to.
- *
- *  The storage module can be configured to be fully resilient against this, so that (almost) no data present in the
- *  non-volatile memories EEPROM and FLASH are lost; and that (almost) all samples can still be read out. Only
- *  the samples written after the last update to the hint structure cannot be recovered, as no duplicate information
- *  is yet available.
- *
- *  After a hard reset, the general purpose registers are reset to 0, and the samples temporarily stored there are
- *  lost as well. This brings the total number of minimum lost samples to
- *  #STORAGE_WRITE_RECOVERY_EVERY_X_SAMPLES + #STORAGE_SAMPLE_ALON_CACHE_COUNT - both are diversity settings the
- *  application can set.
+ *      After a hard reset, the general purpose registers are reset to 0, and the samples temporarily stored there are
+ *      also lost. This brings the total number of minimum lost samples to
+ *      #STORAGE_WRITE_RECOVERY_EVERY_X_SAMPLES + #STORAGE_SAMPLE_ALON_CACHE_COUNT - both are diversity settings the
+ *      application can set.
  *
  *  @par Using EEPROM @b and FLASH
+ *      Both EEPROM and FLASH are used to store data - in the form of equisized samples. Since writing to EEPROM is
+ *      cheaper, faster and less complicated than writing to FLASH, it is the preferred storage medium. Whenever the
+ *      size of all the samples stored in EEPROM is large enough - see #STORAGE_BLOCK_SIZE_IN_SAMPLES - all that data is
+ *      moved in one operation to FLASH. EEPROM is then completely empty, and new samples are then in EEPROM again.
  *
- *  Both EEPROM and FLASH are used to store data - in the form of equisized samples. Since writing to EEPROM is
- *  cheaper, faster and less complicated than writing to FLASH, it is the preferred storage medium. Whenever the
- *  size of all the samples stored in EEPROM is large enough - see #STORAGE_BLOCK_SIZE_IN_SAMPLES - all that data is
- *  moved in one operation to FLASH. EEPROM is then completely empty, and new samples are then in EEPROM again.
+ *      The memory content changes are visually depicted below. If writing a new sample would increase the size to equal
+ *      to or higher than #STORAGE_BLOCK_SIZE_IN_SAMPLES, first the EEPROM contents are moved, then the new sample is
+ *      written.
  *
- *  The memory content changes are visually depicted below. If writing a new sample would increase the size to equal
- *  to or higher than #STORAGE_BLOCK_SIZE_IN_SAMPLES, first the EEPROM contents are moved, then the new sample is
- *  written.
+ *      @code
+ *          EEPROM                                 EEPROM
+ *         with samples a..e                      with sample f only
+ *        +---------+                            +---------+
+ *        | aaabbbc |                            | fffMMMM |
+ *        | cc..... |                            | MMM     |
+ *        | ....... |                            |         |
+ *        | ....ddd |  ---------------------->   |         |
+ *        | eeeMMMM |                            |         |
+ *        | MMM  HH |                            |      HH |
+ *        +---------+                            +---------+
  *
- *  @code
- *      Before writing sample f                 After writing sample f
- *
- *        EEPROM                                EEPROM
- *       with samples a..e                     with sample f only
- *      +---------+                           +---------+
- *      | aaabbbc |                           | fffMMMM |
- *      | cc..... |                           | MMM     |
- *      | ....... |                           |         |
- *      | ....ddd |  ---------------------->  |         |
- *      | eeeMMMM |                           |         |
- *      | MMM  HH |                           |      HH |
- *      +---------+                           +---------+
- *
- *        FLASH                                 FLASH
- *       with one block moved from EEPROM      with two blocks moved from EEPROM
- *      +---------+                           +---------+
- *      | BBxxxxx |                           | BBxxxxx |
- *      | xxxxxxx |                           | xxxxxxx |
- *      | x       |  ---------------------->  | xBBxxxx |
- *      |         |                           | xxxxx   |
- *      |         |                           |         |
- *      |         |                           |         |
- *      +---------+                           +---------+
- *  @endcode
+ *          FLASH                                  FLASH
+ *         with one block moved from EEPROM       with two blocks moved from EEPROM
+ *        +---------+                            +---------+
+ *        | BBxxxxx |                            | BBxxxxx |
+ *        | xxxxxxx |                            | xxxxxxx |
+ *        | x       |  ---------------------->   | xBBxxxx |
+ *        |         |                            | xxxxx   |
+ *        |         |                            |         |
+ *        |         |                            |         |
+ *        +---------+                            +---------+
+ *      @endcode
  *
  *  @par Caching data
+ *      To reduce the number of EEPROM flushes, data is initially @b not stored in non-volatile memories EEPROM and
+ *      FLASH. Instead, the reserved general purpose registers are used to cache the data. The value is preserved
+ *      when entering and leaving a deep power down, but any inadvertent reset clears the registers, losing the data.
+ *      This is not a disadvantage, since the cached data will be moved to non-volatile memory before writing the hint
+ *      The benefit is a reduction of the required EEPROM program operations. This helps in avoiding the write
+ *      endurance limit even when storing massive amounts of data, and also reduces the stress on the battery when it
+ *      nears end-of-life.
  *
- *  To reduce the number of EEPROM flushes, data is initially @b not stored in non-volatile memories EEPROM and
- *  FLASH. Instead, the reserved general purpose registers are used to cache the data. The value is preserved
- *  when entering and leaving a deep power down, but any inadvertent reset clears the registers, losing the data.
- *  This is not a disadvantage, since the cached data will be moved to non-volatile memory before writing the hint.
- *
- *  The benefit is a reduction of the required EEPROM program operations. This helps in avoiding the write
- *  endurance limit even when storing massive amounts of data, and also reduces the stress on the battery when it
- *  nears end-of-life.
- *
- *  @anchor storage_initializing_par
+ * @anchor storage_initializing_par
  *  @par Initializing
+ *      The implementation of #Storage_Init tries to recover the complete state as fast as possible. This can be done
+ *      when either the recovery info or the hint information points to a valid marker structure. When a slow search
+ *      is required, the initialization function make sure a next call will be fast.
+ *      @n #Storage_Init implements this flowchart:
  *
- *  The implementation of #Storage_Init tries to recover the complete state as fast as possible. This can be done
- *  when either the recovery info or the hint information points to a valid marker structure. When a slow search
- *  is required, the initialization function make sure a next call will be fast.
- *  @n #Storage_Init implements this flowchart:
+ *      @dot
+ *          digraph "Storage_Init" {
+ *            start [label="", shape=circle];
  *
- *  @dot
- *      digraph "Storage_Init" {
- *        start [label="", shape=circle];
+ *            subgraph cluster_rhf {
+ *              rank=same
+ *              label="Find Marker"
  *
- *        subgraph cluster_rhf {
- *          rank=same
- *          label="Find Marker"
+ *              subgraph r {
+ *                node_rv [label="Recovery info\nfrom ALON register\nvalid?", shape=diamond]
+ *                node_rg [label="Read marker location\nin EEPROM pointed to\nby recovery info" shape=rectangle]
+ *                node_rmv [label="Marker\nvalid?", shape=diamond]
+ *              }
+ *              subgraph h {
+ *                node_hv [label="Hint info\nfrom fixed EEPROM\nlocation valid?", shape=diamond]
+ *                node_hg [label="Read marker location\nin EEPROM pointed to\nby hint info" shape=rectangle]
+ *                node_hmv [label="Marker\nvalid?", shape=diamond]
+ *              }
+ *              subgraph f {
+ *                node_none [label="----------------------------------", shape=none, fontcolor=white]
+ *                node_f [label="Start a slow search\nRead the entire EEPROM\nto find a valid marker", shape=rectangle]
+ *                node_fmv [label="Marker\nfound?", shape=diamond]
+ *              }
+ *            }
  *
- *          subgraph r {
- *            node_rv [label="Recovery info\nfrom ALON register\nvalid?", shape=diamond]
- *            node_rg [label="Read marker location\nin EEPROM pointed to\nby recovery info" shape=rectangle]
- *            node_rmv [label="Marker\nvalid?", shape=diamond]
+ *            subgraph c {
+ *              node_c1 [label="Hint info\nvalid?", shape=diamond]
+ *              node_c2 [label="Hint info\nvalid?", shape=diamond]
+ *            }
+ *
+ *            subgraph cluster_i {
+ *              label="              Initialize instance"
+ *
+ *              node_inito [label="No data present or\nno data can be recovered.\nWrite a new marker and a new hint", shape=rectangle]
+ *              node_inith [label="Recover data from last row and\naccept potential loss of data.\nWrite a new marker", shape=rectangle]
+ *              node_initm1 [label="All data is retained.\nWrite a new hint", shape=rectangle]
+ *              node_initm2 [label="All data is retained", shape=rectangle]
+ *            }
+ *
+ *            end [label="", shape=circle, style=filled, color=black];
+ *
+ *            start -> node_rv
+ *            node_rv -> node_rg [label="yes"]
+ *            node_rv -> node_hv [label=" no"]
+ *            node_rg -> node_rmv
+ *            node_rmv -> node_c2 [label=" yes"]
+ *            node_rmv -> node_hv [label="no"]
+ *            node_hv -> node_hg [label="yes"]
+ *            node_hv -> node_f [label="no"]
+ *            node_hg -> node_hmv
+ *            node_hmv -> node_c2 [label=" yes"]
+ *            node_hmv -> node_f [label="no"]
+ *            node_f -> node_fmv
+ *            node_fmv -> node_c2 [label="yes"]
+ *            node_fmv -> node_c1 [label="no"]
+ *            node_c1 -> node_inith [label=" yes"]
+ *            node_c1 -> node_inito [label="no"]
+ *            node_c2 -> node_initm1 [label=" no"]
+ *            node_c2 -> node_initm2 [label=" yes"]
+ *            node_inito -> end
+ *            node_inith -> end
+ *            node_initm1 -> end
+ *            edge [weight=2]
+ *            node_initm2 -> end
  *          }
- *          subgraph h {
- *            node_hv [label="Hint info\nfrom fixed EEPROM\nlocation valid?", shape=diamond]
- *            node_hg [label="Read marker location\nin EEPROM pointed to\nby hint info" shape=rectangle]
- *            node_hmv [label="Marker\nvalid?", shape=diamond]
- *          }
- *          subgraph f {
- *            node_none [label="----------------------------------", shape=none, fontcolor=white]
- *            node_f [label="Start a slow search\nRead the entire EEPROM\nto find a valid marker", shape=rectangle]
- *            node_fmv [label="Marker\nfound?", shape=diamond]
- *          }
- *        }
- *
- *        subgraph c {
- *          node_c1 [label="Hint info\nvalid?", shape=diamond]
- *          node_c2 [label="Hint info\nvalid?", shape=diamond]
- *        }
- *
- *        subgraph cluster_i {
- *          label="              Initialize instance"
- *
- *          node_inito [label="No data present or\nno data can be recovered.\nWrite a new marker and a new hint", shape=rectangle]
- *          node_inith [label="Recover data from last row and\naccept potential loss of data.\nWrite a new marker", shape=rectangle]
- *          node_initm1 [label="All data is retained.\nWrite a new hint", shape=rectangle]
- *          node_initm2 [label="All data is retained", shape=rectangle]
- *        }
- *
- *        end [label="", shape=circle, style=filled, color=black];
- *
- *        start -> node_rv
- *        node_rv -> node_rg [label="yes"]
- *        node_rv -> node_hv [label=" no"]
- *        node_rg -> node_rmv
- *        node_rmv -> node_c2 [label=" yes"]
- *        node_rmv -> node_hv [label="no"]
- *        node_hv -> node_hg [label="yes"]
- *        node_hv -> node_f [label="no"]
- *        node_hg -> node_hmv
- *        node_hmv -> node_c2 [label="yes    "]
- *        node_hmv -> node_f [label="no"]
- *        node_f -> node_fmv
- *        node_fmv -> node_c2 [label="yes"]
- *        node_fmv -> node_c1 [label=" no"]
- *        node_c1 -> node_inith [label=" yes"]
- *        node_c1 -> node_inito [label="no"]
- *        node_c2 -> node_initm1 [label=" no"]
- *        node_c2 -> node_initm2 [label=" yes"]
- *        node_inito -> end
- *        node_inith -> end
- *        node_initm1 -> end
- *        edge [weight=2]
- *        node_initm2 -> end
- *      }
- *  @enddot
+ *      @enddot
  */
 
 /**
@@ -376,6 +368,7 @@
  *      memory would then be the AND of the codes for the previous and new value written, and
  *      will most likely be inconsistent with the resulting data, potentially resulting in unwanted or
  *      missing bit corrections, or spurious error conditions. [C-NODPG]</em>
+ *  .
  */
 #define FLASH_BLOCK_SIZE(bitCount) (4 * STORAGE_IDIVUP((bitCount) + FLASH_DATA_HEADER_SIZE * 8, 32))
 
@@ -475,6 +468,7 @@ typedef struct RecoverInfo_s {
  *  initialization under the same circumstances is done quickly).
  * - The Hint_t instance also contains a duplicate reference to flashByteCursor. This will be used when the marker is no
  *  longer available or is corrupt.
+ * .
  */
 typedef struct Hint_s {
     /** @see Storage_Instance_t.eepromBitCursor */
@@ -500,6 +494,7 @@ typedef struct Marker_s {
      *  - WO to set the value equal to #Storage_Instance_t.flashByteCursor in #Storage_DeInit, or to clear the
      *      marker from EEPROM in #Storage_Reset,
      *  - not to be read, not to be written to at all other times.
+     *  .
      */
     int flashByteCursor;
 
@@ -575,6 +570,7 @@ typedef struct Storage_Instance_s {
      * The sequence number that was requested in the last call to #Storage_Seek.
      * - This value equals @c readSequence in case @c readLocation equals #LOCATION_EEPROM or #LOCATION_CACHE
      * - This value may be equal - but is unlikely to - in case @c readLocation equals #LOCATION_FLASH
+     * .
      */
     int targetSequence;
 
@@ -587,6 +583,7 @@ typedef struct Storage_Instance_s {
      *  from the start of #STORAGE_WORKAREA.
      * - @c -1 if #STORAGE_WORKAREA does not contain samples after decompressing a data block stored in FLASH, or
      *  if #STORAGE_WORKAREA is used to compress data.
+     * .
      */
     int cachedBlockOffset;
 } Storage_Instance_t;
@@ -759,6 +756,7 @@ static void ResetInstance(void)
  *  - With @c - indicating not touched or don't care,
  *  - @c bitAlignment equal to @c 5, and
  *  - @c bitCount equal to @c 14:
+ *  .
  *  @code 8765 4321   --fe dcba is copied as 321- ----   cba8 7654   0000 0fed @endcode
  */
 static void ShiftAlignedData(uint8_t * pTo, const uint8_t * pFrom, const int bitAlignment, const int bitCount)
@@ -813,6 +811,7 @@ static void ShiftAlignedData(uint8_t * pTo, const uint8_t * pFrom, const int bit
  *  - With @c - indicating not touched or don't care,
  *  - @c bitAlignment equal to @c 5, and
  *  - @c bitCount equal to @c 14:
+ *  .
  *  @code 321- ----   cba8 7654   ---- -fed is copied as 8765 4321   00fe dcba @endcode
  */
 static void ShiftUnalignedData(uint8_t * pTo, const uint8_t * pFrom, const int bitAlignment, const int bitCount)
@@ -1293,6 +1292,7 @@ static bool MoveSamplesFromEepromToFlash(void)
  *      equal to the number of bytes to advance the read cursor to the header of the next (compressed) data block.
  *  - @c 0 when the FLASH contents were invalid, or when the decompression callback function returned @c false:
  *      nothing has been changed in that case.
+ *  .
  * @post Only #Storage_Instance_t.cachedBlockOffset is fully updated when this function returns.
  * @note Uses #STORAGE_WORKAREA. Only the first #STORAGE_UNCOMPRESSED_BLOCK_SIZE_IN_BYTES bytes are in use
  *  when this function returns.
@@ -1497,7 +1497,8 @@ void Storage_Init(void)
     }
     Chip_EEPROM_Flush(NSS_EEPROM, true);
     /* After this point and before adding new samples, a new initialization of the storage module after a power failure
-     * will always have a fast initialization, avoiding a slow search by calling FindMarker.
+     * will always have a fast initialization, avoiding a slow search by calling FindMarker. Or, case (RH) can not occur
+     * for as long as new samples have not been added.
      */
 }
 
@@ -1506,12 +1507,7 @@ void Storage_DeInit(void)
     /* Write the marker, but only when samples have been added or when the module has been reset - to avoid hitting
      * the max write cycles of the EEPROM.
      */
-
-    Marker_t marker;
-    ReadFromEeprom(spRecoverInfo->eepromBitCursor, &marker, sizeof(marker) * 8);
-    bool markerIsValid = ValidateMarker(&marker, -1);
-
-    if (sEepromBitCursorChanged || (!markerIsValid)) {
+    if (sEepromBitCursorChanged) {
         WriteMarker();
     }
 

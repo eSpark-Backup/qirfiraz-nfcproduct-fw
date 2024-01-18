@@ -10,7 +10,7 @@
 #include <lsl_logs.h>
 
 #define STORAGE_EEPROM_FIRST_ROW 24
-#define STORAGE_BITSIZE 80    //56
+#define STORAGE_BITSIZE 56
 #define STORAGE_TYPE LOGS_LOG_T
 #define STORAGE_COMPRESS_CB Logs_Compress_Cb
 #define STORAGE_DECOMPRESS_CB Logs_Decompress_Cb

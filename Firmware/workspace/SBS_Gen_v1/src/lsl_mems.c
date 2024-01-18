@@ -316,11 +316,9 @@ void PIO0_IRQHandler(void){
 
 void RTC_IRQHandler(void){
 	// asi tuto bol problem
-	//maybe this was the problem
 	Chip_RTC_Int_ClearRawStatus(NSS_RTC, RTC_INT_ALL);
 
 	// nasledovne riadky tu asi nemusia byt, treba vyskusat
-	//the following lines probably don't have to be here, you have to try
 	NFC_REG_SENSOR_SETTINGS_T sensSettings;
 	Chip_EEPROM_Read(NSS_EEPROM, NFC_REG_SENSOR_SETTINGS_OFFSET, (uint8_t*) &sensSettings, NFC_REG_SENSOR_SETTINGS_LENGTH);
 	Chip_RTC_Wakeup_SetReload(NSS_RTC, sensSettings.measure_interval);

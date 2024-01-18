@@ -21,9 +21,12 @@
  *      - #NDEFT2T_FIELD_STATUS_CB
  *      - #NDEFT2T_MSG_AVAILABLE_CB
  *      - #NDEFT2T_MSG_READ_CB
+ *      .
  *  - Miscellaneous flags
  *      - #NDEFT2T_EEPROM_COPY_SUPPPORT
  *      - #NDEFT2T_MESSAGE_HEADER_LENGTH_CORRECTION
+ *      .
+ *  .
  * @{
  */
 #ifndef __NDEFT2T_DFT_H_

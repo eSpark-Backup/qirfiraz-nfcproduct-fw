@@ -42,6 +42,7 @@
  *  -# To compress, simply call Compress_Encode. No preparation or initialization is necessary.
  *  -# To uncompress, call Compress_Decod. No preparation or initialization is necessary.
  *  -# Compress_Decode o Compress_Encode is an identity function.
+ *  .
  *
  * @par Example
  *  @snippet compress_mod_example_1.c compress_mod_example_1

@@ -93,6 +93,7 @@ typedef void (*pTMeas_Cb_t)(TSEN_RESOLUTION_T resolution, TMEAS_FORMAT_T format,
  *   - If @c true the function is synchronous, and will only return once the measurement is complete.
  *   - Else the function is asynchronous; it will return immediately, and once the temperature sensor has completed
  *     its measurement, the temperature is reported via the callback function @c TMEAS_CB.
+ *   .
  * @param context : Context information for the caller. You can fill in any value here: it is not used by this mod,
  *   only stored and sent back in a later call to @c TMEAS_CB. Use this as an aid for your own housekeeping, or
  *   disregard this argument: it doesn't impede the mod's working in any way.
@@ -100,6 +101,7 @@ typedef void (*pTMeas_Cb_t)(TSEN_RESOLUTION_T resolution, TMEAS_FORMAT_T format,
  *   - If no measurement could be taken (TSEN HW block in use), #TMEAS_ERROR is returned.
  *   - Else, if @c synchronous equals @c true, the measured temperature.
  *   - Else, @c 0 to indicate a measurement is ongoing and the callback will be called when the measurement is ready.
+ *   .
  * @note @c TMEAS_CB will be called under interrupt.
  * @note This function is not re-entrant.
  * @see pTMeas_Cb_t

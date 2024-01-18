@@ -27,6 +27,7 @@
  *  -# Read boot code version.
  *  -# Read UID (Unique Identification) which is the device serial number.
  *  -# Perform comparison of two memory spaces.
+ *  .
  * The "Prepare" command will unprotect the sectors, and upon success execution of the flash operations
  * including sector erase, page erase, and program commands, the touched sectors will be protected automatically.
  *
@@ -45,6 +46,7 @@
  *  - Flash address : start address of sector 10. (Since each sector contain 16 pages, the first page in sector 10 is
  *      10 * 16 = 160. Since sectors are 1024 bytes, the start address of sector 10 is 10 * 1024 = 10240.)
  *  - System clock : 8 MHz
+ *  .
  *  @snippet iap_nss_example_1.c iap_nss_example_1
  *
  * @par Example 2 - Load RTC factory calibration value into RTC
@@ -100,6 +102,7 @@ uint32_t Chip_IAP_ReadPartID(void);
  *  - <Byte 2> : Reserved.
  *  - <Byte 1> : Major Version Number, 8 bits.
  *  - <Byte 0> : Minor Version Number, 8 bits, LSB.
+ *  .
  * @note Mask operation is required in order to get the correct version number.
  */
 int Chip_IAP_ReadBootVersion(void);
@@ -169,6 +172,7 @@ IAP_STATUS_T Chip_IAP_Flash_ErasePage(uint32_t pageStart, uint32_t pageEnd, uint
  *      all 0xFFs
  *  - User needs to ensure that partial writes are always in a word boundary (the content of one word shall not be
  *      written more than once after erasing)
+ *  .
  *  Typical flow:
  *      -# Erase page (content is FFFFFFFF FFFFFFFF ... FFFFFFFF)
  *      -# Write first word 0x01234567 by writing "01234567 FFFFFFFF ... FFFFFFFF"
@@ -177,6 +181,8 @@ IAP_STATUS_T Chip_IAP_Flash_ErasePage(uint32_t pageStart, uint32_t pageEnd, uint
  *          - writing "FFFFFFFF 89ABCDEF ... FFFFFFFF", or
  *          - writing "01234567 89ABCDEF ... FFFFFFFF"
  *              (content becomes 01234567 89ABCDEF ... FFFFFFFF)
+ *          .
+ *      .
  *  Writing to the first and second word after this flow requires a new erase procedure, but writing words 3 to 16 not.
  * @note Please keep the claimed RAM area untouched. Refer to user manual for more details.
  * @pre If the Interrupt Vector Table is placed in Flash (default setup) disable all interrupts: #__disable_irq(void)

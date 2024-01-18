@@ -1,6 +1,5 @@
 /*
- * Copyright 2014-2019,2021 NXP
- * NXP confidential
+ * Copyright 2014-2019 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -19,7 +18,7 @@ static void Read1BFifo(NSS_SSP_T *pSSP, Chip_SSP_DATA_SETUP_T *xf_setup);
 
 /* ------------------------------------------------------------------------- */
 
-/** Write 2 bytes to FIFO buffer */
+/** SSP macro: write 2 bytes to FIFO buffer */
 static void Write2BFifo(NSS_SSP_T *pSSP, Chip_SSP_DATA_SETUP_T *xf_setup)
 {
     if (xf_setup->tx_data) {
@@ -45,7 +44,7 @@ static void Write1BFifo(NSS_SSP_T *pSSP, Chip_SSP_DATA_SETUP_T *xf_setup)
     xf_setup->tx_cnt++;
 }
 
-/** Read continually 2 bytes from FIFO buffer */
+/** Read 2 bytes from FIFO buffer */
 static void Read2BFifo(NSS_SSP_T *pSSP, Chip_SSP_DATA_SETUP_T *xf_setup)
 {
     uint16_t rDat;
@@ -60,7 +59,7 @@ static void Read2BFifo(NSS_SSP_T *pSSP, Chip_SSP_DATA_SETUP_T *xf_setup)
     }
 }
 
-/** Read continually 1 byte from FIFO buffer */
+/** Read 1 byte from FIFO buffer */
 static void Read1BFifo(NSS_SSP_T *pSSP, Chip_SSP_DATA_SETUP_T *xf_setup)
 {
     uint16_t rDat;
@@ -259,8 +258,9 @@ uint32_t Chip_SSP_ReadFrames_Blocking(NSS_SSP_T *pSSP, uint8_t *buffer, uint32_t
 
 void Chip_SSP_Int_FlushData(NSS_SSP_T *pSSP)
 {
-    while (Chip_SSP_GetStatus(pSSP, SSP_STAT_BSY)) {
-        ;
+    if (Chip_SSP_GetStatus(pSSP, SSP_STAT_BSY)) {
+        while (Chip_SSP_GetStatus(pSSP, SSP_STAT_BSY)) {
+        }
     }
 
     /* Clear all remaining frames in RX FIFO */

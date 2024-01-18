@@ -33,6 +33,7 @@
  *      #LED_ALL.
  *      The second argument - if present - is @c states that identifies the new states for the LEDs. A bit value of @c 1
  *      indicates an 'on' value, a value of 0 indicates an 'off' value.
+ *  .
  *
  * @par Diversity
  *  This module supports diversity: the number of LEDs it can control and how they are configured.

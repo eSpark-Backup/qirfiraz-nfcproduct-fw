@@ -25,6 +25,7 @@
  *  - System Oscillator (SFRO) which runs at 8MHz and is the clock source for the System Clock (AHB Clock), Peripheral
  *      Clocks and Watchdog Clock domains.
  *  - Timer Oscillator (TFRO) which runs at 32.768 kHz and is the clock source for the PMU and RTC.
+ *  .
  * The Clock driver allows configuring the separate clocks that drive all the mentioned domains, namely regarding
  * division, gating and selection of the clock sources.
  *
@@ -38,6 +39,7 @@
  *      -# Watchdog Clock divider: Divides the selected Watchdog clock source (SFRO by default) into the clock that
  *          drives the Watchdog timer. This divider is configured to 0 by default (disabled) and can be configured using
  *          the #Chip_Clock_Watchdog_SetClockFreq function.
+ *      .
  *
  * @par Clock Gating:
  *  The clocks to peripheral HW blocks can be enabled and disabled using the #Chip_Clock_Peripheral_EnableClock
@@ -53,6 +55,7 @@
  *          however it can be configured using the #Chip_Clock_Clkout_SetClockSource function. Note that the pin must be
  *          properly configured so that it can output the required clock. Please refer to @ref IOCON_NSS "IOCON driver"
  *          for pin configuration.
+ *      .
  *  Note that the TFRO is part of the Power Management Unit (PMU) HW block, which is an always-on power domain. The
  *  handling of this clock source is, thus, covered in the @ref PMU_NSS "PMU driver".
  * @{
@@ -125,6 +128,7 @@ int Chip_Clock_System_GetClockDiv(void);
  *  either
  *  - high power mode is configured - #Chip_Flash_SetHighPowerMode with argument @c true, or
  *  - the number of wait states for flash operations is not 0 - #Chip_Flash_SetNumWaitStates with argument 1 or higher.
+ *  .
  *  Failure to do so will result in a hard fault (flash access error).
  *  See also @ref NSS_CLOCK_RESTRICTIONS
  */

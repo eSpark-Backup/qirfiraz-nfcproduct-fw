@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2019,2021 NXP
+ * Copyright 2015-2019 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -30,7 +30,7 @@
 /**
  * Defines the major API version. This should be incremented each time the API changes.
  */
-#define MSG_API_MAJOR_VERSION (0x7)
+#define MSG_API_MAJOR_VERSION (0x6)
 
 /**
  * Defines the minor API version. This should be reset each time the API changes, and incremented each time the API
@@ -100,6 +100,7 @@ typedef struct MSG_RESPONSE_RESULTONLY_S {
      *  #MSG_OK means that the commands was successfully received and execution of the command has started,
      *  any other value indicates an error code and signifies that the command will be partially executed or not at
      *  all. The final result of the execution of the command will be part of the response that will be queued later.
+     * .
      * @note If this structure is used to respond to the command #MSG_ID_GETRESPONSE, it signifies the final
      *  result of the execution of an asynchronous command.
      */
@@ -117,6 +118,7 @@ typedef struct MSG_RESPONSE_GETVERSION_S {
      * This value will be equal to:
      *  - @c 0x4E310020 for NHS3100 devices
      *  - @c 0x4E315220 for NHS3152 devices
+     *  .
      */
     uint32_t deviceId;
 } MSG_RESPONSE_GETVERSION_T;
@@ -188,6 +190,11 @@ typedef struct MSG_RESPONSE_GETCALIBRATIONTIMESTAMP_S {
 } MSG_RESPONSE_GETCALIBRATIONTIMESTAMP_T;
 #endif
 
+#if ENABLE_DIAG_MODULE
+/** @see MSG_ID_GETDIAGDATA */
+typedef DIAG_DATA_T MSG_RESPONSE_GETDIAGDATA_T;
+#endif
+
 #pragma pack(pop)
 
 /* ------------------------------------------------------------------------- */
@@ -205,6 +212,7 @@ typedef struct MSG_RESPONSE_GETCALIBRATIONTIMESTAMP_S {
  *  - @c false if the response was rejected. The response will be stored internally by the message handler module, and
  *      can be fetched later by issuing the command #MSG_ID_GETRESPONSE. If the internal storage is full, the oldest
  *      response is discarded.
+ *  .
  */
 typedef bool (*pMsg_ResponseCb_t)(int responseLength, const uint8_t* pResponseData);
 

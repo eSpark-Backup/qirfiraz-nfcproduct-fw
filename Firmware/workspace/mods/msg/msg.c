@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2019,2021 NXP
+ * Copyright 2015-2019 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -68,6 +68,9 @@ static uint32_t CheckBatteryHandler(uint8_t msgId, int payloadLen, const uint8_t
 #if MSG_ENABLE_GETCALIBRATIONTIMESTAMP
 static uint32_t GetCalibrationTimestampHandler(uint8_t msgId, int payloadLen, const uint8_t* pPayload);
 #endif
+#if ENABLE_DIAG_MODULE
+static uint32_t GetDiagDataHandler(uint8_t msgId, int payloadLen, const uint8_t* pPayload);
+#endif
 
 static uint32_t DispatchCommand(uint8_t msgId, int payloadLen, const uint8_t* pPayload,
                                 const MSG_CMD_HANDLER_T * handler, int handlerCount);
@@ -116,6 +119,9 @@ static MSG_CMD_HANDLER_T sCmdHandler[] = {
 #if MSG_ENABLE_GETCALIBRATIONTIMESTAMP
     {MSG_ID_GETCALIBRATIONTIMESTAMP, GetCalibrationTimestampHandler},
 #endif
+#if ENABLE_DIAG_MODULE
+    {MSG_ID_GETDIAGDATA, GetDiagDataHandler},
+#endif
 };
 
 #if MSG_RESPONSE_BUFFER_SIZE
@@ -130,6 +136,7 @@ static MSG_CMD_HANDLER_T sCmdHandler[] = {
  *  - Responses are always stored in one contiguous block of memory. When the size byte equals
  *      #RESPONSE_SIZE_SKIP_TO_END the next response can be found at @c spResponseBuffer[0].
  *  - When any public function is left, @c *spNextResponse is always 0.
+ *  .
  * @{
  */
 static uint8_t * spResponseBuffer;
@@ -162,10 +169,6 @@ static uint32_t GetResponseHandler(uint8_t msgId, int payloadLen, const uint8_t*
         uint8_t* pPayloadStored = spOldestResponse + 1 + MSG_HEADER_SIZE;
         Msg_AddResponse(msgIdStored, payloadLenStored, pPayloadStored);
         spOldestResponse += 1 + *spOldestResponse;
-        if (spOldestResponse >= spResponseBuffer + MSG_RESPONSE_BUFFER_SIZE) {
-            ASSERT(spOldestResponse == spResponseBuffer + MSG_RESPONSE_BUFFER_SIZE); /* A failure indicates a buffer overflow. */
-            spOldestResponse = spResponseBuffer;
-        }
     }
     return MSG_OK;
 }
@@ -410,6 +413,23 @@ static uint32_t GetCalibrationTimestampHandler(uint8_t msgId, int payloadLen, co
 }
 #endif
 
+#if ENABLE_DIAG_MODULE
+/** @see MSG_ID_GETDIAGDATA */
+static uint32_t GetDiagDataHandler(uint8_t msgId, int payloadLen, const uint8_t* pPayload)
+{
+    MSG_RESPONSE_GETDIAGDATA_T response;
+    ASSERT(msgId == MSG_ID_GETDIAGDATA);
+
+    (void)msgId; /* suppress [-Wunused-parameter] */
+    (void)payloadLen; /* suppress [-Wunused-parameter]: no argument is expected, but if present redundantly, just ignore. */
+    (void)pPayload; /* suppress [-Wunused-parameter]: no argument is expected, but if present redundantly, just ignore. */
+
+    response = *Diag_Get();
+    Msg_AddResponse(msgId, sizeof(response), (uint8_t*)&response);
+    return MSG_OK;
+}
+#endif
+
 /* ------------------------------------------------------------------------- */
 
 static uint32_t DispatchCommand(uint8_t msgId, int payloadLen, const uint8_t* pPayload,
@@ -472,14 +492,15 @@ void Msg_AddResponse(uint8_t msgId, int payloadLen, const uint8_t* pPayload)
     #endif
     }
     else { /* Response must be stored so it can be fetched later. */
+        int skipCount;
         int rolloverCount;
 
         /* Check if the response can be stored in the buffer without splitting.
          * If not, we skip the remainder of the buffer, thereby increasing the required space.
          */
+        skipCount = 0;
         if (spNextResponse + 1 + responseLength > spResponseBuffer + MSG_RESPONSE_BUFFER_SIZE) {
-            *spNextResponse = RESPONSE_SIZE_SKIP_TO_END;
-            spNextResponse = spResponseBuffer;
+            skipCount = MSG_RESPONSE_BUFFER_SIZE + spResponseBuffer - spNextResponse;
         }
 
         /* Determine what to add to spOldestResponse to have comparisons as if the buffer was linear. */
@@ -489,7 +510,7 @@ void Msg_AddResponse(uint8_t msgId, int payloadLen, const uint8_t* pPayload)
         }
 
         /* Check if one or more oldest responses must be discarded. */
-        while (spNextResponse + 1 + responseLength >= spOldestResponse + rolloverCount) {
+        while (spNextResponse + 1 + responseLength + skipCount >= spOldestResponse + rolloverCount) {
             if (*spOldestResponse == RESPONSE_SIZE_SKIP_TO_END) {
                 /* Discard a dummy response that was added because the next response didn't fit in the remaining space
                  * in the buffer. No need to inform anyone.
@@ -508,10 +529,16 @@ void Msg_AddResponse(uint8_t msgId, int payloadLen, const uint8_t* pPayload)
                 spOldestResponse += 1 + *spOldestResponse;
                 if (spOldestResponse >= spResponseBuffer + MSG_RESPONSE_BUFFER_SIZE) {
                     ASSERT(spOldestResponse == spResponseBuffer + MSG_RESPONSE_BUFFER_SIZE); /* A failure indicates a buffer overflow. */
-                    spOldestResponse = spResponseBuffer;
+                    spOldestResponse -= MSG_RESPONSE_BUFFER_SIZE;
                     rolloverCount = MSG_RESPONSE_BUFFER_SIZE;
                 }
             }
+        }
+
+        /* Store the marker to skip the remainder of the buffer, if needed. */
+        if (skipCount > 0) {
+            *spNextResponse = RESPONSE_SIZE_SKIP_TO_END;
+            spNextResponse = spResponseBuffer;
         }
 
         /* Store the new response. */

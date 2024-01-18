@@ -8,10 +8,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -44,10 +44,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -80,10 +80,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -116,10 +116,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -152,10 +152,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -188,10 +188,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -224,10 +224,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -260,10 +260,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -296,10 +296,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -332,10 +332,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -368,10 +368,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -404,10 +404,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -440,10 +440,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">
@@ -476,10 +476,10 @@
 						<entry kind="includePath" name="/${ProjName}/inc">
 							<flag value="VALUE_WORKSPACE_PATH"/>
 						</entry>
-						<entry kind="includePath" name="/lib_chip_nss/inc">
+						<entry kind="includePath" name="/lib_board_dp/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="/lib_board_dp/inc">
+						<entry kind="includePath" name="/lib_chip_nss/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/mods">

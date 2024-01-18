@@ -41,6 +41,7 @@
  *      -# Initialization (cq zeroing) of all variables
  *      -# Initialization of the runtime lib (C++ only)
  *      -# Calling main
+ *      .
  *  There is a fourth step: when main returns (should never happen), there is an assert and hang.
  *
  * @par Example 1 - Implement timer interrupt handler
@@ -81,6 +82,7 @@
  *  -# Call #Startup_VarInit (Variable initialization etc.)
  *  -# Initialization of the runtime libraries (if c++)
  *  -# Call @c main to start the actual application
+ *  .
  *  @note If user overrides its #WEAK implementation, he should not forget to call #Startup_VarInit and @c main.
  */
 WEAK void ResetISR(void);

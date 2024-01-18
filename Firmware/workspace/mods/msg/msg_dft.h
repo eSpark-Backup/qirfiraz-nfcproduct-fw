@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2019,2021 NXP
+ * Copyright 2015-2019 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -21,28 +21,38 @@
  *      - #MSG_APP_HANDLERS,
  *      - #MSG_APP_HANDLERS_COUNT and
  *      - #MSG_CATCHALL_HANDLER.
+ *      .
+ *  .
  *
  * @par Special message ids
  *  - #MSG_ID_GETVERSION is a special message id, as it is always enabled - see #MSG_ENABLE_GETVERSION. @n
  *      There are two related flags for this id:
  *      - #SW_MAJOR_VERSION and
  *      - #SW_MINOR_VERSION.
+ *      .
  *  - #MSG_ID_GETRESPONSE is a special message id, as it is automatically enabled when you expand the functionality of
  *      the message handler module to use a buffer, i.e. by defining both
  *      - #MSG_RESPONSE_BUFFER and
  *      - #MSG_RESPONSE_BUFFER_SIZE,
+ *      .
  *  - #MSG_ENABLE_PREPAREDEBUG is a special message id, as it is automatically enabled and disabled based on the build
  *      configuration - specifically, when DEBUG is defined or not. It can be overridden using #MSG_ENABLE_PREPAREDEBUG
+ *  - #MSG_ID_GETDIAGDATA is a special message id, as it is automatically enabled when the diag module is enabled -
+ *      which is automatically included in the chip library and enabled by default. It can be overridden using
+ *      the diag module diversity setting #ENABLE_DIAG_MODULE
+ *  .
  *
  * @par Additional hooks to control the flow
  *  - #MSG_COMMAND_ACCEPT_CB
  *  - #MSG_RESPONSE_DISCARDED_CB
+ *  .
  *
  * @par Other message ids
  *  A few predefined message id's are also enabled by default, and can be disabled in an application's app_sel.h:
  *      - #MSG_ENABLE_GETUID
  *      - #MSG_ENABLE_GETNFCUID
  *      - #MSG_ENABLE_GETCALIBRATIONTIMESTAMP
+ *      .
  *  All other predefined message id's are disabled by default, and can be enabled in an application's app_sel.h:
  *      - #MSG_ENABLE_RESET
  *      - #MSG_ENABLE_READREGISTER
@@ -52,6 +62,7 @@
  *      - #MSG_ENABLE_PREPAREDEBUG
  *      - #MSG_ENABLE_GETUID
  *      - #MSG_ENABLE_CHECKBATTERY
+ *      .
  *
  * @par Example
  *  To override each and every diversity flag that the message handler module offers, create defines that are known to
@@ -76,6 +87,7 @@
  *      #define MSG_ENABLE_GETUID 1
  *      #define MSG_ENABLE_CHECKBATTERY 1
  *      #define MSG_ENABLE_GETCALIBRATIONTIMESTAMP 1
+ *      #define ENABLE_DIAG_MODULE 1
  *  @endcode
  *
  * @{
@@ -137,6 +149,7 @@
      *  - the response size is bigger than the buffer size.
      *  - the response size is bigger than @c 255 bytes: This is a limitation fully due to the implementation how the
      *      responses are stored in the internal buffer.
+     *  .
      * @note Defining #MSG_RESPONSE_BUFFER_SIZE will automatically enable the command/response for #MSG_ID_GETRESPONSE
      * @see pMsg_ResponseCb_t
      */

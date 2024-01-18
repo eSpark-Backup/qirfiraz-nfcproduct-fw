@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2021 NXP
+ * Copyright 2014-2020 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -74,6 +74,7 @@
  * - a proprietary TLV
  * - an empty NDEF message
  * - Two 0 bytes
+ * .
  *
  * The lock TLV consists of:
  * - a Type: #TLV_LOCK
@@ -420,7 +421,7 @@ bool NDEFT2T_CommitMessage(void *pInstance)
 
     /* Extract L part of the NDEF message TLV to fix the header. */
     /* Remove the length of any other TLVs present before the NDEF TLV and also the NDEF message header. The
-     * length of the terminator TLV (1 byte) also needs to be removed. */
+     * length of the terminator TLV also needs to be removed. */
     if (pInst->shortMessage) {
         lenTlv = msgSize - (NDEFT2T_NDEF_PAYLOAD_START_OFFSET_SHORT + 1);
     }
@@ -816,6 +817,7 @@ void* NDEFT2T_GetRecordPayload(void *pInstance, int *pLen)
  *  scenarios:\n
  *      -# Size of the NDEF message being created exceeds the size of message buffer allocated by caller
  *      -# Size of the NDEF message being created exceeds the size of the shared memory
+ *      .
  */
 static bool CreateRecord(void *pInstance, const NDEFT2T_CREATE_RECORD_INFO_T *pRecordInfo, NDEFT2T_RECORD_TYPE_T type,
                          NDEFT2T_TNF_T tnf, int hdrLen, bool typeStringPresent)
@@ -1149,6 +1151,7 @@ static void ReadWrite_IRQHandler(NFC_INT_T nfcInterruptMaskedStatus)
      * - the type T is written first, along with a length L set to 0.
      * - Then the value bytes V are written.
      * - When all the payload is present, the length L is set correct.
+     * .
      * See "Type 2 Tag Technical Specification, NDEF Write Procedure" on nfc-forum.org (version 1.0, 2017-08-28).
      * This means that the first page of the NDEF message is written twice: the first time it indicates writing
      * a new NDEF message has started; the second time it indicates writing a new NDEF message has finished.
@@ -1199,6 +1202,8 @@ static void ReadWrite_IRQHandler(NFC_INT_T nfcInterruptMaskedStatus)
             || (nfcInterruptMaskedStatus & NFC_INT_TARGETREAD)) {
         DisableTermTlvDetection();
     }
+
+
 
 #if defined(NDEFT2T_MSG_AVAILABLE_CB)
     if (msgAvailable) {

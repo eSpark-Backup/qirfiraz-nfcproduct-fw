@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infoList vendor="NXP"><info name="NHS3152" chip="NHS3152" flash_driver="NSS_30k_8k_IAP.cfx" match_id="0x0"  stub="crt_emu_cm3_gen"><chip><name>NHS3152</name>
+<family>NHS3xxx</family>
+<vendor>NXP (formerly Philips)</vendor>
+<reset board="None" core="Real" sys="Real"/>
+<clock changeable="TRUE" freq="12MHz" is_accurate="TRUE"/>
+<memory can_program="true" id="Flash" is_ro="true" type="Flash"/>
+<memory id="RAM" type="RAM"/>
+<memory id="Periph" is_volatile="true" type="Peripheral"/>
+<memoryInstance derived_from="Flash" id="Flash30" location="0x0" size="0x7800"/>
+<memoryInstance derived_from="RAM" id="SRAM8" location="0x10000000" size="0x1ff0"/>
+<peripheralInstance derived_from="V6M_NVIC" id="NVIC" location="0xe000e000"/>
+<peripheralInstance derived_from="V6M_DCR" id="DCR" location="0xe000edf0"/>
+<peripheralInstance derived_from="I2C0" id="I2C0" location="0x40000000"/>
+<peripheralInstance derived_from="WDT" id="WDT" location="0x40004000"/>
+<peripheralInstance derived_from="TIMER16-0" id="TIMER16-0" location="0x4000c000"/>
+<peripheralInstance derived_from="TIMER32-0" id="TIMER32-0" location="0x40014000"/>
+<peripheralInstance derived_from="ADCDAC0" id="ADCDAC0" location="0x4001c000"/>
+<peripheralInstance derived_from="EEPROM" id="EEPROM" location="0x40034000"/>
+<peripheralInstance derived_from="PMU" id="PMU" location="0x40038000"/>
+<peripheralInstance derived_from="FLASH" id="FLASH" location="0x4003c000"/>
+<peripheralInstance derived_from="SPI0" id="SPI0" location="0x40040000"/>
+<peripheralInstance derived_from="IOCON" id="IOCON" location="0x40044000"/>
+<peripheralInstance derived_from="SYSCON" id="SYSCON" location="0x40048000"/>
+<peripheralInstance derived_from="RTC" id="RTC" location="0x40054000"/>
+<peripheralInstance derived_from="RFIDNFC" id="RFIDNFC" location="0x40058000"/>
+<peripheralInstance derived_from="TSEN" id="TSEN" location="0x40060000"/>
+<peripheralInstance derived_from="I2D" id="I2D" location="0x40068000"/>
+<peripheralInstance derived_from="GPIO" id="GPIO" location="0x50008000"/>
+</chip>
+<processor><name gcc_name="cortex-m0">Cortex-M0</name>
+<family>Cortex-M</family>
+</processor>
+<link href="NHS3xxx_peripheral.xme" show="embed" type="simple"/>
+</info>
+</infoList>
+

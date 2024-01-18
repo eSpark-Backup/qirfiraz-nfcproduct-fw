@@ -1,5 +1,5 @@
 /*
- * Copyright 2016,2018-2019,2021 NXP
+ * Copyright 2016,2018-2019 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -25,6 +25,7 @@
  *
  * @par Setup
  *  - Connect the MOSI pin (PIO9) to the RX pin of e.g. an FTDI FT232R.
+ *  .
  * @note The unused SSP pins (PIOs 2, 6 and 8) can still be used as GPIO for other purposes
  *
  * @par Warning
@@ -87,7 +88,7 @@ void UartTx_PrintString(const char * s);
  * This call is blocking until all data has been sent.
  * @param n : A signed integer to print.
  * @param end : The character to print after the number. May be @c NUL, in which case nothing is printed out after the
- *  number.
+ * 	number.
  * @see PRINTD
  */
 void UartTx_PrintDec(int n, char end);

@@ -43,6 +43,7 @@
  * - The time waited before initiating a write/read
  * - The time waited after the rising clk edge and the data rising edge
  * - The time between the data rising edge and the data falling edge
+ * .
  */
 #define START_TIME_1 (7 / I2CBBM_SYSTEM_CLOCK_DIVIDER)
 #define START_TIME_2 (7 / I2CBBM_SYSTEM_CLOCK_DIVIDER) /**< Defines the time waited between the the data falling edge and clk falling edge during the start function */
@@ -51,6 +52,7 @@
  * - The time waited before initiating a write/read
  * - The time waited after the rising clk edge and the data being set low
  * - The time between the data rising edge and the data falling edge
+ * .
  */
 #define STOP_TIME_1 (10 / I2CBBM_SYSTEM_CLOCK_DIVIDER)
 #define STOP_TIME_2 (10 / I2CBBM_SYSTEM_CLOCK_DIVIDER) /**< Defines the time waited between the the data falling edge and clk falling edge during the stop function */

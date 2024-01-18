@@ -24,6 +24,7 @@
  * - #BATIMP_USE_PIO7
  * - #BATIMP_USE_PIO10
  * - #BATIMP_USE_PIO11
+ * .
  *
  * @{
  */

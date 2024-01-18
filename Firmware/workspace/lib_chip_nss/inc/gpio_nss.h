@@ -18,6 +18,7 @@
  *  -# selects directions of digital IO pins as inputs or outputs,
  *  -# configures interrupt events of input pins
  *  -# sets the states of output pins and gets the state of input pins.
+ *  .
  *
  * The IOCON driver has to be used to configure the digital IO pins as GPIO.
  * All digital IO pins, in most cases defaults to GPIO function mode at startup and are configured as inputs without
@@ -31,18 +32,22 @@
  *     bitmask (e.g. pin 2 and 3 as (1<<2 | 1<<3), or (NSS_GPIOn_PINMASK(2) | NSS_GPIOn_PINMASK(3)) )
  *  -# "Pin State" refers to the level (high or low) of individual pin
  *  -# "Port Value" refers to the OR'ed value of the "pin states" of all digital pins on the port.
+ *  .
  *
  * @par To use this driver:
  *  -# This GPIO driver is initialised with #Chip_GPIO_Init and disabled with #Chip_GPIO_DeInit
  *  -# The Pin directions are configured with:
  *      -# (Individual pin) #Chip_GPIO_SetPinDIROutput, #Chip_GPIO_SetPinDIRInput, #Chip_GPIO_SetPinDIR and
  *      -# (Port-wide with pin mask) #Chip_GPIO_SetPortDIROutput, #Chip_GPIO_SetPortDIRInput, #Chip_GPIO_SetPortDIR
+ *      .
  *  -# The Pin direction configurations can be retrieved with:
  *      -# (Individual pin) #Chip_GPIO_GetPinDIR and
  *      -# (Port-wide with pin mask) #Chip_GPIO_GetPortDIR
+ *      .
  *  -# The Input states are read with:
  *      -# (Individual pin) #Chip_GPIO_GetPinState
  *      -# (Port-wide with pin mask) #Chip_GPIO_GetPortValue
+ *      .
  *  -# The GPIO interrupts are configured with:
  *      -# #Chip_GPIO_EnableInt, #Chip_GPIO_DisableInt, #Chip_GPIO_GetEnabledInts and
  *      -# #Chip_GPIO_GetRawInts, #Chip_GPIO_GetMaskedInts, #Chip_GPIO_ClearInts
@@ -50,11 +55,14 @@
  *      -# #Chip_GPIO_SetPinModeEdge, #Chip_GPIO_SetPinModeLevel, #Chip_GPIO_IsLevelEnabled,
  *      -# #Chip_GPIO_SetEdgeModeBoth, #Chip_GPIO_SetEdgeModeSingle, #Chip_GPIO_GetEdgeModeDir and
  *      -# #Chip_GPIO_SetModeHigh, #Chip_GPIO_SetModeLow, #Chip_GPIO_GetModeHighLow
+ *      .
  *  -# The Output pins are controlled with:
  *      -# (Individual pin) #Chip_GPIO_SetPinOutHigh, #Chip_GPIO_SetPinOutLow, #Chip_GPIO_SetPinToggle,
  *      -# (Individual pin) #Chip_GPIO_SetPinState, #Chip_GPIO_GetPinState,
  *      -# (Port-wide with pin mask) #Chip_GPIO_SetPortOutHigh, #Chip_GPIO_SetPortOutLow, #Chip_GPIO_SetPortToggle and
  *      -# (Port-wide with pin mask) #Chip_GPIO_SetPortValue, #Chip_GPIO_GetPortValue
+ *      .
+ *  .
  *
  *
  * @par Example 1 - Configuring individual pins
@@ -63,8 +71,11 @@
  *      - Pin 1 with both falling and rising edge event interrupt
  *      - Pin 2 with level-sensitive (high) event interrupt
  *      - Pin 3 without event interrupt
+ *      .
  *  - Operate Outputs:
  *      - Pin 4 in High --> Low --> High --> (toggle) --> (toggle) sequence
+ *      .
+ *  .
  *  @snippet gpio_nss_example_1.c gpio_nss_example_1
  *  Interrupt Handler:
  *  @snippet gpio_nss_example_1.c gpio_nss_example_1_irq
@@ -75,6 +86,8 @@
  *      - Pin 5 in Low --> High --> Low --> (toggle) --> (toggle) sequence
  *      - Pin 6 in Low --> High --> Low --> (toggle) --> (toggle) sequence
  *      - Pin 7 in High --> Low --> High --> (toggle) --> (toggle) sequence
+ *      .
+ *  .
  *  @snippet gpio_nss_example_2.c gpio_nss_example_2
  *
  * @{

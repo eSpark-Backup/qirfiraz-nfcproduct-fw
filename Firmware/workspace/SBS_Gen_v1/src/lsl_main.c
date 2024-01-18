@@ -11,11 +11,12 @@
 //	- nove commandy
 //	- ladenie a testovanie s appkou
 //	- ladenie parametrov senzora
-int16_t Threshold = 50;
-NSS_RTC_T *pRTC;
 
-void init(void)
-{
+//#define newRTCValue (int)NSS_RTC
+int16_t Threshold = 50;
+//NSS_RTC_T *pRTC;
+
+void init(void){
 	Chip_Clock_System_SetClockFreq(2000000);
 
     Chip_IOCON_Init(NSS_IOCON);
@@ -23,9 +24,9 @@ void init(void)
     Chip_EEPROM_Init(NSS_EEPROM);
 
     MEMS_Init();	// aj toto by sa malo asi inicializovat az potom co zistime ze nas zobudilo mems - a to bude budit az po tom co sa spusti meranie
-    				// v podstate ked zistim ze nemam NFC ani nemam aktivovane meranie tak po zobudeni sa mozem hned uspat (napr niekto vlozil baterku)
+//    				// v podstate ked zistim ze nemam NFC ani nemam aktivovane meranie tak po zobudeni sa mozem hned uspat (napr niekto vlozil baterku)
 	NFC_Init();		// toto by sa potom po spravnosti malo inicializovat az potom ked sa zisti ze nas zobudilo NFC
-
+//
 	Logs_Init();
 }
 
@@ -33,25 +34,25 @@ void init(void)
 
 int main(void)
 {
-	int newRTCValue = 1703672520; //Adjust your current time in seconds according to your region (Current time of Slovak Republic)
-	Chip_RTC_Time_SetValue(pRTC, newRTCValue);
+//	int newRTCValue = 1705229477; //Adjust your current time in seconds according to your region 18 Jan,2024(7:24pm) (Current time of Slovak Republic)
+//	Chip_RTC_Time_SetValue(pRTC, newRTCValue);
 	init();
 
 //	TODO
 //	- po optimalizacii spotreby sa bude pouzivat deep powerd down mode
-//	after optimization of consumption, deep power down mode will be used
+//
 //	|
 //	V
 
-	PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
-//
-	Chip_PMU_SetWakeupPinEnabled(true);
-//
-//	// z akceleracie sa bude brat prakticky len horny byte
-//
-//	// amiesto tohoto strukturu logu //
+//	PMU_DPD_WAKEUPREASON_T wuReason = Chip_PMU_PowerMode_GetDPDWakeupReason();
+
+//	Chip_PMU_SetWakeupPinEnabled(true);
+
+	// z akceleracie sa bude brat prakticky len horny byte
+
+	// amiesto tohoto strukturu logu //
 //	LOGS_LOG_T Logs_PrepareData(int16_t accX, int16_t accY, int16_t accZ, uint8_t temp, uint32_t time);
-//
+
 //	if(true){
 //		Storage_Reset(false);
 //
@@ -90,17 +91,17 @@ int main(void)
 //		Storage_Write(&treti, 1);
 //
 //		Storage_DeInit();
-//
+
 //	Storage_Seek(0);
-//
+
 //	LOGS_LOG_T logs[3];
-//
+
 //	Storage_Read(logs, 3);
-//
-////
-////		 urobit funkcie na naladovanie dat (acc, temp a cas) do premennej typu LOGS_LOG_T a tiez na vydolovanie (posuny, bitove operacie)
-////		 pomocou funkcie Storage_Write() ulozit vzorku dato do storage
-////		 pootm mozem otestovat vycitanie, zistenie poctu a vymazanie
+
+
+		// urobit funkcie na naladovanie dat (acc, temp a cas) do premennej typu LOGS_LOG_T a tiez na vydolovanie (posuny, bitove operacie)
+		// pomocou funkcie Storage_Write() ulozit vzorku dato do storage
+		// pootm mozem otestovat vycitanie, zistenie poctu a vymazanie
 
 	/*     	Accelaration Values      */
 	while(1)
@@ -112,11 +113,10 @@ int main(void)
 		if(acc.x > Threshold || acc.y > Threshold || acc.z > Threshold)
 		{
 			//Saving of time occurs
-			newRTCValue=Chip_RTC_Time_GetValue(pRTC);
-//			int time = Chip_RTC_Time_GetValue(NSS_RTC);
+			int newRTCValue=Chip_RTC_Time_GetValue(NSS_RTC);
 			for(int i = 0; i < 4; i++)
 			{
-				log.timeStamp[i] = ((uint8_t*) &newRTCValue)[i];
+				log.timeStamp[i] = ((uint8_t*) Chip_RTC_Time_GetValue(NSS_RTC))[i];
 			}
 			log.accX = acc.x;
 			log.accY = acc.y;
@@ -160,8 +160,8 @@ int main(void)
 //			Chip_GPIO_SetPinToggle(NSS_GPIO, MEMS_SIGNAL_PORT, MEMS_SIGNAL_INT2);
 //	//	}
 //
-//		MEMS_ThresholdSet();
-//
+//	//	MEMS_ThresholdSet();
+
 //	}
 
 

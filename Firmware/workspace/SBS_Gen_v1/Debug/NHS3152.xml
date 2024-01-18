@@ -1,0 +1,5 @@
+<directory>
+ <chips chipVendor='NXP' >
+  <chip name='NHS3152' xml_file='NHS3152_part.xml' />
+ </chips>
+</directory> 

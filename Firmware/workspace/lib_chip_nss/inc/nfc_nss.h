@@ -21,6 +21,7 @@
  *  -# Enabling/Disabling and clearing of the Interrupts
  *  -# Retrieving the NFC HW block status bits
  *  -# Retrieving information about last RF access
+ *  .
  *
  * @par NFC HW Interface:
  *  The NFC HW block is based on a MIFARE Ultralight EV1 block which is responsible for the wireless NFC communication
@@ -66,6 +67,7 @@
  *  -# Start word offset in BUF for the last RF access.
  *  -# End word offset in BUF for the last RF access.
  *  -# Direction (read/write) of last RF access.
+ *  .
  *
  * @par Additional Information:
  *  <dl><dt> NDEF: </dt><dd>
@@ -162,6 +164,7 @@ typedef enum NFC_STATUS {
  * @note Default settings for NFC are:
  *  - Disabled by default
  *  - Status Fields : Cleared by default
+ *  .
  */
 void Chip_NFC_Init(NSS_NFC_T *pNFC);
 
@@ -203,6 +206,7 @@ NFC_INT_T Chip_NFC_Int_GetEnabledMask(NSS_NFC_T *pNFC);
  *  -# Application should use #Chip_NFC_Int_ClearRawStatus for clearing interrupts. Direct register access
  *     for clearing interrupt status is not allowed.
  *  -# #NFC_INT_MEMWRITE interrupt status is not sticky. Application should use the flag in the ISR context only.
+ *  .
  */
 NFC_INT_T Chip_NFC_Int_GetRawStatus(NSS_NFC_T *pNFC);
 
@@ -235,6 +239,7 @@ uint32_t Chip_NFC_GetTargetAddress(NSS_NFC_T *pNFC);
  * @return
  *  - @c true for write access.
  *  - @c false for read access.
+ *  .
  */
 bool Chip_NFC_GetLastAccessInfo(NSS_NFC_T *pNFC, uint32_t *pStartOffset, uint32_t *pEndOffset);
 
@@ -248,11 +253,13 @@ bool Chip_NFC_GetLastAccessInfo(NSS_NFC_T *pNFC, uint32_t *pStartOffset, uint32_
  * @return
  *  - @c true for successful write.
  *  - @c false for write failure.
+ *  .
  * @note Write access is word based, and address should be 32-bit word aligned.
  * @warning When this API is used, application should take care of the following constraints:
  *  -# Application should use #Chip_NFC_Int_ClearRawStatus for clearing interrupts. Direct register access
  *     for clearing interrupt status is not allowed.
  *  -# #NFC_INT_MEMWRITE interrupt status is not sticky. Application should use the flag in the ISR context only.
+ *  .
  */
 bool Chip_NFC_WordWrite(NSS_NFC_T *pNFC, uint32_t * pDest, const uint32_t * pSrc, int n);
 
@@ -266,11 +273,13 @@ bool Chip_NFC_WordWrite(NSS_NFC_T *pNFC, uint32_t * pDest, const uint32_t * pSrc
  * @return
  *  - @c true for successful read.
  *  - @c false for read corruption.
+ *  .
  * @note Read access is byte based.
  * @warning When this API is used, application should take care of the following constraints:
  *  -# Application should use #Chip_NFC_Int_ClearRawStatus for clearing interrupts. Direct register access
  *     for clearing interrupt status is not allowed.
  *  -# #NFC_INT_MEMWRITE interrupt status is not sticky. Application should use the flag in the ISR context only.
+ *  .
  */
 bool Chip_NFC_ByteRead(NSS_NFC_T *pNFC, uint8_t * pDest, const uint8_t * pSrc, int n);
 

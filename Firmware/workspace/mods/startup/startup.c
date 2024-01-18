@@ -1,6 +1,6 @@
 /*
  * Copyright 2011-2012 Code Red Technologies
- * Copyright 2015-2019,2021 NXP
+ * Copyright 2015-2019 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -13,6 +13,7 @@
 #include "cmsis.h"
 #include "stdbool.h"
 #include "assert.h"
+#include "diag/diag.h"
 #include "startup/startup.h"
 
 #define WEAK __attribute__ ((weak))
@@ -98,6 +99,8 @@ extern unsigned int __bss_section_table_end;
 __attribute__ ((section(".after_vectors")))
 void Startup_VarInit(void)
 {
+    Diag_Init();
+
     unsigned int LoadAddr;
     unsigned int ExeAddr;
     unsigned int SectionLen;
@@ -196,7 +199,7 @@ void (* const g_pfnVectors[])(void) = {
     PIO0_10_IRQHandler,  /* Handler for EXCEPTION26 - INTERRUPT10 @0x00000068 */
     RFFIELD_IRQHandler,  /* Handler for EXCEPTION27 - INTERRUPT11 @0x0000006C */
     RTCPWREQ_IRQHandler, /* Handler for EXCEPTION28 - INTERRUPT12 @0x00000070 */
-    NFC_IRQHandler,      /* Handler for EXCEPTION29 - INTERRUPT13 @0x00000074 */
+    Diag_NFC_IRQHandler, /* Handler for EXCEPTION29 - INTERRUPT13 @0x00000074 */
     RTC_IRQHandler,      /* Handler for EXCEPTION30 - INTERRUPT14 @0x00000078 */
     I2C0_IRQHandler,     /* Handler for EXCEPTION31 - INTERRUPT15 @0x0000007C */
     CT16B0_IRQHandler,   /* Handler for EXCEPTION32 - INTERRUPT16 @0x00000080 */

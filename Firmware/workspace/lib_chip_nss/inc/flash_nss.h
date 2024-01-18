@@ -23,6 +23,7 @@
  *      - low power mode
  *      - high power mode \n
  *          High power mode may be required for some flash operations, please refer to the user manual for details.
+ *      .
  * @warning Directly accessing Flash controller addresses (#NSS_FLASH_T) when the Flash clock is disabled blocks the
  *  APB bus indefinitely.
  *
@@ -41,6 +42,7 @@
  *      @snippet flash_nss_example_1.c flash_nss_example_1_a
  *  -# Switch to 8MHz in high power mode without extra wait states
  *      @snippet flash_nss_example_1.c flash_nss_example_1_b
+ *  .
  * @{
  */
 
@@ -79,6 +81,7 @@ typedef struct NSS_FLASH_S {
  * @pre If @c highPower equals @c false, the caller must ensure that either
  *  - flash wait states is set to 1 or higher, or
  *  - system clock divisor is not 1 - by calling #Chip_Clock_System_SetClockFreq with argument @c 4000000 or less.
+ *  .
  *  Failure to do so will result in a hard fault (flash access error).
  *  See also @ref NSS_CLOCK_RESTRICTIONS
  */
@@ -96,6 +99,7 @@ bool Chip_Flash_GetHighPowerMode(void);
  * @pre If @c waitStates equals @c 0, the caller must ensure that either
  *  - high power mode is configured - #Chip_Flash_SetHighPowerMode with argument @c true, or
  *  - system clock divisor is not 1 - by calling #Chip_Clock_System_SetClockFreq with argument @c 4000000 or less.
+ *  .
  *  Failure to do so will result in a hard fault (flash access error).
  *  See also @ref NSS_CLOCK_RESTRICTIONS
  */

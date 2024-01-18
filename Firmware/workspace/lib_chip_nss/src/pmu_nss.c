@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019,2021 NXP
+ * Copyright 2014-2019 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -120,6 +120,7 @@ void Chip_PMU_PowerMode_EnterDeepPowerDown(bool enableSwitching)
         Chip_Clock_System_BusyWait_ms(500);
     }
 #endif
+    Diag_DeInit();
     PrepareLowPowerMode(PMU_PCON_DPENFLAG_MASK, (uint32_t)(enableSwitching == false) << PMU_PCON_PMULPMFLAG_POS, SCB_SCR_SLEEPDEEP_Msk);
     __WFI();
     /* In case Deep power down was not entered, make sure a direct WFI instruction does not trigger a delayed
@@ -155,6 +156,7 @@ bool Chip_PMU_Switch_GetVNFC(void)
 
 void Chip_PMU_Switch_OpenVDDBat(void)
 {
+    Diag_DeInit();
     /* Modify PCON register - VBAT set to "force off" and back to "auto" */
     ModifyRegister(&NSS_PMU->PCON, PMU_PCON_VBATFLAG_MASK, PMU_PCON_VBATFLAG_MASK);
 }

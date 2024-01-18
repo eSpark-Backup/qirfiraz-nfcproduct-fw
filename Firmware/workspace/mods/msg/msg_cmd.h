@@ -72,6 +72,7 @@ typedef struct MSG_CMD_WRITEMEMORY_S {
  *  - Either any other value is returned: the command has not been handled, and no immediate response is given.
  *      The message handler module will use the returned error value to create an immediate response of type
  *      #MSG_RESPONSE_RESULTONLY_T.
+ *  .
  * @post If #MSG_OK is returned, the first call to #Msg_AddResponse during the lifetime of this call must be
  *   the immediate response.
  */
@@ -92,6 +93,7 @@ typedef uint32_t (*pMsg_CmdHandler_t)(uint8_t msgId, int payloadLen, const uint8
  *  - @c True: the command is accepted, and the appropriate command handler function is called.
  *  - @c False: the command is not accepted. An immediate response of type #MSG_RESPONSE_RESULTONLY_T is generated with
  *      #MSG_ERR_INVALID_PRECONDITION as #MSG_RESPONSE_RESULTONLY_T.result and sent back as only response.
+ *  .
  */
 typedef bool (*pMsg_AcceptCommandCb_t)(uint8_t msgId, int payloadLen, const uint8_t* pPayload);
 

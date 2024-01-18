@@ -27,6 +27,7 @@
  * It will use the designated portion of the EEPROM to:
  * - store data of arbitrary size together with a timestamp and an unrestricted tag value.
  * - allow retrieval of data sequentially, based on a time range, or a specific tag value.
+ * .
  *
  * The event bookkeeping module main purpose is to store sparse but noteworthy events. Only EEPROM is used, and only a
  * limited portion thereof. Events also take considerable space; once the assigned memory is full, no new events can be
@@ -60,6 +61,7 @@
  *      The configured callback will be called for each event that matches the given constraints until all memory has
  *      been searched.
  *  -# To ensure that all data is flushed in EEPROM, call #Event_DeInit as the last call between two sessions
+ *  .
  *
  * @par Example
  *  We define two different values to be used as 'tag':
@@ -152,6 +154,7 @@ pEvent_Cb_t Event_SetCb(pEvent_Cb_t cb);
  * @return
  *  - @c true when the data is stored - possibly not yet flushed - in EEPROM.
  *  - @c false when not enough space was available to store the data.
+ *  .
  */
 bool Event_Set(uint8_t tag, void * data, uint8_t len);
 
@@ -162,6 +165,7 @@ bool Event_Set(uint8_t tag, void * data, uint8_t len);
  *  extra time with empty data before the search for matching event starts.
  * - Using the diversity setting #EVENT_CB_CLOSING_CALL, the application can control whether #EVENT_CB is called one
  *  last time with empty data to signify the end of the retrieval.
+ * .
  * This is a synchronous function: it only returns after all calls to that callback have finished.
  * @pre EEPROM is initialized
  * @param first : the sequence number of the event to retrieve first.
@@ -185,6 +189,7 @@ unsigned int Event_GetByIndex(unsigned int first, unsigned int last, uint32_t co
  *  extra time with empty data before the search for matching event starts.
  * - Using the diversity setting #EVENT_CB_CLOSING_CALL, the application can control whether #EVENT_CB is called one
  *  last time with empty data to signify the end of the retrieval.
+ * .
  * This is a synchronous function: it only returns after all calls to that callback have finished.
  * @pre EEPROM is initialized
  * @param begin : events are only reported when they have a timestamp equal to or later than @c begin.
@@ -208,6 +213,7 @@ unsigned int Event_GetByTime(unsigned int begin, unsigned int end, uint32_t cont
  *  extra time with empty data before the search for matching event starts.
  * - Using the diversity setting #EVENT_CB_CLOSING_CALL, the application can control whether #EVENT_CB is called one
  *  last time with empty data to signify the end of the retrieval.
+ * .
  * This is a synchronous function: it only returns after all calls to that callback have finished.
  * @pre EEPROM is initialized
  * @param tag : only events which have the same tag value are reported.

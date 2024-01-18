@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2021 NXP
+ * Copyright 2014-2020 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -23,6 +23,7 @@
  *  -# NFC power detector
  *  -# Wakeup pin functionality
  *  -# RTC block clock source
+ *  .
  *
  * @anchor pmu_powerarch_anchor
  * @par Power Architecture:
@@ -31,9 +32,11 @@
  *      - Always-On (VDD_ALON)
  *      - 1.2V Internal (VDD1V2)
  *      - 1.6V Internal (VDD1V6)
+ *      .
  *  Power may be supplied via two possible sources:
  *      - External power supply pin (VDDBAT)
  *      - Built-in RFID rectifier (part of the VNFC power domain)
+ *      .
  *  The VDD_ALON power domain is directly powered by one of these two power sources. The PMU, which is in the VDD_ALON
  *  power domain, is responsible for controlling the power for the 1V2 and 1V6 internal power domains.
  *
@@ -56,6 +59,7 @@
  *      - No power is available in the VDDBAT pin
  *      - Power is also available in the VDDBAT pin, but the switch is still open
  *      - Power is also available in the VDDBAT pin, but the switch is already closed
+ *      .
  *  In the first scenario, the VNFC switch is automatically closed and the chip will be powered via VNFC. @n
  *  In the second scenario, the presence of VNFC will trigger the VDDBAT switch to close. In the presence of the two
  *  power sources, the automatic switching mechanism will give priority to VDDBAT. @n
@@ -181,6 +185,7 @@
  *  Deep power down mode via the PIO0_0 pin. To enable this functionality, the application must:
  *  - Call #Chip_PMU_SetWakeupPinEnabled with @c true as argument, and
  *  - Configure the PIO0_0 pin for input with the pull-up resistor enabled.
+ *  .
  *
  * @par General Purpose data registers:
  *  The PMU can hold 5 words of data in its own registers which is retained during Deep power down mode. This data will
@@ -217,6 +222,8 @@
  *          the pending Deep power down request has been cleared before it returns.
  *      - Otherwise, if both the sleep signal has not yet been cleared and the wakeup pin is high again,
  *          Deep power down mode is entered belatedly.
+ *      .
+ *  .
  *  Unfortunately, this leads to an increased code complexity for the application, as it must implement a code flow
  *  that can deal with the different outcomes. Applications using both the Deep power down mode @em and the wakeup pin
  *  functionality should follow the below recommendations.
@@ -228,6 +235,7 @@
  *  - Before calling #Chip_PMU_PowerMode_EnterDeepPowerDown, start a timer which generates an interrupt after a short
  *      interval, and enable the interrupt (line 8). This will ensure that only a very short amount of time is lost in
  *      the more expensive Sleep mode (when compared to the current consumption in Deep power down).
+ *  .
  *  Combining all this results in a recommended basic application framework similar to this pseudo code:
  *  @code
  *       1. Board_Init();
@@ -308,8 +316,6 @@ typedef enum PMU_STATUS {
 
 /**
  * Sets the chip into Sleep power mode.
- * @post Chip_PMU_PowerMode_GetDPDWakeupReason will no longer report the correct reason for the last wakeup from Deep
- *  power down.
  * @note The program execution will be blocked inside this function for as long as the chip is in Sleep mode.
  *  After the chip exits Sleep mode and the respective ISR is executed, the execution will be resumed and this function
  *  will return.
@@ -320,16 +326,13 @@ void Chip_PMU_PowerMode_EnterSleep(void);
 
 /**
  * Sets the chip into Deep Sleep power mode.
- * @post Chip_PMU_PowerMode_GetDPDWakeupReason will no longer report the correct reason for the last wakeup from Deep
- *  power down.
- * @note - The program execution will be blocked inside this function for as long as the chip is in Deep Sleep mode.
+ * @note The program execution will be blocked inside this function for as long as the chip is in Deep Sleep mode.
  *  After the chip exits Deep Sleep mode and the respective ISR is executed, the execution will be resumed and this
  *  function will return.
- * @note - All peripheral clocks must be disabled beforehand except for the Timers and Watchdog, if required. The power
+ * @note All peripheral clocks must be disabled beforehand except for the Timers and Watchdog, if required. The power
  *  state after wakeup of some blocks must also be configured beforehand. Please refer to
  *  @ref SYSCON_NSS "SysCon driver" documentation.
- * @note - The observer flags that indicate which power modes were entered are cleared before entering this standby
- *  mode.
+ * @note The observer flags that indicate which power modes were entered are cleared before entering this standby mode.
  *  Refer to @b Power @b Modes section for more details on the Deep Sleep mode.
  */
 void Chip_PMU_PowerMode_EnterDeepSleep(void);
@@ -352,11 +355,12 @@ void Chip_PMU_PowerMode_EnterDeepPowerDown(bool enableSwitching);
 
 /**
  * Retrieves the reason for the last wakeup from Deep power down.
- * @warning The wakeup reason from Deep power down is lost
- *  - after a reset: upon a POR event or when the RESETN pin is toggled.
+ * @warning Changing the power mode before calling this function will reset the register #NSS_PMU_T.PCON which maintains
+ *  the wakeup reason. This means the wakeup reason from Deep power down is lost
+ *  - after a reset: POR event or RESETN pin toggling
  *  - when going to Sleep or Deep sleep low power mode: #Chip_PMU_PowerMode_EnterSleep or
- *      #Chip_PMU_PowerMode_EnterDeepSleep.
- *  - when enabling BOD detection: #Chip_PMU_SetBODEnabled
+ *      #Chip_PMU_PowerMode_EnterDeepSleep
+ *  .
  * @return An enumeration value with the wakeup reason. This value will be #PMU_DPD_WAKEUPREASON_NONE when the register
  *  #NSS_PMU_T.PCON has been reset.
  */
@@ -387,8 +391,6 @@ void Chip_PMU_Switch_OpenVDDBat(void);
 /**
  * Enables/Disables the Brown-Out detection
  * @param enabled : If set to true enables the BOD, otherwise it disables it
- * @post Chip_PMU_PowerMode_GetDPDWakeupReason will no longer report the correct reason for the last wakeup from Deep
- *  power down.
  */
 void Chip_PMU_SetBODEnabled(bool enabled);
 

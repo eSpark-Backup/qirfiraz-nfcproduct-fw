@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2021 NXP
+ * Copyright 2014-2020 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -98,7 +98,7 @@ static void CommitAndFlush(void)
 static void Write(int offset, const void * pBuf, int size, bool singleValue)
 {
     /* Per the HW UM, the last five contain calibration and test data and are locked. Yet #EEPROM_NR_OF_RW_ROWS excludes
-     * the top 6 rows.
+     * the top 6 rows. This row is in the SDK used by the diag module - if enabled.
      */
 #if EEPROM_NR_OF_RW_ROWS != 58
     #error Incorrect assumption on the value of EEPROM_NR_OF_RW_ROWS

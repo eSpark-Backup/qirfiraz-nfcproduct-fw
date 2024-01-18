@@ -70,6 +70,7 @@
  *          converter to transition to "Idle" state once the ongoing conversion ends.
  *      - In case #I2D_SINGLE_SHOT mode is selected, the transition to "Idle" state is done automatically after
  *          the first conversion is completed.
+ *      .
  *      As long as the converter is in the "In Operation" state, the #I2D_STATUS_CONVERTER_IN_OPERATION status flag is set.
  *
  *  -# Regardless of the operating mode and converter state, at the end of each conversion, the
@@ -80,6 +81,7 @@
  *      a certain conversion are lost when the next conversion ends.
  *      Additionally, once the conversion result is read (using #Chip_I2D_GetValue), the #I2D_INT_CONVERSION_RDY
  *      interrupt flag and consequently the #I2D_STATUS_CONVERSION_DONE status flag are automatically cleared.
+ *  .
  *
  * @par In order to perform a conversion
  *  -# Initialize the I2D converter block with default settings with #Chip_I2D_Init.
@@ -92,6 +94,7 @@
  *  -# Wait for the conversion to be ready (assess that with #Chip_I2D_ReadStatus).
  *  -# Read the converted value with #Chip_I2D_GetValue.
  *  -# If performing a #I2D_CONTINUOUS conversion, stop it with #Chip_I2D_Stop.
+ *  .
  *
  * @note The status information of the I2D converter can be read with #Chip_I2D_ReadStatus.
  * @note Interrupts on threshold crossing (low and high) as well as on every conversion can be set up and handled with
@@ -108,6 +111,7 @@
  *  - converter gain : High
  *  - integration time : 100ms
  *  - input : pin ANA0_4
+ *  .
  *  @snippet i2d_nss_example_1.c i2d_nss_example_1
  *
  * @par Example 2 - Continuous conversion with interrupt:
@@ -117,6 +121,7 @@
  *  - integration time : 10ms
  *  - input : pin ANA0_5
  *  - interrupt generation: when low threshold is crossed (low threshold value set for 1uA)
+ *  .
  *  set-up code:
  *  @snippet i2d_nss_example_2.c i2d_nss_example_2
  *  Handle interrupt and get conversion code:
@@ -234,6 +239,7 @@ typedef enum I2D_INT {
  *  - Mux : No input connected
  *  - Threshold Low : 0
  *  - Threshold High : 0xFFFF
+ *  .
  */
 void Chip_I2D_Init(NSS_I2D_T *pI2D);
 

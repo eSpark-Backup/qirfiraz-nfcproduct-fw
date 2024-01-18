@@ -10,6 +10,7 @@ RM := rm -rf
 -include sources.mk
 -include src/subdir.mk
 -include mods/startup/subdir.mk
+-include mods/diag/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -45,6 +46,7 @@ post-build:
 	-arm-none-eabi-size "liblib_chip_nss.a" ; # arm-none-eabi-objdump -h -S "liblib_chip_nss.a" >"liblib_chip_nss.lss"
 	-@echo ' '
 
-.PHONY: all clean dependents post-build
+.PHONY: all clean dependents
+.SECONDARY: post-build
 
 -include ../makefile.targets

@@ -1,6 +1,5 @@
 /*
- * Copyright 2014-2023 NXP
- * NXP Confidential
+ * Copyright 2014-2020 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -19,6 +18,7 @@
 #include "assert.h"
 #include "cmsis.h"
 #include "startup/startup.h"
+#include "diag/diag.h"
 
 /** @defgroup CHIP_NSS chip: Peripheral addresses and register set declarations
  * @ingroup DRV_NSS
@@ -26,7 +26,7 @@
  * @{
  */
 
-#define SDK_VERSION 12_6_nhs3152 /**< SDK version information */
+#define SDK_VERSION 12_4_nhs3152 /**< SDK version information */
 
 #define NSS_SFRO_FREQUENCY     8000000 /**< System Free-Running Oscillator (SFRO) frequency in Hz */
 #define NSS_TFRO_FREQUENCY     32768 /**< Timer Oscillator (TFRO) frequency in Hz */

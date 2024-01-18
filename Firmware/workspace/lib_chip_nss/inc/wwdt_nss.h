@@ -20,6 +20,7 @@
  *  - Configuring the expiry timeout.
  *  - Starting the watchdog timer.
  *  - Feeding the watchdog timer.
+ *  .
  *  If you require interrupt mode, need to check the status, or need to do anything else than described above,
  *  you must interact with the #NSS_WWDT register block directly.
  *
@@ -28,21 +29,25 @@
  * interrupt.
  * The WWDT can be configured to work in 2 modes as given below.
  *  - Reset mode: This mode is the normal intended operation mode and causes an unpreventable chip reset on WWDT expiry.
+ *  .
  *      @warning The watchdog reset status is cleared on system reset. It is thus not possible to distinguish between a
  *          hard reset after toggling the RESETN pin and a WWDT timeout.
  *
  *  - Interrupt mode: This mode can be used for debugging purposes without actually resetting the device on WWDT expiry.
  *      The WWDT interrupt flag cannot be cleared by SW after a WWDT expiry: the firmware must disable the WWDT
  *      interrupt inside the interrupt handler using #NVIC_DisableIRQ with #WDT_IRQn as argument.
+ *  .
  *      @note This mode is not supported by this driver.
  *      @warning Using the interrupt mode will not protect against hangs inside an interrupt handler which has a higher
  *          priority. See #IRQn_Type for a full list of interrupts and their priority.
  *
  * @par To configure and start the WWDT:
  *  -# Call #Chip_WWDT_Start.
+ *  .
  *
  * @par To reset the expiry timer and prevent a reset:
  *  -# Call #Chip_WWDT_Feed periodically.
+ *  .
  *
  * @par Example - WWDT
  *  @snippet wwdt_nss_example_1.c wwdt_nss_example_1

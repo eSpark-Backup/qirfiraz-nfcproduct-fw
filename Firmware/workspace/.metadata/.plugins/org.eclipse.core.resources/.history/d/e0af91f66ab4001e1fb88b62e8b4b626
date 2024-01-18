@@ -1,0 +1,619 @@
+#include "chip.h"
+#include "msg/msg.h"
+#include "ndeft2t/ndeft2t.h"
+#include "storage/storage.h"
+#include <lsl_mems.h>
+#include <lsl_nfc.h>
+#include <stdlib.h>
+
+static void NFC_HandleRx(void);
+static uint32_t NFC_Cmd_0x70_GetUniqeTagID(uint8_t msgId, int len, const uint8_t* pPyld);
+static uint32_t NFC_Cmd_0x71_SetShippingID(uint8_t msgId, int len, const uint8_t* pPyld);
+static uint32_t NFC_Cmd_0x72_GetShippingID(uint8_t msgId, int len, const uint8_t* pPyld);
+static uint32_t NFC_Cmd_0x73_GetActualSensorInfo(uint8_t msgId, int len, const uint8_t* pPyld);
+static uint32_t NFC_Cmd_0x74_SetSensorSettings(uint8_t msgId, int len, const uint8_t* pPyld);
+static uint32_t NFC_Cmd_0x75_GetSensorSettings(uint8_t msgId, int len, const uint8_t* pPyld);
+static uint32_t NFC_Cmd_0x76_GetLogInfo(uint8_t msgId, int len, const uint8_t* pPyld);
+static uint32_t NFC_Cmd_0x77_StartLogging(uint8_t msgId, int len, const uint8_t* pPyld);
+static uint32_t NFC_Cmd_0x78_StopLogging(uint8_t msgId, int len, const uint8_t* pPyld);
+static uint32_t NFC_Cmd_0x79_GetLogRecord(uint8_t msgId, int len, const uint8_t* pPyld);
+static uint32_t NFC_Cmd_0x7a_ClearLog(uint8_t msgId, int len, const uint8_t* pPyld);
+static uint32_t NFC_Cmd_0x80_RequestSecureCommunications(uint8_t msgId, int len, const uint8_t* pPyld);
+static bool NFC_MsgResponse_Cb(int resLen, const uint8_t* pResData);
+
+__attribute__ ((section(".noinit"))) __attribute__((aligned (4)))
+static uint8_t sNdefInstTx[NDEFT2T_INSTANCE_SIZE];
+
+__attribute__ ((section(".noinit"))) __attribute__((aligned (4)))
+static uint8_t sNdefInstRx[NDEFT2T_INSTANCE_SIZE];
+
+__attribute__ ((section(".noinit"), aligned (4)))
+static uint8_t sTxData[NFC_SHARED_MEM_BYTE_SIZE];
+
+__attribute__ ((section(".noinit"), aligned (4)))
+static uint8_t sRxData[NFC_SHARED_MEM_BYTE_SIZE];
+
+MSG_CMD_HANDLER_T NFC_CmdHandler[MSG_APP_HANDLERS_COUNT] = {{0x70, NFC_Cmd_0x70_GetUniqeTagID},
+															{0x71, NFC_Cmd_0x71_SetShippingID},
+															{0x72, NFC_Cmd_0x72_GetShippingID},
+															{0x73, NFC_Cmd_0x73_GetActualSensorInfo},
+															{0x74, NFC_Cmd_0x74_SetSensorSettings},
+															{0x75, NFC_Cmd_0x75_GetSensorSettings},
+															{0x76, NFC_Cmd_0x76_GetLogInfo},
+															{0x77, NFC_Cmd_0x77_StartLogging},
+															{0x78, NFC_Cmd_0x78_StopLogging},
+															{0x79, NFC_Cmd_0x79_GetLogRecord},
+															{0x7a, NFC_Cmd_0x7a_ClearLog},
+															{0x80, NFC_Cmd_0x80_RequestSecureCommunications}};
+
+void NFC_MsgAvailable_Cb(void){
+	NFC_HandleRx();
+}
+
+void NFC_Init(void){
+	Chip_NFC_Init(NSS_NFC);
+
+	NDEFT2T_Init();
+
+	Msg_Init();
+	Msg_SetResponseCb(NFC_MsgResponse_Cb);
+
+	// zvazit odseparovanie do log - u - pripadne inicializovat az kd to je treba, bezprostredne pred pouzitim
+	Chip_TSen_Init(NSS_TSEN);
+	Chip_TSen_SetResolution(NSS_TSEN, TSEN_7BITS);
+
+	// aj toto sa pouziva v NFC aj MEMS, tak to dat asi dlo globalu
+	Chip_RTC_Init(NSS_RTC);
+	Chip_RTC_Wakeup_SetControl(NSS_RTC, RTC_WAKEUPCTRL_ENABLE | RTC_WAKEUPCTRL_AUTO);
+	Chip_RTC_Int_SetEnabledMask(NSS_RTC, RTC_INT_ALL);
+
+	// docasne vymazanie priznaku behu logovania
+	NFC_REG_LOGGING_STATUS_T logStatus;
+
+	Chip_EEPROM_Read(NSS_EEPROM, NFC_REG_LOGGING_STATUS_OFFSET, (uint8_t*) &logStatus, NFC_REG_LOGGING_STATUS_LENGTH);
+
+	logStatus.running = NFC_STOPPED;
+
+	Chip_EEPROM_Write(NSS_EEPROM, NFC_REG_LOGGING_STATUS_OFFSET, (uint8_t*) &logStatus, NFC_REG_LOGGING_STATUS_LENGTH);
+}
+
+static void NFC_HandleRx(void){
+	if(NDEFT2T_GetMessage(sNdefInstRx,sRxData, sizeof(sRxData))){
+		uint8_t *pPyld;
+		int len;
+
+		NDEFT2T_PARSE_RECORD_INFO_T recInfo;
+
+		while(NDEFT2T_GetNextRecord(sNdefInstRx, &recInfo)){
+			if(recInfo.type == NDEFT2T_RECORD_TYPE_MIME){
+				pPyld = NDEFT2T_GetRecordPayload(sNdefInstRx, &len);
+//				Msg_HandleCommand(len, pPyld);
+			}
+		}
+	}
+}
+
+//	Command 0x70: Get the unique tag ID
+//	Query
+//	uint8_t  msgId = 0x70;		      //Read unique tag ID
+//	uint8_t  msgDirection = 0x00;		//Reserved code (0x00=send, 0x01=receive)
+//
+//	Response
+//	uint8_t  msgId = 0x70;		      //Read unique tag ID
+//	uint8_t  msgDirection = 0x01;		//Reserved code (0x00=send, 0x01=receive)
+//	uint8_t  responseResult;            //Confirmation (0x01=OK, 0x00=ERROR)
+//	uint32_t  tag_id[4];			// Tag ID in hexadecimal
+//
+// 	OK, tested
+
+static uint32_t NFC_Cmd_0x70_GetUniqeTagID(uint8_t msgId, int len, const uint8_t* pPyld){
+	NFC_CMD_0x70_RES_T res;
+
+	uint32_t uid[4];
+
+	Chip_IAP_ReadUID(uid);
+
+	for(int i = 0; i < 16; i++){
+		res.uid[i] = ((uint8_t *) &uid)[i];
+	}
+
+	res.success = NFC_CMD_RES_OK;
+
+	Msg_AddResponse(msgId, sizeof(res), (uint8_t*) &res);
+
+	return MSG_OK;
+}
+
+//	Command 0x71: Set the shipping ID
+//	Query
+//	uint8_t  msgId = 0x71;              //Set shipping ID
+//	uint8_t  msgDirection = 0x00;		//Reserved code (0x00=send, 0x01=receive)
+//	uint8_t  shippinIdSize;			// Shipping ID length (1 to 255)
+//	uint8_t  shippingId[shippingIdSize];	// Variable length shipping ID, LSB first
+//
+//	Response
+//	uint8_t  msgId = 0x71;              //Set shipping ID
+//	uint8_t  msgDirection = 0x01;		//Reserved code (0x00=send, 0x01=receive)
+//	uint8_t  responseResult;            //Confirmation (0x01=OK, 0x00=ERROR)
+//
+//  OK, tested
+
+static uint32_t NFC_Cmd_0x71_SetShippingID(uint8_t msgId, int len, const uint8_t* pPyld){
+	NFC_CMD_0x71_RES_T res;
+
+	Chip_EEPROM_Write(NSS_EEPROM, NFC_REG_SHIPPING_ID_OFFSET, pPyld, sizeof(uint8_t) * pPyld[0] + 1);
+
+	Chip_EEPROM_Flush(NSS_EEPROM, false);
+
+	res.success = NFC_CMD_RES_OK;
+
+	Msg_AddResponse(msgId, sizeof(res), (uint8_t*) &res);
+
+	return MSG_OK;
+}
+
+//	Command 0x72: Get the shipping ID
+//	Query
+//	uint8_t  msgId = 0x72;              //Read shipping ID
+//	uint8_t  msgDirection = 0x00;		//Reserved code (0x00=send, 0x01=receive)
+//
+//	Response
+//	uint8_t  msgId = 0x72;              //Read shipping ID
+//	uint8_t  msgDirection = 0x01;		//Reserved code (0x00=send, 0x01=receive)
+//	uint8_t  responseResult;            //Confirmation (0x01=OK, 0x00=ERROR)
+//	uint8_t  shippinIdSize;			// Shipping ID length (1 to 255)
+//	uint8_t  shippingId[shippingIdSize];	// Variable length shipping ID
+//
+//  OK, tested
+
+static uint32_t NFC_Cmd_0x72_GetShippingID(uint8_t msgId, int len, const uint8_t* pPyld){
+	NFC_CMD_0x72_RES_T res;
+
+	Chip_EEPROM_Read(NSS_EEPROM, NFC_REG_SHIPPING_ID_OFFSET, &res.length, sizeof(uint8_t));
+
+	Chip_EEPROM_Read(NSS_EEPROM, NFC_REG_SHIPPING_ID_OFFSET + 1, res.shipping_id, sizeof(uint8_t) * NFC_REG_SHIPPING_ID_LENGTH);
+
+	res.success = NFC_CMD_RES_OK;
+
+	Msg_AddResponse(msgId, sizeof(uint8_t) * (2 + res.length), (uint8_t*) &res);
+
+	return MSG_OK;
+}
+
+//	Command 0x73: Get the actual sensor information
+//	Query
+//	uint8_t  msgId = 0x73;              //Read actual sensor information
+//	uint8_t  msgDirection = 0x00;		//Reserved code (0x00=send, 0x01=receive)
+//
+//	Response
+//	uint8_t  msgId = 0x73;              //Read actual sensor information
+//	uint8_t  msgDirection = 0x01;		//Reserved code (0x00=send, 0x01=receive)
+//	uint8_t  responseResult;            //Confirmation (0x01=OK, 0x00=ERROR)
+//	int16_t  acc_x;				// X-axis acceleration
+//	int16_t  acc_y;				// Y-axis acceleration
+//	int16_t  acc_z;				// Z-axis acceleration
+//	uint8_t  temp;				// Temperature(-40 to + 85°C)
+//	uint8_t  batteryVoltage;            // 0 to 255 (representing 0V to 3.825V)
+//
+//  OK, tested
+
+static uint32_t NFC_Cmd_0x73_GetActualSensorInfo(uint8_t msgId, int len, const uint8_t* pPyld){
+	NFC_CMD_0x73_RES_T res;
+
+	MEMS_ACC_DATA_T acc = MEMS_SingleReadAcceleration();
+
+	res.accX = (int8_t) (acc.x >> 8);
+	res.accY = (int8_t) (acc.y >> 8);
+	res.accZ = (int8_t) (acc.z >> 8);
+
+	Chip_TSen_Start(NSS_TSEN);
+
+	while(!(Chip_TSen_ReadStatus(NSS_TSEN, NULL) & TSEN_STATUS_MEASUREMENT_DONE)){}
+
+	res.temp = (int8_t)Chip_TSen_NativeToCelsius(Chip_TSen_GetValue(NSS_TSEN), 1);
+
+	res.volt = (uint8_t) 223;
+
+	res.success = NFC_CMD_RES_OK;
+
+	Msg_AddResponse(msgId, sizeof(res), (uint8_t*) &res);
+
+	return MSG_OK;
+}
+
+//	Command 0x74: Set sensor settings
+//	Query
+//	uint8_t  msgId = 0x74;              //Set sensor settings
+//	uint8_t  msgDirection = 0x00;		//Reserved code (0x00=send, 0x01=receive)
+//	uint8_t  shockScale;			// 2=±2G, 4=±4G, 8=±8G, 16=±16G (default)
+//	uint8_t  shockThreshold;		// 6-bit, LSB=1/64 of full (shock) scale
+//	int8_t   tempThresholdMin;		// Temperature -Threshold  (-40 to +85°C)
+//	int8_t   tempThresholdMax;		// Temperature +Threshold  (-40 to +85°C)
+//	uint16_t measureInterval;           // Interval in seconds (30sec to 18h)
+//
+//	OK, tested
+
+static uint32_t NFC_Cmd_0x74_SetSensorSettings(uint8_t msgId, int len, const uint8_t* pPyld){
+	NFC_CMD_0x74_RES_T res;
+
+	Chip_EEPROM_Write(NSS_EEPROM, NFC_REG_SENSOR_SETTINGS_OFFSET, pPyld, NFC_REG_SENSOR_SETTINGS_LENGTH);
+
+	Chip_EEPROM_Flush(NSS_EEPROM, false);
+
+	res.success = NFC_CMD_RES_OK;
+
+	Msg_AddResponse(msgId, sizeof(res), (uint8_t*) &res);
+
+	return MSG_OK;
+}
+
+//	Command 0x75: Get sensor settings
+//	Query
+//	uint8_t  msgId = 0x75;              //Get sensor settings
+//	uint8_t  msgDirection = 0x00;		//Reserved code (0x00=send, 0x01=receive)
+//
+//	Response
+//	uint8_t  msgId = 0x75;              //Get sensor settings
+//	uint8_t  msgDirection = 0x01;		//Reserved code (0x00=send, 0x01=receive)
+//	uint8_t  responseResult;            //Confirmation (0x01=OK, 0x00=ERROR)
+//	uint8_t  shockScale;			// 2=±2G, 4=±4G, 8=±8G, 16=±16G
+//	uint8_t  shockThreshold;		// 6-bit, LSB=1/64 of full (shock) scale
+//	int8_t   tempThresholdMin;		// Temperature -Threshold  (-40 to +85°C)
+//	int8_t   tempThresholdMax;		// Temperature +Threshold  (-40 to +85°C)
+//	uint16_t measureInterval;           // Interval in seconds (30sec to 18h)
+//
+//	OK, tested
+
+static uint32_t NFC_Cmd_0x75_GetSensorSettings(uint8_t msgId, int len, const uint8_t* pPyld){
+	NFC_CMD_0x75_RES_T res;
+
+//	Chip_EEPROM_Read(NSS_EEPROM, NFC_REG_SENSOR_SETTINGS_OFFSET, (uint8_t*) &res + sizeof(res.success), NFC_REG_SENSOR_SETTINGS_LENGTH);
+	Chip_EEPROM_Read(NSS_EEPROM, NFC_REG_SENSOR_SETTINGS_OFFSET, (uint8_t*) &res.shock_scale, NFC_REG_SENSOR_SETTINGS_LENGTH);
+
+	res.success = NFC_CMD_RES_OK;
+
+	Msg_AddResponse(msgId, sizeof(res), (uint8_t*) &res);
+
+	return MSG_OK;;
+}
+
+//Command 0x76: Get log information
+//Query
+//uint8_t  msgId = 0x76;              //Get logging information
+//uint8_t  msgDirection = 0x00;		//Reserved code (0x00=send, 0x01=receive)
+//
+//Response
+//uint8_t  msgId = 0x76;              //Get logging information
+//uint8_t  msgDirection = 0x01;		//Reserved code (0x00=send, 0x01=receive)
+//uint8_t  responseResult;            //Confirmation (0x01=OK, 0x00=ERROR)
+//uint8_t  logRunning;                // Log status (0x01=started/0x00=stopped)
+//uint16_t fileSize;			// Number of log records in file
+//uint8_t  logStartTime[4];           // Start of logging timestamp
+//
+//	TODO
+//  dorobit logStartTime - pridat do nastaveni, ktore sa ukladaju do pamate
+//	test with app
+
+static uint32_t NFC_Cmd_0x76_GetLogInfo(uint8_t msgId, int len, const uint8_t* pPyld){
+	NFC_CMD_0x76_RES_T res;
+
+	NFC_REG_LOGGING_STATUS_T status;
+
+//	LOGS_LOG_T logPacked;
+
+//	NFC_LOG_T log;
+
+	Chip_EEPROM_Read(NSS_EEPROM, NFC_REG_LOGGING_STATUS_OFFSET, (uint8_t*) &status, NFC_REG_LOGGING_STATUS_LENGTH);
+
+	res.running = status.running;
+
+	res.fileSize = (uint16_t) Storage_GetCount();
+
+	for(int i = 0; i < 4; i++){
+		res.logStartTime[i] = status.logStartTime[i];
+	}
+
+//	Storage_Seek(0);
+
+//	Storage_Read(&logPacked, 1);
+
+//	log = Logs_UnpackData(logPacked);
+
+//	for(int i = 0; i < 4; i++){
+//		res.logStartTime[i] = log.timeStamp[i];
+//	}
+
+	res.success = NFC_CMD_RES_OK;
+
+	Msg_AddResponse(msgId, sizeof(res), (uint8_t*) &res);
+
+	return MSG_OK;
+}
+
+//	Command 0x77: Start logging alerts
+//	The commandDelayMin field allows a delay after this command is received, before the start of logging. The range is expressed in minutes, from 0 for no delay to 65535 for 45.5 days.
+//
+//	Query
+//	uint8_t  msgId = 0x77;              //Start logging alerts
+//	uint8_t  msgDirection = 0x00;		//Reserved code (0x00=send, 0x01=receive)
+//	uint16_t commandDelayMin;		// Delay in minutes before logging starts
+//	uint32_t logStartTime;              // Start of logging timestamp (App time)
+//
+//	Response
+//	uint8_t  msgId = 0x77;              //Start logging alerts
+//	uint8_t  msgDirection = 0x01;		//Reserved code (0x00=send, 0x01=receive)
+//	uint8_t  responseResult;            //Confirmation (0x01=OK, 0x00=ERROR)
+
+//
+//	TODO
+//  - na zaklade nastaveni nakonfigurovat senzor a interrupty. v pripade cyklickeho merania aj casovac.
+//  - potom do mainu treba dat podmienky ak sa zobudi casovacom alebo prerusenim tak spravi log a to je vlastne vsetko, inak logy robit nebude
+//  - nakoniec nejak vymysliet ako spravit ten odlozeny start - mozno len podmienkou ze log spravi len ked je cas vacsi ako je cas odlozeneho startu
+//  - ak by bol cyklicky rezim tak sa vlastne za kazdym zobudenim casovacom znova bude musiet nastavit (asi tak to funguje)
+//	- temperature threshold settings
+//	- a tiez ukladat cas logStartTime (App time)
+
+static uint32_t NFC_Cmd_0x77_StartLogging(uint8_t msgId, int len, const uint8_t* pPyld){
+	// počas ostrej prevádzky vznika problem ak po start loggingu dam vycitat data so senzora - prestavi mi nastavenia - treba to nejak osetrit
+	//
+
+	NFC_CMD_0x71_RES_T res;
+	NFC_REG_LOGGING_STATUS_T logStatus;
+	NFC_REG_SENSOR_SETTINGS_T sensSettings;
+
+	Chip_EEPROM_Read(NSS_EEPROM, NFC_REG_SENSOR_SETTINGS_OFFSET, (uint8_t*) &sensSettings, NFC_REG_SENSOR_SETTINGS_LENGTH);
+
+	Chip_EEPROM_Read(NSS_EEPROM, NFC_REG_LOGGING_STATUS_OFFSET, (uint8_t*) &logStatus, NFC_REG_LOGGING_STATUS_LENGTH);
+
+//	odlozeny delay sa spravi len tak ze sa nastavi casovac (commandDelayMin * 60) a po zobudeni zisti ze v registri _NFC_REG_LOGGING_STATUS je nastaveny priznak postponed
+//	tak vlastne spravi vsetko co robi command 77 - cize asi sa jadro commandu (v podmienke status.running) osamostatni do funkcie
+
+	if(logStatus.running == NFC_STOPPED){
+		if(sensSettings.measure_interval >= 30){
+			NVIC_EnableIRQ(RTC_IRQn);
+			Chip_RTC_Wakeup_SetReload(NSS_RTC, sensSettings.measure_interval);
+		}
+
+		logStatus.running = NFC_RUNNING;
+
+//		for(int i = 0; i < 4; i++){
+//			res.logStartTime[i] = log.timeStamp[i];
+//		}
+
+		for(int i = 0; i < 4; i++){
+			logStatus.logStartTime[i] = pPyld[i + 2];
+		}
+
+		Chip_EEPROM_Write(NSS_EEPROM, NFC_REG_LOGGING_STATUS_OFFSET, (uint8_t*) &logStatus, NFC_REG_LOGGING_STATUS_LENGTH);
+
+		Chip_RTC_Time_SetValue(NSS_RTC, 0);
+
+		MEMS_ThresholdSet();
+
+		NVIC_EnableIRQ(PIO0_IRQn);
+
+//		Chip_GPIO_EnableInt(NSS_GPIO, MEMS_SIGNAL_PORT, NSS_GPIOn_PINMASK(MEMS_SIGNAL_INT1));
+
+		res.success = NFC_CMD_RES_OK;
+	}else{
+		res.success = NFC_CMD_RES_LOGGING_ALREADY_RUNNING;
+	}
+
+
+
+
+	Msg_AddResponse(msgId, sizeof(res), (uint8_t*)&res);
+
+	return MSG_OK;
+}
+
+//	Command 0x78: Stop logging alerts
+//	Query
+//	uint8_t  msgId = 0x78;              //Stop logging alerts
+//	uint8_t  msgDirection = 0x00;		//Reserved code (0x00=send, 0x01=receive)
+//
+//	Response
+//	uint8_t  msgId = 0x78;              //Stop logging alerts
+//	uint8_t  msgDirection = 0x01;		//Reserved code (0x00=send, 0x01=receive)
+//	uint8_t  responseResult;            //Confirmation (0x01=OK, 0x00=ERROR)
+//
+//	TODO
+//	- deinicializovat casovace
+//	- test with app
+
+static uint32_t NFC_Cmd_0x78_StopLogging(uint8_t msgId, int len, const uint8_t* pPyld){
+	// tuto treba dat pozor ked sa bude prechadzat do deep down aby sa deinicializoval Storage
+
+
+	NFC_CMD_0x78_RES_T res;
+	NFC_REG_LOGGING_STATUS_T logStatus;
+
+	Chip_EEPROM_Read(NSS_EEPROM, NFC_REG_LOGGING_STATUS_OFFSET, (uint8_t*) &logStatus, NFC_REG_LOGGING_STATUS_LENGTH);
+
+	if(logStatus.running == NFC_RUNNING){
+		logStatus.running = NFC_STOPPED;
+		logStatus.postponed = NFC_STOPPED;
+
+		NVIC_DisableIRQ(RTC_IRQn);
+
+		MEMS_RestoreDefault();
+
+		NVIC_DisableIRQ(PIO0_IRQn);
+
+//		Chip_GPIO_DisableInt(NSS_GPIO, MEMS_SIGNAL_PORT, NSS_GPIOn_PINMASK(MEMS_SIGNAL_INT1));
+
+		Chip_EEPROM_Write(NSS_EEPROM, NFC_REG_LOGGING_STATUS_OFFSET, (uint8_t*) &logStatus, NFC_REG_LOGGING_STATUS_LENGTH);
+
+		Storage_DeInit();
+
+		res.success = NFC_CMD_RES_OK;
+	}else{
+		res.success = NFC_CMD_RES_LOGGING_ALREADY_STOPPED;
+	}
+
+	Msg_AddResponse(msgId, sizeof(res), (uint8_t*) &res);
+
+	return MSG_OK;
+}
+
+//Command 0x79: Get a log record
+//Query
+//uint8_t  msgId = 0x79;              //Read the log
+//uint8_t  msgDirection = 0x00;		//Reserved code (0x00=send, 0x01=receive)
+//uint16_t startFrom;			// Record number to read (0 to 65535)
+//
+//Response
+//uint8_t  msgId = 0x79;              //Read the log
+//uint8_t  msgDirection = 0x01;		//Reserved code (0x00=send, 0x01=receive)
+//uint8_t  responseResult;            //Confirmation 0x01=OK
+//									//             0x00=ERROR
+//									//             0x02=END_OF_FILE
+//									//             0x03=INVALID_DATA
+//uint16_t fileSize;			// Number of log records in file
+//uint16_t recordNumber;			// This record number
+//int8_t   acc_x;				// X-axis acceleration
+//int8_t   acc_y;				// Y-axis acceleration
+//int8_t   acc_z;				// Z-axis acceleration
+//uint8_t  temp;				// Temperature
+//uint32_t timeStamp;			// Measurement timestamp
+//
+//
+
+static uint32_t NFC_Cmd_0x79_GetLogRecord(uint8_t msgId, int len, const uint8_t* pPyld){
+	NFC_CMD_0x79_RES_T res;
+
+//	uint8_t a = pPyld[0];	- moze sa vymazat
+//	uint8_t b = pPyld[1];	- moze sa vymazat
+
+	uint16_t startFrom = pPyld[1] | (pPyld[0] << 8);
+
+	uint16_t fileSize = (uint16_t) Storage_GetCount();
+
+	LOGS_LOG_T logPacked;
+	NFC_LOG_T log;
+
+	int readLogs = 0;
+	bool seekSucced = false;
+
+	res.fileSize[0] = fileSize;
+	res.fileSize[1] = fileSize >> 8;
+
+	res.recNumber[0] = startFrom;
+	res.recNumber[1] = startFrom >> 8;
+
+	seekSucced = Storage_Seek((int) startFrom);
+
+	if(seekSucced){
+		readLogs = Storage_Read(&logPacked, 1);
+
+		if(readLogs == 1){
+			log = Logs_UnpackData(logPacked);
+
+			res.accX = log.accX;
+			res.accY = log.accY;
+			res.accZ = log.accZ;
+			res.temp = log.temp;
+			res.timeStamp[0] = log.timeStamp[0];
+			res.timeStamp[1] = log.timeStamp[1];
+			res.timeStamp[2] = log.timeStamp[2];
+			res.timeStamp[3] = log.timeStamp[3];
+
+			res.success = NFC_CMD_RES_OK;
+		}else
+			res.success = NFC_CMD_RES_END_OF_FILE;
+	}else
+		res.success = NFC_CMD_RES_INVALID_DATA;
+
+	Msg_AddResponse(msgId, sizeof(res), (uint8_t*) &res);
+
+	return MSG_OK;
+}
+
+//	Command 0x7a: Clear the log
+//	Query
+//	uint8_t msgId = 0x7a;               //Clear the log
+//	uint8_t msgDirection = 0x00;		//Reserved code (0x00=send, 0x01=receive)
+//
+//	Response
+//	uint8_t msgId = 0x7a;               //Clear the log
+//	uint8_t msgDirection = 0x01;		//Reserved code (0x00=send, 0x01=receive)
+//	uint8_t responseResult;            //Confirmation (0x01=OK, 0x00=ERROR)
+//
+//	TODO
+//	test with app
+
+static uint32_t NFC_Cmd_0x7a_ClearLog(uint8_t msgId, int len, const uint8_t* pPyld){
+	NFC_CMD_0x7a_RES_T res;
+
+	Storage_Reset(true);
+
+	res.success = NFC_CMD_RES_OK;
+
+	Msg_AddResponse(msgId, sizeof(res), (uint8_t*) &res);
+
+	return MSG_OK;
+}
+
+//	Command 0x80: Request Secure Communications
+//	Query
+//	uint8_t  msgId = 0x80;		      //Request Secure Communications
+//	uint8_t  msgDirection = 0x00;		//Reserved code (0x00=send)
+//	uint8_t  securityScheme;		// Security scheme used by the application
+//												0x00 = no encryption (used for dev.)
+//		  										0x01 = XOR
+//		  										0x02 = ...
+//	uint8_t  keyLength;			// Number of bytes for key (8 to 32)
+//	uint8_t  key[keyLength];		// Decryption key to be used by LSL
+//
+//	Response
+//	uint8_t  msgId = 0x80;		      //Request Secure Communications
+//	uint8_t  msgDirection = 0x01;		//Reserved code (0x01=receive)
+//	uint8_t  responseResult;            //Confirmation (0x01=OK, 0x00=ERROR)
+//	uint8_t  securityScheme;		// Security scheme used by LSL
+//												0x00 = no encryption (used for dev.)
+//		  										0x01 = XOR
+//		  										0x02 = ...
+//	uint8_t  keyLength;			// Number of bytes for key (8 to 32)
+//	uint8_t  key[keyLength];		// Decryption key to be used by the app
+
+static uint32_t NFC_Cmd_0x80_RequestSecureCommunications(uint8_t msgId, int len, const uint8_t* pPyld){
+	NFC_CMD_0x80_RES_T res;
+	int i;
+
+	srand(Chip_RTC_Time_GetValue(NSS_RTC));
+
+	int getRandNum(int lower, int upper){
+		int res = (rand() % (upper - lower + 1)) + lower;
+
+		return res;
+	}
+
+	res.securityScheme = 0;
+
+	res.keyLength = getRandNum(8, 32);
+
+	for(i = 0; i < res.keyLength; i++){
+		res.key[i] = getRandNum(0, 255);
+	}
+
+	res.success = NFC_CMD_RES_OK;
+
+	Msg_AddResponse(msgId, sizeof(res) - (32 - res.keyLength), (uint8_t*) &res);
+
+	return MSG_OK;
+}
+
+static bool NFC_MsgResponse_Cb(int resLen, const uint8_t* pResData){
+	NDEFT2T_CreateMessage(sNdefInstTx, sTxData,sizeof(sTxData), true);
+
+	NDEFT2T_CREATE_RECORD_INFO_T recInfo = {(uint8_t*)"nhs31xx/example.ndef", resLen <= 255, 0};
+
+	if(NDEFT2T_CreateMimeRecord(sNdefInstTx, &recInfo)){
+		if(resLen && NDEFT2T_WriteRecordPayload(sNdefInstTx, pResData, resLen))
+			NDEFT2T_CommitRecord(sNdefInstTx);
+	}
+
+	NDEFT2T_CommitMessage(sNdefInstTx);
+
+	return true;
+}

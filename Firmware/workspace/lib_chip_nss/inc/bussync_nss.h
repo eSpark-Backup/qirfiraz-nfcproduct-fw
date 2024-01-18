@@ -33,10 +33,13 @@
  *      -# Trigger the HW block for a register read 
  *      -# Perform the synchronization wait 
  *      -# Read the content of the register 
+ *      .
  *  - Register write procedure:
  *      -# Trigger the HW block for a register write 
  *      -# Perform the synchronization wait 
  *      -# The new register content is now assimilated by the HW block
+ *      .
+ *  .
  *
  * @par Preemption problem:
  *  It is possible that a given synchronized read or write procedure is preempted by a read or write to the same

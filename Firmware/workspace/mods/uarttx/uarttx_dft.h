@@ -13,9 +13,9 @@
  * @defgroup MODS_NSS_UARTTX_DFT Diversity settings
  * @ingroup MODS_NSS_UARTTX
  *
- * The application can adapt the Uart Tx-only module to better fit the different application scenarios through the use
- * of diversity flags in the form of defines below. Sensible defaults are chosen; to override the default settings,
- * place the defines with their desired values in the application app_sel.h header file: the compiler will pick up your
+ * The application can adapt the Storage module to better fit the different application scenarios through the use of
+ * diversity flags in the form of defines below. Sensible defaults are chosen; to override the default settings, place
+ * the defines with their desired values in the application app_sel.h header file: the compiler will pick up your
  * defines before parsing this file.
  *
  * These flags may be overridden:
@@ -25,6 +25,7 @@
  * - #UARTTX_DEC_END_CHAR
  * - #UARTTX_HEX_END_CHAR
  * - #UARTTX_ENABLE_SHORTHANDS
+ * .
  *
  * These defines are derived from #UARTTX_ENABLE_SHORTHANDS and may not be redefined in an application:
  * - PRINTD

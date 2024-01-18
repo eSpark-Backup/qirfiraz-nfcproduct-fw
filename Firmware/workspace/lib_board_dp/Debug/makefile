@@ -45,6 +45,7 @@ post-build:
 	-arm-none-eabi-size "liblib_board_dp.a" ; # arm-none-eabi-objdump -h -S "liblib_board_dp.a" >"liblib_board_dp.lss"
 	-@echo ' '
 
-.PHONY: all clean dependents post-build
+.PHONY: all clean dependents
+.SECONDARY: post-build
 
 -include ../makefile.targets

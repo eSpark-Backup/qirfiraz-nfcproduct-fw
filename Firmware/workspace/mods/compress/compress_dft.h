@@ -31,6 +31,7 @@
  * - required stack size for compression: 16 + 2<<w if no index is enabled.
  * - required stack size for compression: 16 + 4<<w if indexing is enabled.
  * - required stack size for decompression: 46 + 1<<w regardless of indexing.
+ * .
  */
 #ifndef COMPRESS_WINDOW_BITS
     #define COMPRESS_WINDOW_BITS 10

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2021 NXP
+ * Copyright 2015-2020 NXP
  * This software is owned or controlled by NXP and may only be used strictly
  * in accordance with the applicable license terms.  By expressly accepting
  * such terms or by downloading, installing, activating and/or otherwise using
@@ -96,6 +96,7 @@
  *  shall indicate the message id. The second byte shall indicate the direction of transfer as mentioned below:
  *      - value of 0x0 for commands coming into message mod
  *      - value of 0x1 for responses going out from message mod
+ *      .
  *  This is followed by the optional payload specific for each command/response. Details of the commands and
  *  responses are captured in the following sections.
  *  @note The NTAG SmartSensor family uses the NFC as a bi-directional communication path. But using the NFC technology
@@ -271,6 +272,7 @@
  *          is being fed by the application firmware. Although the functionality to configure and start a temperature
  *          monitoring session is lacking, it can still do a full data readout of tens of thousands of measurements
  *          points, together with the current status and the conclusion as calculated on the NTAG SmartSensor
+ *      .
  *
  *      A sequence diagram of such an application, where the application firmware implements an 'automatic' mode, can
  *      look as follows:
@@ -316,6 +318,7 @@
  *              - Vice versa, when reading has finished, but a reading error has occurred causing a few bytes to have
  *                  reversed bits, the application firmware cannot be informed to pause its script execution, needed
  *                  to give the necessary time to the tag reader to read the response a second time.
+ *              .
  *              This means that some redundancy and leniency must be implemented on both sides to still ensure a full
  *              correct readout of all the data provided by the implemented use case.
  *
@@ -538,6 +541,7 @@ typedef enum MSG_ID {
      *      and is equal to the message id which triggered the generation of this response.
      *  - If no response was queued: #MSG_RESPONSE_RESULTONLY_T with #MSG_RESPONSE_RESULTONLY_T.result equal to
      *      #MSG_ERR_NO_RESPONSE
+     *  .
      * @note synchronous command
      * @ifnot MSG_PROTOCOL_DOC
      * @note For this command to become available, define both #MSG_RESPONSE_BUFFER and #MSG_RESPONSE_BUFFER_SIZE.
@@ -699,7 +703,7 @@ typedef enum MSG_ID {
      * Retrieves the timestamps of when the temperature calibration took place (at 30C and 85C).
      * @param Header : Sequence of bytes as per the @ref msg_anchor_protocol "Protocol".
      * @param Payload : @b No payload.
-     * @return MSG_RESPONSE_GETCALIBRATIONTIMESTAMP_T
+     * @return MSG_RESPONSE_GETDIAGDATA_T
      * @note synchronous command
      * @ifnot MSG_PROTOCOL_DOC
      * @note Enabled by default. To disable this command, undefine #MSG_ENABLE_GETCALIBRATIONTIMESTAMP.
@@ -707,8 +711,16 @@ typedef enum MSG_ID {
      */
     MSG_ID_GETCALIBRATIONTIMESTAMP = 0x0c,
 
-    /** Obsolete. Do not use. */
-    MSG_ID_OBSOLETE_3E = 0x3E,
+    /**
+     * @c 0x3E @n
+     * Retrieve diagnostics information as gathered by the diag module.
+     * @param Header : Sequence of bytes as per the @ref msg_anchor_protocol "Protocol".
+     * @param Payload : @b No payload.
+     * @return MSG_RESPONSE_GETDIAGDATA_T
+     * @note synchronous command
+     * @note For this command to become available, define @c ENABLE_DIAG_MODULE.
+     */
+    MSG_ID_GETDIAGDATA = 0x3E,
 
     /**
      * @c 0x3F @n
