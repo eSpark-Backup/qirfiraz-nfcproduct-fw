@@ -12,7 +12,7 @@
 		<item value="NSS_30k_8k_IAP.cfx," key="flashdriver"/>
 		<item value="false" key="clipboard"/>
 		<item value="" key="extended"/>
-		<item value="C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\Debug\LSL_v1.axf;C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\Debug\SBS_Gen_v1.axf," key="file"/>
+		<item value="C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\Debug\SBS_Gen_v1.axf;C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\Debug\LSL_v1.axf," key="file"/>
 		<item value="true" key="erase_mass"/>
 		<item value="false" key="reopen"/>
 		<item value="false" key="repeat"/>

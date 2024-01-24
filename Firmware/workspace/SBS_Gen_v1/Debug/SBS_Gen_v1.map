@@ -2056,7 +2056,7 @@ END GROUP
                 0x10001ff0                __top_SRAM8 = 0x10001ff0
                 0x10001ff0                __top_RAM = 0x10001ff0
 
-.text           0x00000000     0x392c
+.text           0x00000000     0x3938
  FILL mask 0xff
                 0x00000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -2065,7 +2065,7 @@ END GROUP
                 0x000000c0                . = ALIGN (0x4)
                 0x000000c0                __section_table_start = .
                 0x000000c0                __data_section_table = .
-                0x000000c0        0x4 LONG 0x392c LOADADDR (.data)
+                0x000000c0        0x4 LONG 0x3938 LOADADDR (.data)
                 0x000000c4        0x4 LONG 0x10000000 ADDR (.data)
                 0x000000c8        0x4 LONG 0x17c SIZEOF (.data)
                 0x000000cc                __data_section_table_end = .
@@ -2103,562 +2103,562 @@ END GROUP
  .text.Logs_UnpackData
                 0x0000039c       0x28 ./src/lsl_logs.o
                 0x0000039c                Logs_UnpackData
- .text.init     0x000003c4       0x38 ./src/lsl_main.o
+ .text.init     0x000003c4       0x48 ./src/lsl_main.o
                 0x000003c4                init
  .text.startup.main
-                0x000003fc       0x78 ./src/lsl_main.o
-                0x000003fc                main
+                0x0000040c       0x74 ./src/lsl_main.o
+                0x0000040c                main
  .text.MEMS_Init
-                0x00000474       0xd8 ./src/lsl_mems.o
-                0x00000474                MEMS_Init
+                0x00000480       0xd8 ./src/lsl_mems.o
+                0x00000480                MEMS_Init
  .text.MEMS_Read_Register
-                0x0000054c       0x70 ./src/lsl_mems.o
-                0x0000054c                MEMS_Read_Register
+                0x00000558       0x70 ./src/lsl_mems.o
+                0x00000558                MEMS_Read_Register
  .text.MEMS_Write_Register
-                0x000005bc       0x54 ./src/lsl_mems.o
-                0x000005bc                MEMS_Write_Register
+                0x000005c8       0x54 ./src/lsl_mems.o
+                0x000005c8                MEMS_Write_Register
  .text.MEMS_CheckDeviceID
-                0x00000610       0x1c ./src/lsl_mems.o
-                0x00000610                MEMS_CheckDeviceID
+                0x0000061c       0x1c ./src/lsl_mems.o
+                0x0000061c                MEMS_CheckDeviceID
  .text.MEMS_RestoreDefault
-                0x0000062c       0x32 ./src/lsl_mems.o
-                0x0000062c                MEMS_RestoreDefault
- *fill*         0x0000065e        0x2 ff
+                0x00000638       0x32 ./src/lsl_mems.o
+                0x00000638                MEMS_RestoreDefault
+ *fill*         0x0000066a        0x2 ff
  .text.getFullScale
-                0x00000660       0x14 ./src/lsl_mems.o
-                0x00000660                getFullScale
+                0x0000066c       0x14 ./src/lsl_mems.o
+                0x0000066c                getFullScale
  .text.MEMS_SingleReadAcceleration
-                0x00000674      0x12c ./src/lsl_mems.o
-                0x00000674                MEMS_SingleReadAcceleration
+                0x00000680      0x12c ./src/lsl_mems.o
+                0x00000680                MEMS_SingleReadAcceleration
  .text.MEMS_ThresholdSet
-                0x000007a0      0x198 ./src/lsl_mems.o
-                0x000007a0                MEMS_ThresholdSet
+                0x000007ac      0x198 ./src/lsl_mems.o
+                0x000007ac                MEMS_ThresholdSet
  .text.MEMS_AddLog
-                0x00000938       0xb8 ./src/lsl_mems.o
-                0x00000938                MEMS_AddLog
+                0x00000944       0xb8 ./src/lsl_mems.o
+                0x00000944                MEMS_AddLog
  .text.PIO0_IRQHandler
-                0x000009f0       0x18 ./src/lsl_mems.o
-                0x000009f0                PIO0_IRQHandler
+                0x000009fc       0x18 ./src/lsl_mems.o
+                0x000009fc                PIO0_IRQHandler
  .text.RTC_IRQHandler
-                0x00000a08       0x30 ./src/lsl_mems.o
-                0x00000a08                RTC_IRQHandler
+                0x00000a14       0x30 ./src/lsl_mems.o
+                0x00000a14                RTC_IRQHandler
  .text.NFC_Cmd_0x80_RequestSecureCommunications
-                0x00000a38       0x64 ./src/lsl_nfc.o
+                0x00000a44       0x64 ./src/lsl_nfc.o
  .text.NFC_Cmd_0x7a_ClearLog
-                0x00000a9c       0x1a ./src/lsl_nfc.o
+                0x00000aa8       0x1a ./src/lsl_nfc.o
  .text.NFC_Cmd_0x79_GetLogRecord
-                0x00000ab6       0x82 ./src/lsl_nfc.o
+                0x00000ac2       0x82 ./src/lsl_nfc.o
  .text.NFC_Cmd_0x76_GetLogInfo
-                0x00000b38       0x54 ./src/lsl_nfc.o
+                0x00000b44       0x54 ./src/lsl_nfc.o
  .text.NFC_Cmd_0x75_GetSensorSettings
-                0x00000b8c       0x28 ./src/lsl_nfc.o
+                0x00000b98       0x28 ./src/lsl_nfc.o
  .text.NFC_Cmd_0x72_GetShippingID
-                0x00000bb4       0x40 ./src/lsl_nfc.o
+                0x00000bc0       0x40 ./src/lsl_nfc.o
  .text.NFC_Cmd_0x78_StopLogging
-                0x00000bf4       0x68 ./src/lsl_nfc.o
+                0x00000c00       0x68 ./src/lsl_nfc.o
  .text.NFC_Cmd_0x77_StartLogging
-                0x00000c5c       0x94 ./src/lsl_nfc.o
+                0x00000c68       0x94 ./src/lsl_nfc.o
  .text.NFC_Cmd_0x74_SetSensorSettings
-                0x00000cf0       0x2c ./src/lsl_nfc.o
+                0x00000cfc       0x2c ./src/lsl_nfc.o
  .text.NFC_Cmd_0x71_SetShippingID
-                0x00000d1c       0x30 ./src/lsl_nfc.o
+                0x00000d28       0x30 ./src/lsl_nfc.o
  .text.NFC_Cmd_0x73_GetActualSensorInfo
-                0x00000d4c       0x64 ./src/lsl_nfc.o
+                0x00000d58       0x64 ./src/lsl_nfc.o
  .text.NFC_Cmd_0x70_GetUniqeTagID
-                0x00000db0       0x30 ./src/lsl_nfc.o
+                0x00000dbc       0x30 ./src/lsl_nfc.o
  .text.NFC_MsgResponse_Cb
-                0x00000de0       0x64 ./src/lsl_nfc.o
+                0x00000dec       0x64 ./src/lsl_nfc.o
  .text.NFC_MsgAvailable_Cb
-                0x00000e44       0x54 ./src/lsl_nfc.o
-                0x00000e44                NFC_MsgAvailable_Cb
+                0x00000e50       0x54 ./src/lsl_nfc.o
+                0x00000e50                NFC_MsgAvailable_Cb
  .text.NFC_Init
-                0x00000e98       0x78 ./src/lsl_nfc.o
-                0x00000e98                NFC_Init
+                0x00000ea4       0x78 ./src/lsl_nfc.o
+                0x00000ea4                NFC_Init
  .text.ResetInstance
-                0x00000f10       0x1c ./mods/storage/storage.o
+                0x00000f1c       0x1c ./mods/storage/storage.o
  .text.ShiftUnalignedData
-                0x00000f2c       0x78 ./mods/storage/storage.o
+                0x00000f38       0x78 ./mods/storage/storage.o
  .text.GetEepromCount
-                0x00000fa4       0x24 ./mods/storage/storage.o
+                0x00000fb0       0x24 ./mods/storage/storage.o
  .text.GetFlashCount
-                0x00000fc8       0x28 ./mods/storage/storage.o
+                0x00000fd4       0x28 ./mods/storage/storage.o
  .text.ValidateMarker
-                0x00000ff0       0x58 ./mods/storage/storage.o
+                0x00000ffc       0x58 ./mods/storage/storage.o
  .text.WriteHint
-                0x00001048       0x7c ./mods/storage/storage.o
+                0x00001054       0x7c ./mods/storage/storage.o
  .text.ReadFromEeprom
-                0x000010c4       0x54 ./mods/storage/storage.o
+                0x000010d0       0x54 ./mods/storage/storage.o
  .text.WriteToEeprom
-                0x00001118       0xfc ./mods/storage/storage.o
+                0x00001124       0xfc ./mods/storage/storage.o
  .text.WriteMarker
-                0x00001214       0x2c ./mods/storage/storage.o
+                0x00001220       0x2c ./mods/storage/storage.o
  .text.ReadAndCacheSamplesFromFlash
-                0x00001240       0x68 ./mods/storage/storage.o
+                0x0000124c       0x68 ./mods/storage/storage.o
  .text.ValidateHint
-                0x000012a8       0x9c ./mods/storage/storage.o
+                0x000012b4       0x9c ./mods/storage/storage.o
  .text.Storage_Init
-                0x00001344      0x258 ./mods/storage/storage.o
-                0x00001344                Storage_Init
+                0x00001350      0x258 ./mods/storage/storage.o
+                0x00001350                Storage_Init
  .text.Storage_DeInit
-                0x0000159c       0x74 ./mods/storage/storage.o
-                0x0000159c                Storage_DeInit
+                0x000015a8       0x74 ./mods/storage/storage.o
+                0x000015a8                Storage_DeInit
  .text.Storage_GetCount
-                0x00001610       0x20 ./mods/storage/storage.o
-                0x00001610                Storage_GetCount
+                0x0000161c       0x20 ./mods/storage/storage.o
+                0x0000161c                Storage_GetCount
  .text.Storage_Reset
-                0x00001630       0xc0 ./mods/storage/storage.o
-                0x00001630                Storage_Reset
+                0x0000163c       0xc0 ./mods/storage/storage.o
+                0x0000163c                Storage_Reset
  .text.Storage_Write
-                0x000016f0      0x228 ./mods/storage/storage.o
-                0x000016f0                Storage_Write
+                0x000016fc      0x228 ./mods/storage/storage.o
+                0x000016fc                Storage_Write
  .text.Storage_Seek
-                0x00001918       0x84 ./mods/storage/storage.o
-                0x00001918                Storage_Seek
+                0x00001924       0x84 ./mods/storage/storage.o
+                0x00001924                Storage_Seek
  .text.Storage_Read
-                0x0000199c       0xf4 ./mods/storage/storage.o
-                0x0000199c                Storage_Read
+                0x000019a8       0xf4 ./mods/storage/storage.o
+                0x000019a8                Storage_Read
  .text.DecodeNdefTlv
-                0x00001a90       0x50 ./mods/ndeft2t/ndeft2t.o
+                0x00001a9c       0x50 ./mods/ndeft2t/ndeft2t.o
  .text.DisableMessageReadDetection
-                0x00001ae0       0x1c ./mods/ndeft2t/ndeft2t.o
+                0x00001aec       0x1c ./mods/ndeft2t/ndeft2t.o
  .text.CreateRecord
-                0x00001afc       0xbe ./mods/ndeft2t/ndeft2t.o
- *fill*         0x00001bba        0x2 ff
+                0x00001b08       0xbe ./mods/ndeft2t/ndeft2t.o
+ *fill*         0x00001bc6        0x2 ff
  .text.DisableTermTlvDetection
-                0x00001bbc       0x28 ./mods/ndeft2t/ndeft2t.o
+                0x00001bc8       0x28 ./mods/ndeft2t/ndeft2t.o
  .text.NDEFT2T_ResetNfcMemory
-                0x00001be4       0x18 ./mods/ndeft2t/ndeft2t.o
-                0x00001be4                NDEFT2T_ResetNfcMemory
+                0x00001bf0       0x18 ./mods/ndeft2t/ndeft2t.o
+                0x00001bf0                NDEFT2T_ResetNfcMemory
  .text.NDEFT2T_Init
-                0x00001bfc       0x34 ./mods/ndeft2t/ndeft2t.o
-                0x00001bfc                NDEFT2T_Init
+                0x00001c08       0x34 ./mods/ndeft2t/ndeft2t.o
+                0x00001c08                NDEFT2T_Init
  .text.NDEFT2T_CreateMessage
-                0x00001c30       0x54 ./mods/ndeft2t/ndeft2t.o
-                0x00001c30                NDEFT2T_CreateMessage
+                0x00001c3c       0x54 ./mods/ndeft2t/ndeft2t.o
+                0x00001c3c                NDEFT2T_CreateMessage
  .text.NDEFT2T_CreateMimeRecord
-                0x00001c84       0x20 ./mods/ndeft2t/ndeft2t.o
-                0x00001c84                NDEFT2T_CreateMimeRecord
+                0x00001c90       0x20 ./mods/ndeft2t/ndeft2t.o
+                0x00001c90                NDEFT2T_CreateMimeRecord
  .text.NDEFT2T_WriteRecordPayload
-                0x00001ca4       0x70 ./mods/ndeft2t/ndeft2t.o
-                0x00001ca4                NDEFT2T_WriteRecordPayload
+                0x00001cb0       0x70 ./mods/ndeft2t/ndeft2t.o
+                0x00001cb0                NDEFT2T_WriteRecordPayload
  .text.NDEFT2T_CommitRecord
-                0x00001d14       0x32 ./mods/ndeft2t/ndeft2t.o
-                0x00001d14                NDEFT2T_CommitRecord
- *fill*         0x00001d46        0x2 ff
+                0x00001d20       0x32 ./mods/ndeft2t/ndeft2t.o
+                0x00001d20                NDEFT2T_CommitRecord
+ *fill*         0x00001d52        0x2 ff
  .text.NDEFT2T_CommitMessage
-                0x00001d48      0x124 ./mods/ndeft2t/ndeft2t.o
-                0x00001d48                NDEFT2T_CommitMessage
+                0x00001d54      0x124 ./mods/ndeft2t/ndeft2t.o
+                0x00001d54                NDEFT2T_CommitMessage
  .text.NDEFT2T_GetNextRecord
-                0x00001e6c      0x10c ./mods/ndeft2t/ndeft2t.o
-                0x00001e6c                NDEFT2T_GetNextRecord
+                0x00001e78      0x10c ./mods/ndeft2t/ndeft2t.o
+                0x00001e78                NDEFT2T_GetNextRecord
  .text.NDEFT2T_GetMessage
-                0x00001f78       0x84 ./mods/ndeft2t/ndeft2t.o
-                0x00001f78                NDEFT2T_GetMessage
+                0x00001f84       0x84 ./mods/ndeft2t/ndeft2t.o
+                0x00001f84                NDEFT2T_GetMessage
  .text.NDEFT2T_GetRecordPayload
-                0x00001ffc       0x24 ./mods/ndeft2t/ndeft2t.o
-                0x00001ffc                NDEFT2T_GetRecordPayload
+                0x00002008       0x24 ./mods/ndeft2t/ndeft2t.o
+                0x00002008                NDEFT2T_GetRecordPayload
  .text.NFC_IRQHandler
-                0x00002020       0x98 ./mods/ndeft2t/ndeft2t.o
-                0x00002020                NFC_IRQHandler
+                0x0000202c       0x98 ./mods/ndeft2t/ndeft2t.o
+                0x0000202c                NFC_IRQHandler
  .text.Msg_Init
-                0x000020b8        0x2 ./mods/msg/msg.o
-                0x000020b8                Msg_Init
- *fill*         0x000020ba        0x2 ff
+                0x000020c4        0x2 ./mods/msg/msg.o
+                0x000020c4                Msg_Init
+ *fill*         0x000020c6        0x2 ff
  .text.Msg_SetResponseCb
-                0x000020bc        0xc ./mods/msg/msg.o
-                0x000020bc                Msg_SetResponseCb
+                0x000020c8        0xc ./mods/msg/msg.o
+                0x000020c8                Msg_SetResponseCb
  .text.Msg_AddResponse
-                0x000020c8       0x50 ./mods/msg/msg.o
-                0x000020c8                Msg_AddResponse
+                0x000020d4       0x50 ./mods/msg/msg.o
+                0x000020d4                Msg_AddResponse
  .text.GetDiagDataHandler
-                0x00002118       0x2a ./mods/msg/msg.o
- *fill*         0x00002142        0x2 ff
+                0x00002124       0x2a ./mods/msg/msg.o
+ *fill*         0x0000214e        0x2 ff
  .text.GetCalibrationTimestampHandler
-                0x00002144       0x54 ./mods/msg/msg.o
+                0x00002150       0x54 ./mods/msg/msg.o
  .text.GetNfcUidHandler
-                0x00002198       0x2c ./mods/msg/msg.o
+                0x000021a4       0x2c ./mods/msg/msg.o
  .text.GetUidHandler
-                0x000021c4       0x20 ./mods/msg/msg.o
+                0x000021d0       0x20 ./mods/msg/msg.o
  .text.PrepareDebugHandler
-                0x000021e4       0x70 ./mods/msg/msg.o
+                0x000021f0       0x70 ./mods/msg/msg.o
  .text.GetVersionHandler
-                0x00002254       0x3c ./mods/msg/msg.o
+                0x00002260       0x3c ./mods/msg/msg.o
  .text.Msg_HandleCommand
-                0x00002290       0x80 ./mods/msg/msg.o
-                0x00002290                Msg_HandleCommand
+                0x0000229c       0x80 ./mods/msg/msg.o
+                0x0000229c                Msg_HandleCommand
  .text.get_bits
-                0x00002310       0x70 ./mods/compress/heatshrink/heatshrink_decoder.o
+                0x0000231c       0x70 ./mods/compress/heatshrink/heatshrink_decoder.o
  .text.heatshrink_decoder_reset
-                0x00002380       0x24 ./mods/compress/heatshrink/heatshrink_decoder.o
-                0x00002380                heatshrink_decoder_reset
+                0x0000238c       0x24 ./mods/compress/heatshrink/heatshrink_decoder.o
+                0x0000238c                heatshrink_decoder_reset
  .text.heatshrink_decoder_sink
-                0x000023a4       0x42 ./mods/compress/heatshrink/heatshrink_decoder.o
-                0x000023a4                heatshrink_decoder_sink
- *fill*         0x000023e6        0x2 ff
+                0x000023b0       0x42 ./mods/compress/heatshrink/heatshrink_decoder.o
+                0x000023b0                heatshrink_decoder_sink
+ *fill*         0x000023f2        0x2 ff
  .text.heatshrink_decoder_poll
-                0x000023e8      0x17c ./mods/compress/heatshrink/heatshrink_decoder.o
-                0x000023e8                heatshrink_decoder_poll
+                0x000023f4      0x17c ./mods/compress/heatshrink/heatshrink_decoder.o
+                0x000023f4                heatshrink_decoder_poll
  .text.heatshrink_decoder_finish
-                0x00002564       0x2c ./mods/compress/heatshrink/heatshrink_decoder.o
-                0x00002564                heatshrink_decoder_finish
+                0x00002570       0x2c ./mods/compress/heatshrink/heatshrink_decoder.o
+                0x00002570                heatshrink_decoder_finish
  .text.push_bits
-                0x00002590       0x5e ./mods/compress/heatshrink/heatshrink_encoder.o
+                0x0000259c       0x5e ./mods/compress/heatshrink/heatshrink_encoder.o
  .text.push_outgoing_bits
-                0x000025ee       0x30 ./mods/compress/heatshrink/heatshrink_encoder.o
+                0x000025fa       0x30 ./mods/compress/heatshrink/heatshrink_encoder.o
  .text.heatshrink_encoder_reset
-                0x0000261e       0x28 ./mods/compress/heatshrink/heatshrink_encoder.o
-                0x0000261e                heatshrink_encoder_reset
+                0x0000262a       0x28 ./mods/compress/heatshrink/heatshrink_encoder.o
+                0x0000262a                heatshrink_encoder_reset
  .text.heatshrink_encoder_sink
-                0x00002646       0x66 ./mods/compress/heatshrink/heatshrink_encoder.o
-                0x00002646                heatshrink_encoder_sink
+                0x00002652       0x66 ./mods/compress/heatshrink/heatshrink_encoder.o
+                0x00002652                heatshrink_encoder_sink
  .text.heatshrink_encoder_poll
-                0x000026ac      0x278 ./mods/compress/heatshrink/heatshrink_encoder.o
-                0x000026ac                heatshrink_encoder_poll
+                0x000026b8      0x278 ./mods/compress/heatshrink/heatshrink_encoder.o
+                0x000026b8                heatshrink_encoder_poll
  .text.heatshrink_encoder_finish
-                0x00002924       0x26 ./mods/compress/heatshrink/heatshrink_encoder.o
-                0x00002924                heatshrink_encoder_finish
- *fill*         0x0000294a        0x2 ff
+                0x00002930       0x26 ./mods/compress/heatshrink/heatshrink_encoder.o
+                0x00002930                heatshrink_encoder_finish
+ *fill*         0x00002956        0x2 ff
  .text.Compress_Encode
-                0x0000294c       0x9c ./mods/compress/compress.o
-                0x0000294c                Compress_Encode
+                0x00002958       0x9c ./mods/compress/compress.o
+                0x00002958                Compress_Encode
  .text.Compress_Decode
-                0x000029e8       0xa4 ./mods/compress/compress.o
-                0x000029e8                Compress_Decode
+                0x000029f4       0xa4 ./mods/compress/compress.o
+                0x000029f4                Compress_Decode
  .text.Chip_Clock_System_SetClockDiv
-                0x00002a8c       0x50 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
-                0x00002a8c                Chip_Clock_System_SetClockDiv
+                0x00002a98       0x50 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+                0x00002a98                Chip_Clock_System_SetClockDiv
  .text.Chip_Clock_System_GetClockDiv
-                0x00002adc       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
-                0x00002adc                Chip_Clock_System_GetClockDiv
+                0x00002ae8       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+                0x00002ae8                Chip_Clock_System_GetClockDiv
  .text.Chip_Clock_System_SetClockFreq
-                0x00002af0       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
-                0x00002af0                Chip_Clock_System_SetClockFreq
+                0x00002afc       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+                0x00002afc                Chip_Clock_System_SetClockFreq
  .text.Chip_Clock_System_GetClockFreq
-                0x00002b08       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
-                0x00002b08                Chip_Clock_System_GetClockFreq
+                0x00002b14       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+                0x00002b14                Chip_Clock_System_GetClockFreq
  .text.Chip_Clock_System_BusyWait_us
-                0x00002b1c       0x40 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
-                0x00002b1c                Chip_Clock_System_BusyWait_us
+                0x00002b28       0x40 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+                0x00002b28                Chip_Clock_System_BusyWait_us
  .text.Chip_Clock_SPI0_SetClockDiv
-                0x00002b5c       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
-                0x00002b5c                Chip_Clock_SPI0_SetClockDiv
+                0x00002b68       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+                0x00002b68                Chip_Clock_SPI0_SetClockDiv
  .text.Chip_Clock_SPI0_GetClockDiv
-                0x00002b7c       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
-                0x00002b7c                Chip_Clock_SPI0_GetClockDiv
+                0x00002b88       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+                0x00002b88                Chip_Clock_SPI0_GetClockDiv
  .text.Chip_Clock_SPI0_GetClockFreq
-                0x00002b94       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
-                0x00002b94                Chip_Clock_SPI0_GetClockFreq
+                0x00002ba0       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+                0x00002ba0                Chip_Clock_SPI0_GetClockFreq
  .text.Chip_Clock_Peripheral_EnableClock
-                0x00002bb0       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
-                0x00002bb0                Chip_Clock_Peripheral_EnableClock
+                0x00002bbc       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+                0x00002bbc                Chip_Clock_Peripheral_EnableClock
  .text.Chip_Clock_Peripheral_DisableClock
-                0x00002bcc       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
-                0x00002bcc                Chip_Clock_Peripheral_DisableClock
+                0x00002bd8       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+                0x00002bd8                Chip_Clock_Peripheral_DisableClock
  .text.CommitAndFlush
-                0x00002be8       0x60 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
- .text.Write    0x00002c48       0xa4 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+                0x00002bf4       0x60 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+ .text.Write    0x00002c54       0xa4 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
  .text.Chip_EEPROM_Init
-                0x00002cec       0x58 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
-                0x00002cec                Chip_EEPROM_Init
+                0x00002cf8       0x58 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+                0x00002cf8                Chip_EEPROM_Init
  .text.Chip_EEPROM_DeInit
-                0x00002d44       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
-                0x00002d44                Chip_EEPROM_DeInit
+                0x00002d50       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+                0x00002d50                Chip_EEPROM_DeInit
  .text.Chip_EEPROM_Flush
-                0x00002d60        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
-                0x00002d60                Chip_EEPROM_Flush
+                0x00002d6c        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+                0x00002d6c                Chip_EEPROM_Flush
  .text.Chip_EEPROM_Read
-                0x00002d68       0x68 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
-                0x00002d68                Chip_EEPROM_Read
+                0x00002d74       0x68 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+                0x00002d74                Chip_EEPROM_Read
  .text.Chip_EEPROM_Write
-                0x00002dd0       0x10 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
-                0x00002dd0                Chip_EEPROM_Write
+                0x00002ddc       0x10 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+                0x00002ddc                Chip_EEPROM_Write
  .text.Chip_EEPROM_Memset
-                0x00002de0       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
-                0x00002de0                Chip_EEPROM_Memset
+                0x00002dec       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+                0x00002dec                Chip_EEPROM_Memset
  .text.Chip_Flash_GetHighPowerMode
-                0x00002dfc       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
-                0x00002dfc                Chip_Flash_GetHighPowerMode
+                0x00002e08       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
+                0x00002e08                Chip_Flash_GetHighPowerMode
  .text.Chip_Flash_GetNumWaitStates
-                0x00002e1c       0x10 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
-                0x00002e1c                Chip_Flash_GetNumWaitStates
+                0x00002e28       0x10 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
+                0x00002e28                Chip_Flash_GetNumWaitStates
  .text.Chip_GPIO_Init
-                0x00002e2c        0xc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
-                0x00002e2c                Chip_GPIO_Init
+                0x00002e38        0xc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
+                0x00002e38                Chip_GPIO_Init
  .text.Chip_GPIO_SetupPinInt
-                0x00002e38       0x6c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
-                0x00002e38                Chip_GPIO_SetupPinInt
+                0x00002e44       0x6c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
+                0x00002e44                Chip_GPIO_SetupPinInt
  .text.Chip_IAP_ReadUID
-                0x00002ea4       0x6c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
-                0x00002ea4                Chip_IAP_ReadUID
+                0x00002eb0       0x6c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
+                0x00002eb0                Chip_IAP_ReadUID
  .text.Chip_IAP_Flash_PrepareSector
-                0x00002f10       0x2c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
-                0x00002f10                Chip_IAP_Flash_PrepareSector
+                0x00002f1c       0x2c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
+                0x00002f1c                Chip_IAP_Flash_PrepareSector
  .text.Chip_IAP_Flash_EraseSector
-                0x00002f3c       0x2c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
-                0x00002f3c                Chip_IAP_Flash_EraseSector
+                0x00002f48       0x2c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
+                0x00002f48                Chip_IAP_Flash_EraseSector
  .text.Chip_IAP_Flash_ErasePage
-                0x00002f68       0x2c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
-                0x00002f68                Chip_IAP_Flash_ErasePage
+                0x00002f74       0x2c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
+                0x00002f74                Chip_IAP_Flash_ErasePage
  .text.Chip_IAP_Flash_Program
-                0x00002f94       0x30 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
-                0x00002f94                Chip_IAP_Flash_Program
+                0x00002fa0       0x30 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
+                0x00002fa0                Chip_IAP_Flash_Program
  .text.Chip_IAP_Compare
-                0x00002fc4       0x48 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
-                0x00002fc4                Chip_IAP_Compare
+                0x00002fd0       0x48 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
+                0x00002fd0                Chip_IAP_Compare
  .text.Chip_IOCON_Init
-                0x0000300c        0xc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
-                0x0000300c                Chip_IOCON_Init
+                0x00003018        0xc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
+                0x00003018                Chip_IOCON_Init
  .text.Chip_IOCON_UngroundAnabus
-                0x00003018       0x10 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
-                0x00003018                Chip_IOCON_UngroundAnabus
+                0x00003024       0x10 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
+                0x00003024                Chip_IOCON_UngroundAnabus
  .text.Chip_IOCON_SetPinConfig
-                0x00003028       0x28 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
-                0x00003028                Chip_IOCON_SetPinConfig
+                0x00003034       0x28 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
+                0x00003034                Chip_IOCON_SetPinConfig
  .text.Chip_NFC_GetStatus
-                0x00003050        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
-                0x00003050                Chip_NFC_GetStatus
+                0x0000305c        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+                0x0000305c                Chip_NFC_GetStatus
  .text.Chip_NFC_Int_SetEnabledMask
-                0x00003058        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
-                0x00003058                Chip_NFC_Int_SetEnabledMask
+                0x00003064        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+                0x00003064                Chip_NFC_Int_SetEnabledMask
  .text.Chip_NFC_Int_GetEnabledMask
-                0x00003060        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
-                0x00003060                Chip_NFC_Int_GetEnabledMask
+                0x0000306c        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+                0x0000306c                Chip_NFC_Int_GetEnabledMask
  .text.Chip_NFC_Int_GetRawStatus
-                0x00003068        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
-                0x00003068                Chip_NFC_Int_GetRawStatus
+                0x00003074        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+                0x00003074                Chip_NFC_Int_GetRawStatus
  .text.Chip_NFC_Int_ClearRawStatus
-                0x00003070       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
-                0x00003070                Chip_NFC_Int_ClearRawStatus
+                0x0000307c       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+                0x0000307c                Chip_NFC_Int_ClearRawStatus
  .text.Chip_NFC_Init
-                0x00003090       0x2c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
-                0x00003090                Chip_NFC_Init
+                0x0000309c       0x2c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+                0x0000309c                Chip_NFC_Init
  .text.Chip_NFC_SetTargetAddress
-                0x000030bc        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
-                0x000030bc                Chip_NFC_SetTargetAddress
+                0x000030c8        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+                0x000030c8                Chip_NFC_SetTargetAddress
  .text.Chip_PMU_SetRetainedData
-                0x000030c4       0x48 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
-                0x000030c4                Chip_PMU_SetRetainedData
+                0x000030d0       0x48 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
+                0x000030d0                Chip_PMU_SetRetainedData
  .text.Chip_PMU_GetRetainedData
-                0x0000310c       0x54 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
-                0x0000310c                Chip_PMU_GetRetainedData
+                0x00003118       0x54 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
+                0x00003118                Chip_PMU_GetRetainedData
  .text.Chip_RTC_Init
-                0x00003160        0xc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
-                0x00003160                Chip_RTC_Init
+                0x0000316c        0xc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+                0x0000316c                Chip_RTC_Init
  .text.Chip_RTC_Wakeup_SetControl
-                0x0000316c       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
-                0x0000316c                Chip_RTC_Wakeup_SetControl
+                0x00003178       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+                0x00003178                Chip_RTC_Wakeup_SetControl
  .text.Chip_RTC_Wakeup_SetReload
-                0x00003188       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
-                0x00003188                Chip_RTC_Wakeup_SetReload
+                0x00003194       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+                0x00003194                Chip_RTC_Wakeup_SetReload
  .text.Chip_RTC_Time_GetValue
-                0x000031a4       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
-                0x000031a4                Chip_RTC_Time_GetValue
+                0x000031b0       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+                0x000031b0                Chip_RTC_Time_GetValue
  .text.Chip_RTC_Time_SetValue
-                0x000031bc       0x24 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
-                0x000031bc                Chip_RTC_Time_SetValue
+                0x000031c8       0x24 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+                0x000031c8                Chip_RTC_Time_SetValue
  .text.Chip_RTC_Int_SetEnabledMask
-                0x000031e0       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
-                0x000031e0                Chip_RTC_Int_SetEnabledMask
+                0x000031ec       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+                0x000031ec                Chip_RTC_Int_SetEnabledMask
  .text.Chip_RTC_Int_ClearRawStatus
-                0x000031fc       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
-                0x000031fc                Chip_RTC_Int_ClearRawStatus
+                0x00003208       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+                0x00003208                Chip_RTC_Int_ClearRawStatus
  .text.Write2BFifo
-                0x00003218       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+                0x00003224       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
  .text.Write1BFifo
-                0x00003238       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+                0x00003244       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
  .text.Read2BFifo
-                0x00003254       0x28 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+                0x00003260       0x28 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
  .text.Read1BFifo
-                0x0000327c       0x24 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+                0x00003288       0x24 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
  .text.Chip_SSP_SetClockRate
-                0x000032a0       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
-                0x000032a0                Chip_SSP_SetClockRate
+                0x000032ac       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+                0x000032ac                Chip_SSP_SetClockRate
  .text.Chip_SSP_RWFrames_Blocking
-                0x000032b8       0xa4 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
-                0x000032b8                Chip_SSP_RWFrames_Blocking
+                0x000032c4       0xa4 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+                0x000032c4                Chip_SSP_RWFrames_Blocking
  .text.Chip_SSP_SetMaster
-                0x0000335c       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
-                0x0000335c                Chip_SSP_SetMaster
+                0x00003368       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+                0x00003368                Chip_SSP_SetMaster
  .text.Chip_SSP_SetBitRate
-                0x00003378       0x48 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
-                0x00003378                Chip_SSP_SetBitRate
+                0x00003384       0x48 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+                0x00003384                Chip_SSP_SetBitRate
  .text.Chip_SSP_Init
-                0x000033c0       0x48 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
-                0x000033c0                Chip_SSP_Init
+                0x000033cc       0x48 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+                0x000033cc                Chip_SSP_Init
  .text.Chip_SysCon_Peripheral_AssertReset
-                0x00003408       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
-                0x00003408                Chip_SysCon_Peripheral_AssertReset
+                0x00003414       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
+                0x00003414                Chip_SysCon_Peripheral_AssertReset
  .text.Chip_SysCon_Peripheral_DeassertReset
-                0x0000341c       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
-                0x0000341c                Chip_SysCon_Peripheral_DeassertReset
+                0x00003428       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
+                0x00003428                Chip_SysCon_Peripheral_DeassertReset
  .text.Chip_SysCon_Peripheral_EnablePower
-                0x00003430       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
-                0x00003430                Chip_SysCon_Peripheral_EnablePower
+                0x0000343c       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
+                0x0000343c                Chip_SysCon_Peripheral_EnablePower
  .text.Chip_SysCon_Peripheral_DisablePower
-                0x00003448       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
-                0x00003448                Chip_SysCon_Peripheral_DisablePower
+                0x00003454       0x18 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
+                0x00003454                Chip_SysCon_Peripheral_DisablePower
  .text.Chip_SysCon_Peripheral_GetPowerDisabled
-                0x00003460       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
-                0x00003460                Chip_SysCon_Peripheral_GetPowerDisabled
+                0x0000346c       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
+                0x0000346c                Chip_SysCon_Peripheral_GetPowerDisabled
  .text.Chip_SysCon_GetDeviceID
-                0x00003474       0x10 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
-                0x00003474                Chip_SysCon_GetDeviceID
+                0x00003480       0x10 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
+                0x00003480                Chip_SysCon_GetDeviceID
  .text.Chip_TSen_SetResolution
-                0x00003484       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
-                0x00003484                Chip_TSen_SetResolution
+                0x00003490       0x14 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+                0x00003490                Chip_TSen_SetResolution
  .text.Chip_TSen_Start
-                0x00003498        0xc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
-                0x00003498                Chip_TSen_Start
+                0x000034a4        0xc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+                0x000034a4                Chip_TSen_Start
  .text.Chip_TSen_ReadStatus
-                0x000034a4       0x34 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
-                0x000034a4                Chip_TSen_ReadStatus
+                0x000034b0       0x34 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+                0x000034b0                Chip_TSen_ReadStatus
  .text.Chip_TSen_GetValue
-                0x000034d8        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
-                0x000034d8                Chip_TSen_GetValue
+                0x000034e4        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+                0x000034e4                Chip_TSen_GetValue
  .text.Chip_TSen_NativeToCelsius
-                0x000034e0       0x40 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
-                0x000034e0                Chip_TSen_NativeToCelsius
+                0x000034ec       0x40 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+                0x000034ec                Chip_TSen_NativeToCelsius
  .text.Chip_TSen_Int_SetThresholdLow
-                0x00003520        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
-                0x00003520                Chip_TSen_Int_SetThresholdLow
+                0x0000352c        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+                0x0000352c                Chip_TSen_Int_SetThresholdLow
  .text.Chip_TSen_Int_SetThresholdHigh
-                0x00003528        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
-                0x00003528                Chip_TSen_Int_SetThresholdHigh
+                0x00003534        0x8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+                0x00003534                Chip_TSen_Int_SetThresholdHigh
  .text.Chip_TSen_Init
-                0x00003530       0x38 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
-                0x00003530                Chip_TSen_Init
+                0x0000353c       0x38 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+                0x0000353c                Chip_TSen_Init
  .text.defaultIntHandler
-                0x00003568       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
-                0x00003568                I2C0_IRQHandler
-                0x00003568                PMUBOD_IRQHandler
-                0x00003568                HardFault_Handler
-                0x00003568                SysTick_Handler
-                0x00003568                PendSV_Handler
-                0x00003568                NMI_Handler
-                0x00003568                CT16B0_IRQHandler
-                0x00003568                PIO0_8_IRQHandler
-                0x00003568                PIO0_4_IRQHandler
-                0x00003568                TSEN_IRQHandler
-                0x00003568                SSP0_IRQHandler
-                0x00003568                PMUFLD_IRQHandler
-                0x00003568                PIO0_6_IRQHandler
-                0x00003568                PIO0_5_IRQHandler
-                0x00003568                PIO0_1_IRQHandler
-                0x00003568                ADC_IRQHandler
-                0x00003568                PIO0_3_IRQHandler
-                0x00003568                WDT_IRQHandler
-                0x00003568                SVC_Handler
-                0x00003568                PIO0_10_IRQHandler
-                0x00003568                PIO0_7_IRQHandler
-                0x00003568                CT32B0_IRQHandler
-                0x00003568                PIO0_0_IRQHandler
-                0x00003568                PIO0_2_IRQHandler
-                0x00003568                EEPROM_IRQHandler
-                0x00003568                RTCPWREQ_IRQHandler
-                0x00003568                RFFIELD_IRQHandler
-                0x00003568                C2D_IRQHandler
-                0x00003568                FLASH_IRQHandler
-                0x00003568                I2D_IRQHandler
-                0x00003568                PIO0_9_IRQHandler
+                0x00003574       0x1c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
+                0x00003574                I2C0_IRQHandler
+                0x00003574                PMUBOD_IRQHandler
+                0x00003574                HardFault_Handler
+                0x00003574                SysTick_Handler
+                0x00003574                PendSV_Handler
+                0x00003574                NMI_Handler
+                0x00003574                CT16B0_IRQHandler
+                0x00003574                PIO0_8_IRQHandler
+                0x00003574                PIO0_4_IRQHandler
+                0x00003574                TSEN_IRQHandler
+                0x00003574                SSP0_IRQHandler
+                0x00003574                PMUFLD_IRQHandler
+                0x00003574                PIO0_6_IRQHandler
+                0x00003574                PIO0_5_IRQHandler
+                0x00003574                PIO0_1_IRQHandler
+                0x00003574                ADC_IRQHandler
+                0x00003574                PIO0_3_IRQHandler
+                0x00003574                WDT_IRQHandler
+                0x00003574                SVC_Handler
+                0x00003574                PIO0_10_IRQHandler
+                0x00003574                PIO0_7_IRQHandler
+                0x00003574                CT32B0_IRQHandler
+                0x00003574                PIO0_0_IRQHandler
+                0x00003574                PIO0_2_IRQHandler
+                0x00003574                EEPROM_IRQHandler
+                0x00003574                RTCPWREQ_IRQHandler
+                0x00003574                RFFIELD_IRQHandler
+                0x00003574                C2D_IRQHandler
+                0x00003574                FLASH_IRQHandler
+                0x00003574                I2D_IRQHandler
+                0x00003574                PIO0_9_IRQHandler
  .text.Diag_NFC_IRQHandler
-                0x00003584       0x74 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
-                0x00003584                Diag_NFC_IRQHandler
+                0x00003590       0x74 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
+                0x00003590                Diag_NFC_IRQHandler
  .text.Diag_Init
-                0x000035f8       0x74 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
-                0x000035f8                Diag_Init
+                0x00003604       0x74 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
+                0x00003604                Diag_Init
  .text.Diag_TrackRtcUpdate
-                0x0000366c       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
-                0x0000366c                Diag_TrackRtcUpdate
+                0x00003678       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
+                0x00003678                Diag_TrackRtcUpdate
  .text.Diag_Get
-                0x0000368c        0xc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
-                0x0000368c                Diag_Get
+                0x00003698        0xc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
+                0x00003698                Diag_Get
  .text.Chip_BusSync_WaitSync
-                0x00003698       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
+                0x000036a4       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
  .text.Chip_BusSync_WriteReg
-                0x000036b8       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
-                0x000036b8                Chip_BusSync_WriteReg
+                0x000036c4       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
+                0x000036c4                Chip_BusSync_WriteReg
  .text.Chip_BusSync_ReadReg
-                0x000036d8       0x28 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
-                0x000036d8                Chip_BusSync_ReadReg
- .text.memcpy   0x00003700        0x8 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(memcpy.o)
-                0x00003700                memcpy
- .text.memmove  0x00003708        0x8 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(memmove.o)
-                0x00003708                memmove
- .text.memset   0x00003710        0x8 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(memset.o)
-                0x00003710                memset
+                0x000036e4       0x28 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
+                0x000036e4                Chip_BusSync_ReadReg
+ .text.memcpy   0x0000370c        0x8 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(memcpy.o)
+                0x0000370c                memcpy
+ .text.memmove  0x00003714        0x8 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(memmove.o)
+                0x00003714                memmove
+ .text.memset   0x0000371c        0x8 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(memset.o)
+                0x0000371c                memset
  .text.__weak_main
-                0x00003718        0x8 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(__weak__main.o)
-                0x00003718                __weak_main
-                0x00003718                __main
- .text.rand     0x00003720       0x40 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(stdlib.o)
-                0x00003720                rand
- .text.srand    0x00003760       0x3c c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(stdlib.o)
-                0x00003760                srand
- .text.strlen   0x0000379c       0x54 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(strlen.o)
-                0x0000379c                strlen
+                0x00003724        0x8 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(__weak__main.o)
+                0x00003724                __weak_main
+                0x00003724                __main
+ .text.rand     0x0000372c       0x40 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(stdlib.o)
+                0x0000372c                rand
+ .text.srand    0x0000376c       0x3c c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(stdlib.o)
+                0x0000376c                srand
+ .text.strlen   0x000037a8       0x54 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libcr_c.a(strlen.o)
+                0x000037a8                strlen
  .text.__aeabi_division_idivmod
-                0x000037f0       0x78 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(division_32.o)
-                0x000037f0                __aeabi_idivmod
-                0x000037f0                __aeabi_idiv
-                0x000037f6                __aeabi_uidivmod
-                0x000037f6                __aeabi_uidiv
+                0x000037fc       0x78 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(division_32.o)
+                0x000037fc                __aeabi_idivmod
+                0x000037fc                __aeabi_idiv
+                0x00003802                __aeabi_uidivmod
+                0x00003802                __aeabi_uidiv
  .text.__aeabi_division_idiv0
-                0x00003868        0x2 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(division_idiv0.o)
-                0x00003868                __aeabi_idiv0
+                0x00003874        0x2 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(division_idiv0.o)
+                0x00003874                __aeabi_idiv0
  .text.__aeabi_memcpy
-                0x0000386a       0x2c c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(memcpy.o)
-                0x0000386a                __aeabi_memcpy4
-                0x0000386a                __aeabi_memcpy8
-                0x0000386a                __aeabi_memcpy
+                0x00003876       0x2c c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(memcpy.o)
+                0x00003876                __aeabi_memcpy4
+                0x00003876                __aeabi_memcpy8
+                0x00003876                __aeabi_memcpy
  .text.__aeabi_memmove
-                0x00003896       0x1c c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(memcpy.o)
-                0x00003896                __aeabi_memmove
-                0x00003896                __aeabi_memmove4
-                0x00003896                __aeabi_memmove8
+                0x000038a2       0x1c c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(memcpy.o)
+                0x000038a2                __aeabi_memmove
+                0x000038a2                __aeabi_memmove4
+                0x000038a2                __aeabi_memmove8
  .text.__aeabi_memset_lowlevel
-                0x000038b2       0x2a c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(memcpy.o)
-                0x000038b2                __aeabi_lowlevel_memset
+                0x000038be       0x2a c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(memcpy.o)
+                0x000038be                __aeabi_lowlevel_memset
  .text.__gnu_thumb1_case_uqi
-                0x000038dc       0x10 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(thumb1_switch_helpers.o)
-                0x000038dc                __gnu_thumb1_case_uqi
+                0x000038e8       0x10 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(thumb1_switch_helpers.o)
+                0x000038e8                __gnu_thumb1_case_uqi
  .text.__gnu_thumb1_case_uhi
-                0x000038ec       0x10 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(thumb1_switch_helpers.o)
-                0x000038ec                __gnu_thumb1_case_uhi
+                0x000038f8       0x10 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(thumb1_switch_helpers.o)
+                0x000038f8                __gnu_thumb1_case_uhi
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.CSWTCH.24
-                0x000038fc        0xf ./src/lsl_mems.o
+                0x00003908        0xf ./src/lsl_mems.o
  .rodata.str1.1
-                0x0000390b       0x15 ./src/lsl_nfc.o
+                0x00003917       0x15 ./src/lsl_nfc.o
  .rodata.sDefaultBytes
-                0x00003920        0xc ./mods/ndeft2t/ndeft2t.o
-                0x0000392c                . = ALIGN (0x4)
+                0x0000392c        0xc ./mods/ndeft2t/ndeft2t.o
+                0x00003938                . = ALIGN (0x4)
 
-.glue_7         0x0000392c        0x0
- .glue_7        0x0000392c        0x0 linker stubs
+.glue_7         0x00003938        0x0
+ .glue_7        0x00003938        0x0 linker stubs
 
-.glue_7t        0x0000392c        0x0
- .glue_7t       0x0000392c        0x0 linker stubs
+.glue_7t        0x00003938        0x0
+ .glue_7t       0x00003938        0x0 linker stubs
 
-.vfp11_veneer   0x0000392c        0x0
- .vfp11_veneer  0x0000392c        0x0 linker stubs
+.vfp11_veneer   0x00003938        0x0
+ .vfp11_veneer  0x00003938        0x0 linker stubs
 
-.v4_bx          0x0000392c        0x0
- .v4_bx         0x0000392c        0x0 linker stubs
+.v4_bx          0x00003938        0x0
+ .v4_bx         0x00003938        0x0 linker stubs
 
-.iplt           0x0000392c        0x0
- .iplt          0x0000392c        0x0 ./src/crp.o
+.iplt           0x00003938        0x0
+ .iplt          0x00003938        0x0 ./src/crp.o
 
-.rel.dyn        0x0000392c        0x0
- .rel.iplt      0x0000392c        0x0 ./src/crp.o
+.rel.dyn        0x00003938        0x0
+ .rel.iplt      0x00003938        0x0 ./src/crp.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000392c                __exidx_start = .
+                0x00003938                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000392c                __exidx_end = .
-                0x0000392c                _etext = .
+                0x00003938                __exidx_end = .
+                0x00003938                _etext = .
 
 .uninit_RESERVED
                 0x10000000        0x0
@@ -2666,7 +2666,7 @@ END GROUP
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _end_uninit_RESERVED = .
 
-.data           0x10000000      0x17c load address 0x0000392c
+.data           0x10000000      0x17c load address 0x00003938
  FILL mask 0xff
                 0x10000000                _data = .
  *(vtable)
@@ -2694,10 +2694,10 @@ END GROUP
                 0x1000017c                . = ALIGN (0x4)
                 0x1000017c                _edata = .
 
-.igot.plt       0x1000017c        0x0 load address 0x00003aa8
+.igot.plt       0x1000017c        0x0 load address 0x00003ab4
  .igot.plt      0x1000017c        0x0 ./src/crp.o
 
-.bss            0x1000017c       0x1c load address 0x00003aa8
+.bss            0x1000017c       0x1c load address 0x00003ab4
                 0x1000017c                _bss = .
  *(.bss*)
  .bss.sEepromBitCursorChanged
@@ -2720,7 +2720,7 @@ END GROUP
                 0x10000198                _ebss = .
                 [!provide]                PROVIDE (end, .)
 
-.noinit         0x10000198      0x93c load address 0x00003aa8
+.noinit         0x10000198      0x93c load address 0x00003ab4
                 0x10000198                _noinit = .
  *(.noinit*)
  .noinit        0x10000198      0x430 ./src/lsl_nfc.o
@@ -2734,61 +2734,61 @@ END GROUP
                 0x10001ff0                PROVIDE (_vStackTop, DEFINED (__user_stack_top)?__user_stack_top:(__top_SRAM8 - 0x0))
 OUTPUT(SBS_Gen_v1.axf elf32-littlearm)
 
-.debug_info     0x00000000    0x10f3b
+.debug_info     0x00000000    0x10f4d
  .debug_info    0x00000000       0x90 ./src/crp.o
  .debug_info    0x00000090      0x51a ./src/lsl_logs.o
- .debug_info    0x000005aa      0x697 ./src/lsl_main.o
- .debug_info    0x00000c41     0x1cb8 ./src/lsl_mems.o
- .debug_info    0x000028f9     0x1de1 ./src/lsl_nfc.o
- .debug_info    0x000046da     0x19f7 ./mods/storage/storage.o
- .debug_info    0x000060d1     0x13d4 ./mods/ndeft2t/ndeft2t.o
- .debug_info    0x000074a5      0xf5e ./mods/msg/msg.o
- .debug_info    0x00008403      0x90d ./mods/compress/heatshrink/heatshrink_decoder.o
- .debug_info    0x00008d10      0xcfd ./mods/compress/heatshrink/heatshrink_encoder.o
- .debug_info    0x00009a0d      0x5aa ./mods/compress/compress.o
- .debug_info    0x00009fb7      0x7b0 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
- .debug_info    0x0000a767      0x7e5 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
- .debug_info    0x0000af4c      0x311 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
- .debug_info    0x0000b25d      0x769 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
- .debug_info    0x0000b9c6      0x943 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
- .debug_info    0x0000c309      0x4df C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
- .debug_info    0x0000c7e8      0x569 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
- .debug_info    0x0000cd51      0xabd C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
- .debug_info    0x0000d80e      0x806 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
- .debug_info    0x0000e014     0x142e C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
- .debug_info    0x0000f442      0x632 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
- .debug_info    0x0000fa74      0x770 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
- .debug_info    0x000101e4      0x376 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
- .debug_info    0x0001055a      0x813 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
- .debug_info    0x00010d6d      0x1ce C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
+ .debug_info    0x000005aa      0x6a9 ./src/lsl_main.o
+ .debug_info    0x00000c53     0x1cb8 ./src/lsl_mems.o
+ .debug_info    0x0000290b     0x1de1 ./src/lsl_nfc.o
+ .debug_info    0x000046ec     0x19f7 ./mods/storage/storage.o
+ .debug_info    0x000060e3     0x13d4 ./mods/ndeft2t/ndeft2t.o
+ .debug_info    0x000074b7      0xf5e ./mods/msg/msg.o
+ .debug_info    0x00008415      0x90d ./mods/compress/heatshrink/heatshrink_decoder.o
+ .debug_info    0x00008d22      0xcfd ./mods/compress/heatshrink/heatshrink_encoder.o
+ .debug_info    0x00009a1f      0x5aa ./mods/compress/compress.o
+ .debug_info    0x00009fc9      0x7b0 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+ .debug_info    0x0000a779      0x7e5 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+ .debug_info    0x0000af5e      0x311 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
+ .debug_info    0x0000b26f      0x769 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
+ .debug_info    0x0000b9d8      0x943 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
+ .debug_info    0x0000c31b      0x4df C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
+ .debug_info    0x0000c7fa      0x569 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+ .debug_info    0x0000cd63      0xabd C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
+ .debug_info    0x0000d820      0x806 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+ .debug_info    0x0000e026     0x142e C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+ .debug_info    0x0000f454      0x632 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
+ .debug_info    0x0000fa86      0x770 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+ .debug_info    0x000101f6      0x376 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
+ .debug_info    0x0001056c      0x813 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
+ .debug_info    0x00010d7f      0x1ce C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
 
-.debug_abbrev   0x00000000     0x34dd
+.debug_abbrev   0x00000000     0x34d9
  .debug_abbrev  0x00000000       0x4e ./src/crp.o
  .debug_abbrev  0x0000004e      0x175 ./src/lsl_logs.o
- .debug_abbrev  0x000001c3      0x19b ./src/lsl_main.o
- .debug_abbrev  0x0000035e      0x357 ./src/lsl_mems.o
- .debug_abbrev  0x000006b5      0x3ce ./src/lsl_nfc.o
- .debug_abbrev  0x00000a83      0x3f5 ./mods/storage/storage.o
- .debug_abbrev  0x00000e78      0x3b0 ./mods/ndeft2t/ndeft2t.o
- .debug_abbrev  0x00001228      0x363 ./mods/msg/msg.o
- .debug_abbrev  0x0000158b      0x2b0 ./mods/compress/heatshrink/heatshrink_decoder.o
- .debug_abbrev  0x0000183b      0x2de ./mods/compress/heatshrink/heatshrink_encoder.o
- .debug_abbrev  0x00001b19      0x120 ./mods/compress/compress.o
- .debug_abbrev  0x00001c39      0x1e9 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
- .debug_abbrev  0x00001e22      0x20c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
- .debug_abbrev  0x0000202e      0x11a C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
- .debug_abbrev  0x00002148      0x1cc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
- .debug_abbrev  0x00002314      0x1bf C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
- .debug_abbrev  0x000024d3      0x151 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
- .debug_abbrev  0x00002624      0x169 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
- .debug_abbrev  0x0000278d      0x1b3 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
- .debug_abbrev  0x00002940      0x156 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
- .debug_abbrev  0x00002a96      0x30c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
- .debug_abbrev  0x00002da2      0x130 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
- .debug_abbrev  0x00002ed2      0x17e C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
- .debug_abbrev  0x00003050      0x1a8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
- .debug_abbrev  0x000031f8      0x1e8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
- .debug_abbrev  0x000033e0       0xfd C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
+ .debug_abbrev  0x000001c3      0x197 ./src/lsl_main.o
+ .debug_abbrev  0x0000035a      0x357 ./src/lsl_mems.o
+ .debug_abbrev  0x000006b1      0x3ce ./src/lsl_nfc.o
+ .debug_abbrev  0x00000a7f      0x3f5 ./mods/storage/storage.o
+ .debug_abbrev  0x00000e74      0x3b0 ./mods/ndeft2t/ndeft2t.o
+ .debug_abbrev  0x00001224      0x363 ./mods/msg/msg.o
+ .debug_abbrev  0x00001587      0x2b0 ./mods/compress/heatshrink/heatshrink_decoder.o
+ .debug_abbrev  0x00001837      0x2de ./mods/compress/heatshrink/heatshrink_encoder.o
+ .debug_abbrev  0x00001b15      0x120 ./mods/compress/compress.o
+ .debug_abbrev  0x00001c35      0x1e9 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+ .debug_abbrev  0x00001e1e      0x20c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+ .debug_abbrev  0x0000202a      0x11a C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
+ .debug_abbrev  0x00002144      0x1cc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
+ .debug_abbrev  0x00002310      0x1bf C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
+ .debug_abbrev  0x000024cf      0x151 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
+ .debug_abbrev  0x00002620      0x169 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+ .debug_abbrev  0x00002789      0x1b3 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
+ .debug_abbrev  0x0000293c      0x156 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+ .debug_abbrev  0x00002a92      0x30c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+ .debug_abbrev  0x00002d9e      0x130 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
+ .debug_abbrev  0x00002ece      0x17e C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+ .debug_abbrev  0x0000304c      0x1a8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
+ .debug_abbrev  0x000031f4      0x1e8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
+ .debug_abbrev  0x000033dc       0xfd C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
 
 .debug_aranges  0x00000000      0xaf0
  .debug_aranges
@@ -2914,44 +2914,44 @@ OUTPUT(SBS_Gen_v1.axf elf32-littlearm)
  .debug_macro   0x000056a6       0x10 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
  .debug_macro   0x000056b6      0x183 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
 
-.debug_line     0x00000000     0x9c68
+.debug_line     0x00000000     0x9c58
  .debug_line    0x00000000      0x500 ./src/crp.o
  .debug_line    0x00000500      0x6a0 ./src/lsl_logs.o
- .debug_line    0x00000ba0      0x685 ./src/lsl_main.o
- .debug_line    0x00001225      0x6f7 ./src/lsl_mems.o
- .debug_line    0x0000191c      0x91b ./src/lsl_nfc.o
- .debug_line    0x00002237      0xa34 ./mods/storage/storage.o
- .debug_line    0x00002c6b      0x91f ./mods/ndeft2t/ndeft2t.o
- .debug_line    0x0000358a      0x6ae ./mods/msg/msg.o
- .debug_line    0x00003c38      0x6f1 ./mods/compress/heatshrink/heatshrink_decoder.o
- .debug_line    0x00004329      0x78f ./mods/compress/heatshrink/heatshrink_encoder.o
- .debug_line    0x00004ab8      0x74e ./mods/compress/compress.o
- .debug_line    0x00005206      0x5b1 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
- .debug_line    0x000057b7      0x4e5 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
- .debug_line    0x00005c9c      0x41e C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
- .debug_line    0x000060ba      0x451 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
- .debug_line    0x0000650b      0x4ff C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
- .debug_line    0x00006a0a      0x43f C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
- .debug_line    0x00006e49      0x4b2 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
- .debug_line    0x000072fb      0x5df C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
- .debug_line    0x000078da      0x4d0 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
- .debug_line    0x00007daa      0x844 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
- .debug_line    0x000085ee      0x4fa C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
- .debug_line    0x00008ae8      0x609 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
- .debug_line    0x000090f1      0x31d C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
- .debug_line    0x0000940e      0x43e C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
- .debug_line    0x0000984c      0x41c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
+ .debug_line    0x00000ba0      0x675 ./src/lsl_main.o
+ .debug_line    0x00001215      0x6f7 ./src/lsl_mems.o
+ .debug_line    0x0000190c      0x91b ./src/lsl_nfc.o
+ .debug_line    0x00002227      0xa34 ./mods/storage/storage.o
+ .debug_line    0x00002c5b      0x91f ./mods/ndeft2t/ndeft2t.o
+ .debug_line    0x0000357a      0x6ae ./mods/msg/msg.o
+ .debug_line    0x00003c28      0x6f1 ./mods/compress/heatshrink/heatshrink_decoder.o
+ .debug_line    0x00004319      0x78f ./mods/compress/heatshrink/heatshrink_encoder.o
+ .debug_line    0x00004aa8      0x74e ./mods/compress/compress.o
+ .debug_line    0x000051f6      0x5b1 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+ .debug_line    0x000057a7      0x4e5 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+ .debug_line    0x00005c8c      0x41e C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
+ .debug_line    0x000060aa      0x451 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
+ .debug_line    0x000064fb      0x4ff C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
+ .debug_line    0x000069fa      0x43f C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
+ .debug_line    0x00006e39      0x4b2 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+ .debug_line    0x000072eb      0x5df C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
+ .debug_line    0x000078ca      0x4d0 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+ .debug_line    0x00007d9a      0x844 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+ .debug_line    0x000085de      0x4fa C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
+ .debug_line    0x00008ad8      0x609 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+ .debug_line    0x000090e1      0x31d C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
+ .debug_line    0x000093fe      0x43e C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
+ .debug_line    0x0000983c      0x41c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
 
 .debug_str      0x00000000     0xe4db
  .debug_str     0x00000000     0x60e5 ./src/crp.o
                                0x6166 (size before relaxing)
  .debug_str     0x000060e5      0xaef ./src/lsl_logs.o
                                0x6be8 (size before relaxing)
- .debug_str     0x00006bd4      0x58f ./src/lsl_main.o
-                               0x70e0 (size before relaxing)
- .debug_str     0x00007163      0xb6a ./src/lsl_mems.o
+ .debug_str     0x00006bd4      0x5a6 ./src/lsl_main.o
+                               0x70f7 (size before relaxing)
+ .debug_str     0x0000717a      0xb6a ./src/lsl_mems.o
                                0x7308 (size before relaxing)
- .debug_str     0x00007ccd     0x1136 ./src/lsl_nfc.o
+ .debug_str     0x00007ce4     0x111f ./src/lsl_nfc.o
                                0x8383 (size before relaxing)
  .debug_str     0x00008e03      0xe5f ./mods/storage/storage.o
                                0x79b4 (size before relaxing)
@@ -3107,59 +3107,59 @@ OUTPUT(SBS_Gen_v1.axf elf32-littlearm)
  .ARM.attributes
                 0x00000692       0x21 c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libcr_eabihelpers.a(thumb1_switch_helpers.o)
 
-.debug_loc      0x00000000     0x7fda
+.debug_loc      0x00000000     0x7fe7
  .debug_loc     0x00000000      0x30e ./src/lsl_logs.o
- .debug_loc     0x0000030e       0x5b ./src/lsl_main.o
- .debug_loc     0x00000369      0x3fd ./src/lsl_mems.o
- .debug_loc     0x00000766      0x6fc ./src/lsl_nfc.o
- .debug_loc     0x00000e62     0x1310 ./mods/storage/storage.o
- .debug_loc     0x00002172     0x10e3 ./mods/ndeft2t/ndeft2t.o
- .debug_loc     0x00003255      0x57a ./mods/msg/msg.o
- .debug_loc     0x000037cf      0x65d ./mods/compress/heatshrink/heatshrink_decoder.o
- .debug_loc     0x00003e2c      0xa4c ./mods/compress/heatshrink/heatshrink_encoder.o
- .debug_loc     0x00004878      0x23a ./mods/compress/compress.o
- .debug_loc     0x00004ab2      0x319 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
- .debug_loc     0x00004dcb      0x425 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
- .debug_loc     0x000051f0       0x4d C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
- .debug_loc     0x0000523d      0x59c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
- .debug_loc     0x000057d9      0x437 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
- .debug_loc     0x00005c10      0x181 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
- .debug_loc     0x00005d91      0x29e C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
- .debug_loc     0x0000602f      0x3c4 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
- .debug_loc     0x000063f3      0x3b4 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
- .debug_loc     0x000067a7      0xe68 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
- .debug_loc     0x0000760f      0x176 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
- .debug_loc     0x00007785      0x3de C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
- .debug_loc     0x00007b63      0x1cc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
- .debug_loc     0x00007d2f      0x145 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
- .debug_loc     0x00007e74      0x166 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
+ .debug_loc     0x0000030e       0x68 ./src/lsl_main.o
+ .debug_loc     0x00000376      0x3fd ./src/lsl_mems.o
+ .debug_loc     0x00000773      0x6fc ./src/lsl_nfc.o
+ .debug_loc     0x00000e6f     0x1310 ./mods/storage/storage.o
+ .debug_loc     0x0000217f     0x10e3 ./mods/ndeft2t/ndeft2t.o
+ .debug_loc     0x00003262      0x57a ./mods/msg/msg.o
+ .debug_loc     0x000037dc      0x65d ./mods/compress/heatshrink/heatshrink_decoder.o
+ .debug_loc     0x00003e39      0xa4c ./mods/compress/heatshrink/heatshrink_encoder.o
+ .debug_loc     0x00004885      0x23a ./mods/compress/compress.o
+ .debug_loc     0x00004abf      0x319 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+ .debug_loc     0x00004dd8      0x425 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+ .debug_loc     0x000051fd       0x4d C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
+ .debug_loc     0x0000524a      0x59c C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
+ .debug_loc     0x000057e6      0x437 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
+ .debug_loc     0x00005c1d      0x181 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
+ .debug_loc     0x00005d9e      0x29e C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+ .debug_loc     0x0000603c      0x3c4 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
+ .debug_loc     0x00006400      0x3b4 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+ .debug_loc     0x000067b4      0xe68 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+ .debug_loc     0x0000761c      0x176 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
+ .debug_loc     0x00007792      0x3de C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+ .debug_loc     0x00007b70      0x1cc C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
+ .debug_loc     0x00007d3c      0x145 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
+ .debug_loc     0x00007e81      0x166 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
 
-.debug_ranges   0x00000000      0xd18
+.debug_ranges   0x00000000      0xd30
  .debug_ranges  0x00000000       0x30 ./src/lsl_logs.o
- .debug_ranges  0x00000030       0x18 ./src/lsl_main.o
- .debug_ranges  0x00000048      0x100 ./src/lsl_mems.o
- .debug_ranges  0x00000148       0xc8 ./src/lsl_nfc.o
- .debug_ranges  0x00000210      0x170 ./mods/storage/storage.o
- .debug_ranges  0x00000380       0xf8 ./mods/ndeft2t/ndeft2t.o
- .debug_ranges  0x00000478       0x88 ./mods/msg/msg.o
- .debug_ranges  0x00000500       0xa0 ./mods/compress/heatshrink/heatshrink_decoder.o
- .debug_ranges  0x000005a0       0xb0 ./mods/compress/heatshrink/heatshrink_encoder.o
- .debug_ranges  0x00000650       0x18 ./mods/compress/compress.o
- .debug_ranges  0x00000668       0xb8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
- .debug_ranges  0x00000720       0x60 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
- .debug_ranges  0x00000780       0x28 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
- .debug_ranges  0x000007a8       0x30 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
- .debug_ranges  0x000007d8       0x58 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
- .debug_ranges  0x00000830       0x48 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
- .debug_ranges  0x00000878       0x68 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
- .debug_ranges  0x000008e0       0xf8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
- .debug_ranges  0x000009d8       0x88 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
- .debug_ranges  0x00000a60       0xf8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
- .debug_ranges  0x00000b58       0x90 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
- .debug_ranges  0x00000be8       0xb0 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
- .debug_ranges  0x00000c98       0x30 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
- .debug_ranges  0x00000cc8       0x30 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
- .debug_ranges  0x00000cf8       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
+ .debug_ranges  0x00000030       0x30 ./src/lsl_main.o
+ .debug_ranges  0x00000060      0x100 ./src/lsl_mems.o
+ .debug_ranges  0x00000160       0xc8 ./src/lsl_nfc.o
+ .debug_ranges  0x00000228      0x170 ./mods/storage/storage.o
+ .debug_ranges  0x00000398       0xf8 ./mods/ndeft2t/ndeft2t.o
+ .debug_ranges  0x00000490       0x88 ./mods/msg/msg.o
+ .debug_ranges  0x00000518       0xa0 ./mods/compress/heatshrink/heatshrink_decoder.o
+ .debug_ranges  0x000005b8       0xb0 ./mods/compress/heatshrink/heatshrink_encoder.o
+ .debug_ranges  0x00000668       0x18 ./mods/compress/compress.o
+ .debug_ranges  0x00000680       0xb8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(clock_nss.o)
+ .debug_ranges  0x00000738       0x60 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(eeprom_nss.o)
+ .debug_ranges  0x00000798       0x28 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(flash_nss.o)
+ .debug_ranges  0x000007c0       0x30 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(gpio_nss.o)
+ .debug_ranges  0x000007f0       0x58 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iap_nss.o)
+ .debug_ranges  0x00000848       0x48 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(iocon_nss.o)
+ .debug_ranges  0x00000890       0x68 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(nfc_nss.o)
+ .debug_ranges  0x000008f8       0xf8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(pmu_nss.o)
+ .debug_ranges  0x000009f0       0x88 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(rtc_nss.o)
+ .debug_ranges  0x00000a78       0xf8 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(ssp_nss.o)
+ .debug_ranges  0x00000b70       0x90 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(syscon_nss.o)
+ .debug_ranges  0x00000c00       0xb0 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(tsen_nss.o)
+ .debug_ranges  0x00000cb0       0x30 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(startup.o)
+ .debug_ranges  0x00000ce0       0x30 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(diag.o)
+ .debug_ranges  0x00000d10       0x20 C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug\liblib_chip_nss.a(bussync_nss.o)
 
 .debug_frame    0x00000000     0x1ba4
  .debug_frame   0x00000000       0xac ./src/lsl_logs.o

@@ -12,13 +12,12 @@
 //	- ladenie a testovanie s appkou
 //	- ladenie parametrov senzora
 
-//#define newRTCValue (int)NSS_RTC
-int16_t Threshold = 50;
-//NSS_RTC_T *pRTC;
+int16_t Threshold = 2000;
 
-void init(void){
+void init(void)
+{
 	Chip_Clock_System_SetClockFreq(2000000);
-
+	Chip_RTC_Time_SetValue(NSS_RTC, 1706088709); //Adjust your current time in seconds according to your region 24 Jan,2024(9:31pm) (Current time of Slovak Republic(GMT/UTC:+0100)
     Chip_IOCON_Init(NSS_IOCON);
     Chip_RTC_Init(NSS_RTC);
     Chip_EEPROM_Init(NSS_EEPROM);
@@ -34,8 +33,6 @@ void init(void){
 
 int main(void)
 {
-//	int newRTCValue = 1705229477; //Adjust your current time in seconds according to your region 18 Jan,2024(7:24pm) (Current time of Slovak Republic)
-//	Chip_RTC_Time_SetValue(pRTC, newRTCValue);
 	init();
 
 //	TODO
@@ -113,14 +110,16 @@ int main(void)
 		if(acc.x > Threshold || acc.y > Threshold || acc.z > Threshold)
 		{
 			//Saving of time occurs
-			int newRTCValue=Chip_RTC_Time_GetValue(NSS_RTC);
+			int newRTCValue = Chip_RTC_Time_GetValue(NSS_RTC);
 			for(int i = 0; i < 4; i++)
 			{
-				log.timeStamp[i] = ((uint8_t*) Chip_RTC_Time_GetValue(NSS_RTC))[i];
+				log.timeStamp[i] = ((uint8_t*) &newRTCValue)[i];
 			}
+
 			log.accX = acc.x;
 			log.accY = acc.y;
 			log.accZ = acc.z;
+
 			logPacked = Logs_PackData(log);
 			Storage_Write(&logPacked, 1);
 		}

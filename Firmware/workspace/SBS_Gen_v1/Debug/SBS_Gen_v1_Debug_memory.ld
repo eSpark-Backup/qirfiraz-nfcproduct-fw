@@ -5,7 +5,7 @@
  * Generated linker script file for NHS3152
  * Created from memory.ldt by FMCreateLinkMemory
  * Using Freemarker v2.3.23
- * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on Jan 18, 2024 9:24:19 PM
+ * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on Jan 24, 2024 7:54:52 PM
  */
 
 MEMORY

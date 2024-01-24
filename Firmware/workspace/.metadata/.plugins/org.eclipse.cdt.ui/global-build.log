@@ -3243,3 +3243,1037 @@ c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL
   14636	    380	   2392	  17408	   4400	SBS_Gen_v1.axf
 copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
  
+17:43:38 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+17:43:39 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+17:43:40 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:119:35: error: subscripted value is neither array nor pointer nor vector
+     log.timeStamp[i] = newRTCValue[i];
+                                   ^
+make: *** [src/lsl_main.o] Error 1
+17:58:31 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+17:58:32 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+17:58:32 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:119:25: error: 'unit8_t' undeclared (first use in this function)
+     log.timeStamp[i] = (unit8_t*) newRTCValue[i];
+                         ^
+../src/lsl_main.c:119:25: note: each undeclared identifier is reported only once for each function it appears in
+../src/lsl_main.c:119:33: error: expected expression before ')' token
+     log.timeStamp[i] = (unit8_t*) newRTCValue[i];
+                                 ^
+make: *** [src/lsl_main.o] Error 1
+17:58:41 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+17:58:42 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+17:58:43 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:119:25: error: 'unit8_t' undeclared (first use in this function)
+     log.timeStamp[i] = (unit8_t) newRTCValue[i];
+                         ^
+../src/lsl_main.c:119:25: note: each undeclared identifier is reported only once for each function it appears in
+../src/lsl_main.c:119:34: error: expected ';' before 'newRTCValue'
+     log.timeStamp[i] = (unit8_t) newRTCValue[i];
+                                  ^
+make: *** [src/lsl_main.o] Error 1
+17:59:21 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+17:59:22 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+17:59:23 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:119:37: error: subscripted value is neither array nor pointer nor vector
+     log.timeStamp[i] = (newRTCValue)[i];
+                                     ^
+make: *** [src/lsl_main.o] Error 1
+18:07:15 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+18:07:16 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+18:07:17 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2396	  17424	   4410	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+18:08:27 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+18:11:20 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+18:12:16 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+18:13:12 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:57:05 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:57:06 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:57:07 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:117:8: warning: unused variable 't' [-Wunused-variable]
+    int t = pRTC->TIME;
+        ^
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15036 B        30 KB     48.95%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14656	    380	   2396	  17432	   4418	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+19:57:14 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:58:28 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:59:45 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:59:46 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:59:47 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:117:8: warning: unused variable 't' [-Wunused-variable]
+    int t = pRTC->VAL;
+        ^
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15036 B        30 KB     48.95%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14656	    380	   2396	  17432	   4418	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+19:59:57 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:01:00 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:117:8: warning: unused variable 't' [-Wunused-variable]
+    int t = pRTC->CAL;
+        ^
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15036 B        30 KB     48.95%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14656	    380	   2396	  17432	   4418	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:01:10 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:02:48 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:02:48 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:02:49 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:112:7: warning: unused variable 't' [-Wunused-variable]
+   int t = pRTC->CAL;
+       ^
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2396	  17424	   4410	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:02:54 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:03:53 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:38:25: warning: passing argument 1 of 'Chip_RTC_Time_SetValue' makes pointer from integer without a cast [-Wint-conversion]
+  Chip_RTC_Time_SetValue(pRTC->TIME, newRTCValue);
+                         ^
+In file included from C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc/chip.h:115:0,
+                 from C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc/lsl_logs.h:4,
+                 from C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h:10,
+                 from <command-line>:0:
+C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc/rtc_nss.h:278:6: note: expected 'NSS_RTC_T * {aka struct NSS_RTC_S *}' but argument is of type 'uint32_t {aka volatile unsigned int}'
+ void Chip_RTC_Time_SetValue(NSS_RTC_T *pRTC, int tickValue);
+      ^
+../src/lsl_main.c:112:7: warning: unused variable 't' [-Wunused-variable]
+   int t = pRTC->CAL;
+       ^
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15032 B        30 KB     48.93%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14652	    380	   2396	  17428	   4414	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:04:52 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:04:53 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:04:53 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:04:59 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:07:13 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:38:25: warning: passing argument 1 of 'Chip_RTC_Time_SetValue' makes pointer from integer without a cast [-Wint-conversion]
+  Chip_RTC_Time_SetValue(pRTC->TIME, newRTCValue);
+                         ^
+In file included from C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc/chip.h:115:0,
+                 from C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc/lsl_logs.h:4,
+                 from C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h:10,
+                 from <command-line>:0:
+C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc/rtc_nss.h:278:6: note: expected 'NSS_RTC_T * {aka struct NSS_RTC_S *}' but argument is of type 'uint32_t {aka volatile unsigned int}'
+ void Chip_RTC_Time_SetValue(NSS_RTC_T *pRTC, int tickValue);
+      ^
+../src/lsl_main.c:112:11: warning: unused variable 't' [-Wunused-variable]
+   uint8_t t = pRTC->CAL;
+           ^
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15032 B        30 KB     48.93%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14652	    380	   2396	  17428	   4414	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:09:07 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:20:39 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:111:11: warning: unused variable 't' [-Wunused-variable]
+   uint8_t t = pRTC->CAL;
+           ^
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2396	  17424	   4410	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:21:48 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2396	  17424	   4410	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:22:40 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:23:15 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:23:15 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:23:16 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:23:19 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:24:21 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:24:22 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:24:23 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2396	  17424	   4410	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:24:30 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:26:16 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:26:16 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:26:17 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15024 B        30 KB     48.91%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14644	    380	   2396	  17420	   440c	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:26:30 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:26:48 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:28:07 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:30:47 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2396	  17424	   4410	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:47:59 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:48:00 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:48:01 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:48:15 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:48:15 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:48:16 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:48:33 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:48:33 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:48:34 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2396	  17424	   4410	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:48:44 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:48:45 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:48:46 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2396	  17424	   4410	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:48:51 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:49:56 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:50:29 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:52:50 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:57:54 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:57:55 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+20:57:56 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2776 B       8176 B     33.95%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2396	  17424	   4410	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+20:58:02 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:58:07 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:58:15 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:58:23 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+20:58:38 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+21:00:11 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+21:00:24 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+21:08:55 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:38:22: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]
+  pRTC = (NSS_RTC_T *)malloc(sizeof(NSS_RTC_T));
+                      ^
+../src/lsl_main.c:40:29: error: request for member 'TIME' in something not a structure or union
+  Chip_RTC_Time_SetValue(pRTC.TIME, 1705229477);
+                             ^
+make: *** [src/lsl_main.o] Error 1
+21:09:09 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:09:10 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:09:11 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+../src/lsl_main.c: In function 'main':
+../src/lsl_main.c:38:22: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]
+  pRTC = (NSS_RTC_T *)malloc(sizeof(NSS_RTC_T));
+                      ^
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15324 B        30 KB     49.88%
+           SRAM8:        2788 B       8176 B     34.10%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14944	    380	   2408	  17732	   4544	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+21:10:03 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+21:11:35 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+21:12:03 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+21:23:07 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:23:07 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+21:23:08 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15024 B        30 KB     48.91%
+           SRAM8:        2772 B       8176 B     33.90%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14644	    380	   2392	  17416	   4408	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+21:23:15 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+21:23:42 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+21:24:11 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+21:24:42 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+13:17:48 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+13:17:49 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+13:17:51 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15024 B        30 KB     48.91%
+           SRAM8:        2772 B       8176 B     33.90%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14644	    380	   2392	  17416	   4408	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+13:18:40 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+13:18:56 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+13:19:02 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+14:01:55 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+14:01:56 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+14:01:57 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15024 B        30 KB     48.91%
+           SRAM8:        2772 B       8176 B     33.90%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14644	    380	   2392	  17416	   4408	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+14:32:42 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+14:33:07 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+14:33:58 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+18:36:17 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+18:36:18 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+18:36:19 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2772 B       8176 B     33.90%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2392	  17420	   440c	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+18:37:40 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:10:48 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2772 B       8176 B     33.90%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2392	  17420	   440c	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+19:12:03 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:12:03 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:12:04 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:12:07 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:18:05 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:18:05 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:18:06 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15032 B        30 KB     48.93%
+           SRAM8:        2772 B       8176 B     33.90%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14652	    380	   2392	  17424	   4410	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+19:18:12 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:18:33 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:19:13 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:19:55 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:19:56 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:19:56 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:20:09 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:20:10 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:20:11 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:20:16 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:20:16 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:20:17 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:20:24 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:22:50 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:33:11 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:33:12 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:33:13 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2772 B       8176 B     33.90%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2392	  17420	   440c	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+19:33:50 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:42:34 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:48:05 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:51:12 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:53:36 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:53:36 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:53:37 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:53:41 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
+19:54:46 **** Incremental Build of configuration Debug for project lib_chip_nss ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:54:47 **** Incremental Build of configuration Debug for project lib_board_dp ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+19:54:48 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+Building file: ../src/lsl_main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__REDLIB__ -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\inc" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods" -I"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\SBS_Gen_v1\mods\app_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\mods\board_sel.h" -include"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\mods/chip_sel.h" -Os -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lsl_main.d" -MT"src/lsl_main.o" -MT"src/lsl_main.d" -o "src/lsl_main.o" "../src/lsl_main.c"
+Finished building: ../src/lsl_main.c
+ 
+Building target: SBS_Gen_v1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_board_dp\Debug" -L"C:\Users\eSpark\Documents\LPCXpresso_8.2.2_650\space\lib_chip_nss\Debug" -Xlinker -Map="SBS_Gen_v1.map" -Xlinker -print-memory-usage -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "SBS_Gen_v1_Debug.ld" -o "SBS_Gen_v1.axf"  ./src/crp.o ./src/lsl_logs.o ./src/lsl_main.o ./src/lsl_memory.o ./src/lsl_mems.o ./src/lsl_nfc.o  ./mods/tmeas/tmeas.o  ./mods/storage/storage.o  ./mods/ndeft2t/ndeft2t.o  ./mods/msg/msg.o  ./mods/event/event.o  ./mods/compress/heatshrink/heatshrink_decoder.o ./mods/compress/heatshrink/heatshrink_encoder.o  ./mods/compress/compress.o   -llib_board_dp -llib_chip_nss
+Memory region         Used Size  Region Size  %age Used
+         Flash30:       15028 B        30 KB     48.92%
+           SRAM8:        2772 B       8176 B     33.90%
+Finished building target: SBS_Gen_v1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-objcopy -v -O ihex LSL_v1.axf LSL_v1.hex ; arm-none-eabi-size "SBS_Gen_v1.axf" ; arm-none-eabi-objcopy -v -O binary "SBS_Gen_v1.axf" "SBS_Gen_v1.bin" ; # checksum -p NHS3152 -d "SBS_Gen_v1.bin"
+c:\nxp\LPCXpresso_8.2.2_650\lpcxpresso\tools\bin\arm-none-eabi-objcopy.exe: 'LSL_v1.axf': No such file
+   text	   data	    bss	    dec	    hex	filename
+  14648	    380	   2392	  17420	   440c	SBS_Gen_v1.axf
+copy from `SBS_Gen_v1.axf' [elf32-littlearm] to `SBS_Gen_v1.bin' [binary]
+ 
+19:54:52 **** Incremental Build of configuration Debug for project SBS_Gen_v1 ****
+make -r all 
+make: Nothing to be done for `all'.
