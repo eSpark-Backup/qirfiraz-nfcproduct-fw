@@ -38,7 +38,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  String r = 'a';
+  // final result = Null;
+  String? r;
   bool listenerRunning = false;
   bool writeCounterOnNextContact = false;
 
@@ -65,7 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            _getNfcWidgets(),
             const Text(
               'Your Response will be displayed here:',
             ),
@@ -73,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$r',
               style: Theme.of(context).textTheme.headline4,
             ),
+            _getNfcWidgets(),
           ],
         ),
       ),
@@ -156,10 +157,27 @@ class _MyHomePageState extends State<MyHomePage> {
         onDiscovered: (NfcTag tag) async {
           bool succses = false;
           //Try to convert the raw tag data to NDEF
-          r = Ndef.from(tag).toString();
+          // r = Ndef.from(tag).toString();
           final ndefTag = Ndef.from(tag);
           //If the data could be converted we will get an object
           if (ndefTag != null) {
+            try {
+              var ndefMessage = ndefTag.cachedMessage!;
+              final wellKnownRecord = ndefMessage.records.first;
+              final languageCodeAndContentBytes =
+                  wellKnownRecord.payload.skip(1).toList();
+              // final languageCodeAndContentText =
+              //     utf8.decode(languageCodeAndContentBytes);
+              // final payload = languageCodeAndContentText.substring(2);
+              final payload = languageCodeAndContentBytes;
+              r = payload.toString();
+              //   var ndefMessage = ndefTag.cachedMessage!;
+              //   final result = ndefMessage.records.first;
+              //   r = result;
+              succses = true;
+            } catch (e) {
+              _alert('Error reading NdefMessage:$e');
+            }
             // If we want to write the current counter vlaue we will replace the current content on the tag
             if (writeCounterOnNextContact) {
               //Ensure the write flag is off again
@@ -184,40 +202,42 @@ class _MyHomePageState extends State<MyHomePage> {
                 _alert("Writting failed, press 'Write to tag' again");
               }
             }
-            //The NDEF Message was already parsed, if any
-            else if (ndefTag.cachedMessage != null) {
-              var ndefMessage = ndefTag.cachedMessage!;
-              //Each NDEF message can have multiple records, we will use the first one in our example
-              if (ndefMessage.records.isNotEmpty &&
-                  ndefMessage.records.first.typeNameFormat ==
-                      NdefTypeNameFormat.nfcWellknown) {
-                //If the first record exists as 1:Well-Known we consider this tag as having a value for us
-                final wellKnownRecord = ndefMessage.records.first;
 
-                ///Payload for a 1:Well Known text has the following format:
-                ///[Encoding flag 0x02 is UTF8][ISO language code like en][content]
+            // //The NDEF Message was already parsed, if any
+            // if (ndefTag.cachedMessage != null) {
+            // var ndefMessage = ndefTag.cachedMessage!;
+            //   //Each NDEF message can have multiple records, we will use the first one in our example
+            //   if (ndefMessage.records.isNotEmpty &&
+            //       ndefMessage.records.first.typeNameFormat ==
+            //           NdefTypeNameFormat.nfcWellknown) {
+            //     //If the first record exists as 1:Well-Known we consider this tag as having a value for us
+            // final wellKnownRecord = ndefMessage.records.first;
 
-                if (wellKnownRecord.payload.first == 0x02) {
-                  //Now we know the encoding is UTF8 and we can skip the first byte
-                  final languageCodeAndContentBytes =
-                      wellKnownRecord.payload.skip(1).toList();
-                  //Note that the language code can be encoded in ASCI, if you need it be carfully with the endoding
-                  final languageCodeAndContentText =
-                      utf8.decode(languageCodeAndContentBytes);
-                  //Cutting of the language code
-                  final payload = languageCodeAndContentText.substring(2);
-                  //Parsing the content to int
-                  final storedCounters = int.tryParse(payload);
-                  if (storedCounters != null) {
-                    succses = true;
-                    _alert('Counter restored from tag');
-                    setState(() {
-                      _counter = storedCounters;
-                    });
-                  }
-                }
-              }
-            }
+            //     ///Payload for a 1:Well Known text has the following format:
+            //     ///[Encoding flag 0x02 is UTF8][ISO language code like en][content]
+
+            //     if (wellKnownRecord.payload.first == 0x02) {
+            //       //Now we know the encoding is UTF8 and we can skip the first byte
+            // final languageCodeAndContentBytes =
+            //     wellKnownRecord.payload.skip(1).toList();
+            //       //Note that the language code can be encoded in ASCI, if you need it be carfully with the endoding
+            // final languageCodeAndContentText =
+            //     utf8.decode(languageCodeAndContentBytes);
+            //       //Cutting of the language code
+            // final payload = languageCodeAndContentText.substring(2);
+            // r = payload;
+            //       //Parsing the content to int
+            //       final storedCounters = int.tryParse(payload);
+            //       if (storedCounters != null) {
+            //         succses = true;
+            //         _alert('Counter restored from tag');
+            //         setState(() {
+            //           _counter = storedCounters;
+            //         });
+            //       }
+            //     }
+            //   }
+            // }
           }
           //Due to the way ios handles nfc we need to stop after each tag
           if (Platform.isIOS) {
