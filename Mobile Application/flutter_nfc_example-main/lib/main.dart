@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
-import 'dart:convert' show utf8;
 
 /// Global flag if NFC is avalible
 bool isNfcAvalible = false;
@@ -39,7 +38,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   // final result = Null;
-  String? r;
+  String? r, r1;
   bool listenerRunning = false;
   bool writeCounterOnNextContact = false;
 
@@ -67,7 +66,14 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headline4,
             ),
             const Text(
-              'Your Response will be displayed here:',
+              'Your Response in bytes:',
+            ),
+            Text(
+              '$r1',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            const Text(
+              'Your Responsein Hex:',
             ),
             Text(
               '$r',
@@ -165,12 +171,14 @@ class _MyHomePageState extends State<MyHomePage> {
               var ndefMessage = ndefTag.cachedMessage!;
               final wellKnownRecord = ndefMessage.records.first;
               final languageCodeAndContentBytes =
-                  wellKnownRecord.payload.skip(1).toList();
+                  wellKnownRecord.payload.toList();
               // final languageCodeAndContentText =
               //     utf8.decode(languageCodeAndContentBytes);
               // final payload = languageCodeAndContentText.substring(2);
-              final payload = languageCodeAndContentBytes;
-              r = payload.toString();
+              r = languageCodeAndContentBytes
+                  .map((int byte) => byte.toRadixString(16).padLeft(2, '0'))
+                  .join(' ');
+              r1 = languageCodeAndContentBytes.toString();
               //   var ndefMessage = ndefTag.cachedMessage!;
               //   final result = ndefMessage.records.first;
               //   r = result;
